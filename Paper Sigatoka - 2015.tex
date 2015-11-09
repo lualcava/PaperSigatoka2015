@@ -1,0 +1,135 @@
+\documentclass[review]{elsarticle}
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[1]
+
+\journal{Journal of \LaTeX\ Templates}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+%\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Forecasting the black Sigatoka development rate: A machine learning methods comparison 
+%\tnoteref{mytitlenote}
+}
+%\tnotetext[mytitlenote]{Fully documented templates are %available in the elsarticle package on \href{http://%www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}%{CTAN}.}
+
+%% Group authors per affiliation:
+\author[afiLuisAlex]{Luis-Alexander Calvo-Valverde\fnref{myfootnote}}
+\ead{lualcava.sa@gmail.com}
+\fntext[myfootnote]{Corresponding author. (506)70104420}
+
+\author[afiCorbana] {Mauricio Guzm\'an-Quesada}
+
+\author[afiCorbana]{Jos\'e-Antonio Guzm\'an-Alvarez}
+
+\author[afiPablo]{Pablo Alvarado-Moya}
+
+\address[afiLuisAlex]{DOCINADE, Instituto Tecnol\'ogico de Costa Rica, 
+Computer Research Center, Multidisciplinar program eScience, 
+CNCA/CeNAT, Cartago, Costa Rica}
+
+\address[afiCorbana]{Direcci\'on de Investigaciones, Corporaci\'on Bananera Nacional S.A., Gu\'apiles, Costa Rica}
+
+\address[afiPablo]{DOCINADE, Instituto Tecnol\'ogico de Costa Rica, Cartago, Costa Rica}
+
+
+\begin{abstract}
+Pending.
+\end{abstract}
+
+\begin{keyword}
+\texttt{Machine learning \sep Black Sigatoka \sep Support vector regression \sep
+Banana disease prediction \sep Biological warning system }
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+\section{Introduction}
+The Black Sigatoka disease caused by the fungus {\it Mycosphaerella fijiensis Morelet} is the major pathological problem of banana and plantain crops in Central America, Panama, Colombia and Ecuador, as in many parts of Africa and Asia \citep{MarinVargas1995}.\\
+This disease attacks the plant leaves producing a rapid deterioration of the leaf area, affects the growth and productivity of plants as the ability of photosynthesis decreases, causes a reduction in the quality of the fruit, and promotes premature maturation of bunches, which is the major cause of product losses due to this disease. Fig 1 shows three stages of this disease. \\
+Phytopathological studies point out that precipitation, temperature, relative humidity and wind are the main climatic variables that affect the development of this disease \citep{MarinVargas1995}.\\
+ 	 	 
+Fig 1. Examples of three disease stages of the black Sigatoka. (a) Initial stage. (b) Intermediate stage, and (c) Advanced stage.\\
+According to studies by the National Banana Corporation of Costa Rica (Corbana) made in 2013, considering on average between 53 thru 57 cycles of fungicide applications per farm, the cost per hectare per year ranged between 1800 USD and thru 1900 USD. This represents about 0.76 cents of the price of a box of 18.14 kilograms. Overall, this represents 10 to 12 of the total production cost (Bresciani).\\
+The past and present disease development rate can in principle be used to predict its future behavior, tendencies and to determine whether particular fungicide spray schedules will be able to effectively and economically control the disease (Chuang and Jeger, 1987).\\
+There are efforts to apply machine learning methods for decision-making in agriculture, including the control of crop diseases. For example, Camargo et al. (2012) present an intelligent systems for the assessment of crop disorders, Huang et al. (2010) introduce a plant virus identification method based on neural networks with an evolutionary preprocessing stage, Kim et al. (2014) summarize in their survey crop pests prediction methods using regression and machine learning approaches, while Zhao et al. (2013) present an intelligent agricultural forecasting system based on wireless sensor networks.\\
+In this work, we compare four machine learning methods: support vector regression (SVR), echo state networks (ESN), ridge regression, and ordinary least squares linear regression, to predict the black Sigatoka disease development rate.\\
+The main contribution of this work is a comparison between machine learning methods to forecast black Sigatoka development rate.\\
+
+\paragraph{Installation} If the document class \emph{elsarticle} is not available on your computer, you can download and install the system package \emph{texlive-publishers} (Linux) or install the \LaTeX\ package \emph{elsarticle} using the package manager of your \TeX\ installation, which is typically \TeX\ Live or Mik\TeX.
+
+\paragraph{Usage} Once the package is properly installed, you can use the document class \emph{elsarticle} to create a manuscript. Please make sure that your manuscript follows the guidelines in the Guide for Authors of the relevant journal. It is not necessary to typeset your manuscript in exactly the same way as an article, unless you are submitting to a camera-ready copy (CRC) journal.
+
+\paragraph{Functionality} The Elsevier article class is based on the standard article class and supports almost all of the functionality of that class. In addition, it features commands and options to format the
+\begin{itemize}
+\item document style
+\item baselineskip
+\item front matter
+\item keywords and MSC codes
+\item theorems, definitions and proofs
+\item lables of enumerations
+\item citation style and labeling.
+\end{itemize}
+
+\section{Front matter}
+
+The author names and affiliations could be formatted in two ways:
+\begin{enumerate}[(1)]
+\item Group the authors per affiliation.
+\item Use footnotes to indicate the affiliations.
+\end{enumerate}
+See the front matter of this document for examples. You are recommended to conform your choice to the journal you are submitting to.
+
+\section{Bibliography styles}
+
+There are various bibliography styles available. You can select the style of your choice in the preamble of this document. These styles are Elsevier styles based on standard styles like Harvard and Vancouver. Please use Bib\TeX\ to generate your bibliography and include DOIs whenever available.
+
+Here are two sample references: \citep{Zhao2013}.
+
+\begin{thebibliography}{1}
+
+
+
+\bibitem[Marin and Romero, 1995]{MarinVargas1995} Marin Vargas, D., Romero Calderón, R. 1995. El combate de la Sigatoka Negra. Boletín Departamento de Investigaciones, Corbana Costa Rica.
+
+\bibitem[Zhao et al., 2013]{Zhao2013}Zhao, L., He, L., Harry, W., Jin, X. 2013. Intelligent Agricultural Forecasting System Based on Wireless Sensor. Journal of Networks(8), 1817–1824. doi:10.4304/jnw.8.8.1817-1824.
+
+
+\end{thebibliography}
+
+\end{document}
