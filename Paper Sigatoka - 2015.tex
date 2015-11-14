@@ -85,9 +85,23 @@ Banana disease prediction \sep Biological warning system }
 \linenumbers
 
 \section{Introduction}
-The Black Sigatoka disease caused by the fungus {\it Mycosphaerella fijiensis Morelet} is the major pathological problem of banana and plantain crops in Central America, Panama, Colombia and Ecuador, as in many parts of Africa and Asia \citep{MarinVargas1995}.\\
-This disease attacks the plant leaves producing a rapid deterioration of the leaf area, affects the growth and productivity of plants as the ability of photosynthesis decreases, causes a reduction in the quality of the fruit, and promotes premature maturation of bunches, which is the major cause of product losses due to this disease. \figurename $.$\ref{figura1} shows three stages of this disease.\\
-Phytopathological studies point out that precipitation, temperature, relative humidity and wind are the main climatic variables that affect the development of this disease \citep{MarinVargas1995}.\\ 	 	 
+
+The Black Sigatoka disease caused by the fungus {\it Mycosphaerella
+  fijiensis Morelet} is the major pathological problem of banana and
+plantain crops in Central America, Panama, Colombia and Ecuador, as in
+many parts of Africa and Asia \citep{MarinVargas1995}.
+
+This disease attacks the plant leaves producing a rapid deterioration
+of the leaf area, affects the growth and productivity of plants as the
+ability of photosynthesis decreases, causes a reduction in the quality
+of the fruit, and promotes premature maturation of bunches, which is
+the major cause of product losses due to this disease. \figurename
+$.$\ref{figura1} shows three stages of this disease.
+
+Phytopathological studies point out that precipitation, temperature,
+relative humidity and wind are the main climatic variables that affect
+the development of this disease \citep{MarinVargas1995}.
+ 	 
 \begin{figure}[h] 
 \begin{subfigure}{.3\textwidth}
   \centering
@@ -109,12 +123,40 @@ Phytopathological studies point out that precipitation, temperature, relative hu
 \end{subfigure}
 \caption{Examples of three disease stages of the black Sigatoka. (a) Initial stage. (b) Intermediate stage, and (c) Advanced stage.} 
 \label{figura1} 
-\end{figure}\\
-According to studies by the National Banana Corporation of Costa Rica (Corbana) made in 2013, considering on average between 53 thru 57 cycles of fungicide applications per farm, the cost per hectare per year ranged between \$1800 USD and thru \$1900 USD. This represents about 0.76 cents of the price of a box of 18.14 kilograms. Overall, this represents 10\% to 12\% of the total production cost \citet{Bresciani2015}.\\
-The past and present disease development rate can in principle be used to predict its future behavior, tendencies and to determine whether particular fungicide spray schedules will be able to effectively and economically control the disease \citet{ChuangJeger1987}.\\
-There are efforts to apply machine learning methods for decision-making in agriculture, including the control of crop diseases. For example, \cite{Camargo2012} present an intelligent systems for the assessment of crop disorders, \cite{Huang2010} introduce a plant virus identification method based on neural networks with an evolutionary preprocessing stage, \cite{Kim2014} summarize in their survey crop pests prediction methods using regression and machine learning approaches, while \cite{Zhao2013} present an intelligent agricultural forecasting system based on wireless sensor networks.\\
-In this work, we compare four machine learning methods: support vector regression (SVR), echo state networks (ESN), ridge regression, and ordinary least squares linear regression, to predict the black Sigatoka disease development rate.\\
-The main contribution of this work is a comparison between machine learning methods to forecast black Sigatoka development rate.\\
+\end{figure}
+
+According to studies by the National Banana Corporation of Costa Rica
+(Corbana) made in 2013, considering on average between 53 thru 57
+cycles of fungicide applications per farm, the cost per hectare per
+year ranged between \$1800 USD and thru \$1900 USD. This represents
+about 0.76 cents of the price of a box of 18.14 kilograms. Overall,
+this represents 10\% to 12\% of the total production cost
+\citet{Bresciani2015}.
+
+The past and present disease development rate can in principle be used
+to predict its future behavior, tendencies and to determine whether
+particular fungicide spray schedules will be able to effectively and
+economically control the disease \citet{ChuangJeger1987}.
+
+There are efforts to apply machine learning methods for
+decision-making in agriculture, including the control of crop
+diseases. For example, \cite{Camargo2012} present an intelligent
+systems for the assessment of crop disorders, \cite{Huang2010}
+introduce a plant virus identification method based on neural networks
+with an evolutionary preprocessing stage, \cite{Kim2014} summarize in
+their survey crop pests prediction methods using regression and
+machine learning approaches, while \cite{Zhao2013} present an
+intelligent agricultural forecasting system based on wireless sensor
+networks.
+
+In this work, we compare four machine learning methods: support vector
+regression (SVR), echo state networks (ESN), ridge regression, and
+ordinary least squares linear regression, to predict the black
+Sigatoka disease development rate.
+
+The main contribution of this work is a comparison between machine
+learning methods to forecast black Sigatoka development rate.
+
 
 \section{Materials and methods}
 
@@ -122,8 +164,19 @@ The main contribution of this work is a comparison between machine learning meth
 
 \subsubsection{Biological warning system}
 
-The system measures the disease development state to determine when to apply fungicides \citep{MarinVargas1995}. 
-This system is based on two components: a climate component, which is given by the Piche evaporation and a biological component, given by the stage of progress or the rate of disease development. Originally, this system was designed to work with young plants. One selected plant must exhibit a normal growth and be in a place that enforces a healthy development. The plant must start with 5 to 6 true leaves. The assessments are made at fixed intervals of seven days as long as possible, on the same plant. The first observations should consider the leaf emission, also the level of infection on the leaves should be evaluated considering the stages of development \citep{MarinVargas1995}.
+The system measures the disease development state to determine when to
+apply fungicides \citep{MarinVargas1995}.  This system is based on two
+components: a climate component, which is given by the Piche
+evaporation and a biological component, given by the stage of progress
+or the rate of disease development. Originally, this system was
+designed to work with young plants. One selected plant must exhibit a
+normal growth and be in a place that enforces a healthy
+development. The plant must start with 5 to 6 true leaves. The
+assessments are made at fixed intervals of seven days as long as
+possible, on the same plant. The first observations should consider
+the leaf emission, also the level of infection on the leaves should be
+evaluated considering the stages of development
+\citep{MarinVargas1995}.
 
 \subsubsection{Support Vector Regression (SVR)}
 
