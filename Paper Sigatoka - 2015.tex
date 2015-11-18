@@ -1,6 +1,9 @@
 \documentclass[review]{elsarticle}
 
 \usepackage{lineno,hyperref}
+
+\usepackage{amsmath}
+
 \modulolinenumbers[1]
 
 \journal{Journal of \LaTeX\ Templates}
@@ -141,8 +144,7 @@ There are efforts to apply machine learning methods for
 decision-making in agriculture, including the control of crop
 diseases. For example, \cite{Camargo2012} present an intelligent
 system for the assessment of crop disorders, \cite{Huang2010}
-introduce a plant virus identification method based on neural networks
-with an evolutionary preprocessing stage, \cite{Kim2014} summarize in
+introduce a plant virus identification method based on neural networks with an evolutionary preprocessing stage, \cite{Kim2014} summarize in
 their survey crop pests prediction methods using regression and
 machine learning approaches, while \cite{Zhao2013} present an
 intelligent agricultural forecasting system based on wireless sensor
@@ -177,20 +179,49 @@ evaluated considering the stages of development
 \citep{MarinVargas1995}.
 
 \subsubsection{Support Vector Regression (SVR)}
-From the perspective of Support Vector Regression (SVR) the regression function $y = f(s)$ for a given dataset $D ={(s_i,y_i ) }_(i=1)^n$ , is represented as a linear function of the form (Wei, Tao, ZhuoShu, and Zio, 2013):
-$f(s)=w^T s+b$
-where 	$w$ and $b$ are respectively the weight vector and the intercept of the model, and they are selected to find an optimal fit to the data available in $D$.
-For nonlinear cases, one proceeds by mapping the input p-dimensional vectors via a nonlinear function $ɸ∶R^p→F$, onto the feature space F.  After nonlinear mapping, the regression function evolves to a pervasive form:
-$$f(s)=w^T ɸ(s)+b$$
-SVR uses the є-insensitive loss function:
-% $$l=|y-f(s)|_є= {(0,   |y-f(s)|_  ≤ є |y-f(s)|_ - є,     else)$$
+From the perspective of Support Vector Regression (SVR) the regression function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ , is represented as a linear function of the form \citep{Wei2013}:
 
-which ignores the error if the difference between the prediction value and the actual value is smaller than $є$.
-$є-insensitive loss function$ allows to find the coefficients $w$ and $b$ by solving a convex optimization problem, which balances the empirical error and the generalization ability. In SVR, the empirical error is measured by the loss function є-insensitive and the generalization ability is measured by the Euclidean norm of $w$. Then, the optimization problem to identify the regression model can be formulated by (Wei, Tao, ZhuoShu, and Zio, 2013):
-% $minimize    J(w,ξ_i,ξ_i^* )=  1/2  ||w| |^2+ C ∑_(i=1)^n▒〖(ξ_i,ξ_i^*)〗
-% subject to 	{█(y_i- w^T  ɸ(s)-b  ≤   є+ξ_i@w^T  ɸ(s)+b- y_i   ≤   є% 
-% +ξ_i^*     i=1,…,n@ξ_i,ξ_i^(* )≥0)┤$
-where C denotes the penalty parameter between empirical and generalization errors, and  $ξ_i,ξ_i^(* )$are slack variables, as shown in Fig 2.
+$$f(s)=w^Ts+b$$
+
+where $w$ and $b$ are respectively the weight vector and the intercept of the model, and they are selected to find an optimal fit to the data available in $D$.
+
+For nonlinear cases, one proceeds by mapping the input p-dimensional vectors via a nonlinear function $\phi : R^p\rightarrow F$, onto the feature space $F$.  After nonlinear mapping, the regression function evolves to a pervasive form:
+
+$$f(s)=w^T \phi (s)+b$$
+
+SVR uses the $ \epsilon -insensitive \ loss \ function$:
+
+\[l= {\Bigr| y - f(s) \Bigr| }_{\epsilon } = 
+\left\{\begin{array}{lcl}
+	0 & \mbox{} & {\Bigr| y - f(s) \Bigr| } \leq \epsilon \\
+	 &  & \\
+	{\Bigr| y - f(s) \Bigr| - \epsilon} & \mbox{} & else\\ \end{array} \right. \] 
+
+which ignores the error if the difference between the prediction value and the actual value is smaller than $ \epsilon$.
+The $ \epsilon -insensitive \ loss \ function$ allows to find the coefficients $w$ and $b$ by solving a convex optimization problem, which balances the empirical error and the generalization ability. In SVR, the empirical error is measured by the loss function є-insensitive and the generalization ability is measured by the Euclidean norm of $w$ \citep{XXXX201X}. Then, the optimization problem to identify the regression model can be formulated by \citep{Wei2013}:
+
+
+\begin{equation} 
+\begin{aligned}
+& \underset{}{\text{miimize}}
+& & J(w,\xi_i , \xi_i^* ) = \frac{1}{2}   \Bigr| \Bigr| x \Bigr| \Bigr|^2 + C \sum_{i=1}^{n} (\xi_i , \xi_i^* )    \\
+& \text{subject to}
+& & \begin{array}{lcl} 
+y_i - w^T \phi (s) - b  \leq \epsilon + \xi_i   \\
+w^T \phi (s) + b - y_i \leq \epsilon + \xi_i^* & i= 1,2,...,n \\
+\xi_i , \xi_i^* \geq 0  \\
+\end{array}
+\end{aligned}
+\end{equation}  
+where $C$ denotes the penalty parameter between empirical and generalization errors, and  $\xi_i , \xi_i^*$ are slack variables. \figurename
+$.$\ref{figura2} shows this situation.
+
+\begin{figure}[h] 
+ \centering
+ \includegraphics[scale=.9]{SVR}
+ \caption{$\epsilon -insensitive \ loss \ function \citep{Wei2013}.$} 
+ \label{figura2} 
+\end{figure}
  
 Fig 2: є-insensitive loss function (Wei, Tao, ZhuoShu, and Zio, 2013)
 The solution of this optimization problem by the Lagrange method is:
@@ -307,6 +338,10 @@ We use python programming language with the Integrated Development Environment (
 \bibitem[Marin and Romero, 1995]{MarinVargas1995} Marin Vargas, D., Romero Calderón, R. 1995. El combate de la Sigatoka Negra. Bolet\'in Departamento de Investigaciones, Corbana Costa Rica.
 
 \bibitem[Zhao et al., 2013]{Zhao2013}Zhao, L., He, L., Harry, W., Jin, X. 2013. Intelligent Agricultural Forecasting System Based on Wireless Sensor. Journal of Networks(8), 1817–1824. doi:10.4304/jnw.8.8.1817-1824.
+
+\bibitem[Wei et al., 2013]{Wei2013} Wei, Z., Tao, T., ZhuoShu, D.,  Zio, E. (2013). A dynamic particle filter-support vector regression method for reliability prediction. Reliability Engineering \& System Safety, 109–116. doi:10.1016/j.ress.2013.05.021.
+
+\bibitem[Libro SVM XXXX, 201X]{XXXX201X} Libro SVM XXXX.
 
 \end{thebibliography}
 
