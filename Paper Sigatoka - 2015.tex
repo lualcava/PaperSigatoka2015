@@ -6,6 +6,9 @@
 
 \modulolinenumbers[1]
 
+\usepackage{soul}
+
+
 \journal{Journal of \LaTeX\ Templates}
 
 
@@ -180,9 +183,7 @@ evaluated considering the stages of development
 
 \subsubsection{Support Vector Regression (SVR)}
 From the perspective of Support Vector Regression (SVR) the regression function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ , is represented as a linear function of the form \citep{Wei2013}:
-
 $$f(s)=w^Ts+b$$
-
 where $w$ and $b$ are respectively the weight vector and the intercept of the model, and they are selected to find an optimal fit to the data available in $D$.
 
 For nonlinear cases, one proceeds by mapping the input p-dimensional vectors via a nonlinear function $\phi : R^p\rightarrow F$, onto the feature space $F$.  After nonlinear mapping, the regression function evolves to a pervasive form:
@@ -204,7 +205,7 @@ The $ \epsilon -insensitive \ loss \ function$ allows to find the coefficients $
 \begin{equation} 
 \begin{aligned}
 & \underset{}{\text{miimize}}
-& & J(w,\xi_i , \xi_i^* ) = \frac{1}{2}   \Bigr| \Bigr| x \Bigr| \Bigr|^2 + C \sum_{i=1}^{n} (\xi_i , \xi_i^* )    \\
+& & J(w,\xi_i , \xi_i^* ) = \frac{1}{2}   \Bigr| \Bigr| w \Bigr| \Bigr|^2 + C \sum_{i=1}^{n} (\xi_i , \xi_i^* )    \\
 & \text{subject to}
 & & \begin{array}{lcl} 
 y_i - w^T \phi (s) - b  \leq \epsilon + \xi_i   \\
@@ -223,43 +224,58 @@ $.$\ref{figura2} shows this situation.
  \label{figura2} 
 \end{figure}
  
-Fig 2: є-insensitive loss function (Wei, Tao, ZhuoShu, and Zio, 2013)
-The solution of this optimization problem by the Lagrange method is:
-% $f(s)=w^T ɸ(s)+b= ∑_(i=1)^n▒〖(α_i-α_i^* )K(s,s_i )+b〗$
-where $α_i,α_i^*$  are the Lagrange multipliers of the optimization problem’s dual form and $K(s_i,s_j )$ is the kernel function satisfying Mercer condition, and can be described by:
-% $K(s_i,s_j )=〈ɸ(s_i )  ɸ(s_j)〉  $
-Common kernel functions are: linear, polynomial and sigmoid.
-Operations in the kernel function $K(s,s_i $) are performed in the input space rather than in the potentially high dimensional feature space of $ɸ$. An inner product in the feature space has an equivalent kernel in the input space (Alonso, Rodríguez Castañón, and Bahamonde, 2013).
+The solution of this optimization problem by the Lagrange method is given by:\\
+$$ f(s) = w^T \phi (s) + b = \sum_{i=1}^{n} (\alpha_i - \alpha_i^*) K (s,s_i) + b $$ 
+where $\alpha_i - \alpha_i^*$  are the Lagrange multipliers of the optimization problem’s dual form and $K(s_i,s_j )$ is the kernel function satisfying the Mercer condition, and holds:
+$$K(s_i,s_j ) = \big \langle  \phi(s_i) , \phi(s_j)  \big \rangle $$
+Operations in the kernel function $K(s,s_i )$ are performed in the input space rather than in the potentially high dimensional feature space of $\phi$ \citep{Alonso2013}.
 
-\subsubsection{Ordinary least square}
-This method fits a linear model with coefficients w = (w1,...,wp) to minimize the residual sum of squares between the observed responses in the dataset, and the responses predicted by the linear approximation. Mathematically it solves a problem of the form (scikit-learn developer, 2014):
-% 〖■(min@w) 〗⁡〖‖Xw-y‖_2^2 〗
+\subsubsection{Ordinary least squares regression}
+This method fits a linear model with coefficients $w = (w1,..,wp)$ to minimize the residual sum of squares between the observed responses in the dataset, and the responses predicted by the linear approximation. Mathematically it solves a problem of the form \citep{ scikit-learn2011}:
+
+$$\min_{w} \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  $$
+where $X$ denotes the features matriz. \\
+According Pedregosa et al. \citep{ scikitlearn2011}  the coefficient estimates for Ordinary Least Squares rely on the independence of the model terms. When terms are correlated and the columns of the design matrix $X$ have an approximate linear dependence, the design matrix becomes close to singular and as a result, the least-squares estimate becomes highly sensitive to random errors in the observed response, producing a large variance. This situation of multicollinearity can arise, for example, when data are collected without an experimental design
 
 \subsubsection{Ridge regression}
-
-This addresses some of the problems of Ordinary Least Squares by imposing a penalty on the size of coefficients. The ridge coefficients minimize a penalized residual sum of squares (scikit-learn developer, 2014):
-% 〖■(min@w) 〗⁡〖‖Xw-y‖_2^2 〗+ α‖w‖_2^2
-Here, α ˃ 0 is a complexity parameter that controls the amount of shrinkage: the larger the value of α, the greater the amount of shrinkage and thus the coefficients become more robust to collinearity.
+The ridge regression addresses some of the problems of ordinary least squares regression by imposing a penalty on the size of the coefficients. The ridge coefficients minimize a penalized residual sum of squares  \citep{scikitlearn2011}:
+$$\min_{w} { \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \alpha \Bigr| \Bigr| w \Bigr| \Bigr|_2^2 } $$
+Here, $\alpha \ \textgreater \  0$ is a complexity parameter that controls the amount of shrinkage: the larger the value of $\alpha$, the greater the amount of shrinkage and thus the coefficients become more robust to collinearity.
 \subsubsection{Echo State Networks (ESN)}
-Recurrent Neural Networks (RNN) are useful for temporal patterns, but when they are trained with backpropagation method, they are very slow.  Echo State Network (ESN) is an alternative training method to solve that problem.  ESN is based on the observation that if a random RNN possesses certain algebraic properties, training only a linear readout from it is often sufficient to achieve excellent performance in practical applications (Lukoševičius and Jaeger, 2009). 
-For a given training input signal $u(n)  ϵ R^(N_u )$ a desired target output signal 
-% $y^(target(n))  ϵ R^(N_y )$
-is known. Here $n = 1, . . . ,T$ is the discrete time and $T$ is the number of data points in the training dataset. The task is to learn a model with output $y(n)  ϵ R^(N_y )$, where $y(n)$ matches $y^target(n)$ $(n)$ as well as possible, minimizing an error measure $E(y,y^target)$, and, more importantly, generalizes well to unseen data. The untrained RNN part of an ESN is called a dynamical reservoir, and the resulting states x(n) are termed echoes of its input history
- (Lukoševičius M. , 2012). Finally, these signals are sent to an output layer as shown in the following Fig.
+Recurrent Neural Networks (RNN) are useful for temporal patterns, but when they are trained with backpropagation methods, they are very slow.  Echo State Network (ESN) is an alternative training method to solve that problem.  ESN is based on the observation that if a random RNN possesses certain algebraic properties, training only a linear readout from it is often sufficient to achieve excellent performance in practical applications \citep{Lukose2009}. 
+For a given training input signal $u(n)  \in R^{N_u}$ a desired target output signal $y^{target}(n) \in R^{N_y}$
+is known. Here $n = 1, . . . ,T$ is the discrete time and $T$ is the number of data points in the training dataset. The task is to learn a model with output $y(n) \in R^{N_y}$, where $y(n)$ matches $y^target(n)$ as well as possible, minimizing an error measure $E(y,y^target)$, and, more importantly, generalizes well to unseen data. The untrained RNN part of an ESN is called a dynamical reservoir, and the resulting states x(n) are termed echoes of its input history \citep{Lukose2012}. Finally, these signals are sent to an output layer as shown in the \figurename
+$.$\ref{figura3}.
+\begin{figure}[h] 
+ \centering
+ \includegraphics[scale=.9]{Reservorio}
+ \caption{An echo state network \citep{Lukose2012}.} 
+ \label{figura3} 
+\end{figure}
  
-Figure 3: An echo state network (Lukosevicius, 2012)
-The connections between the different elements of an Echo State Network have weights randomly generated. The weights of the internal connections of the reservoir (W) as well as the weights of the input layer (Win), after being generated are set statically during all stages of implementation of the algorithm. The weights between the reservoir and the output layer (Wout) are subject to changes of a supervised learning algorithm to correct the degree of error generated by the entire system (Lukoševičius M. , 2012).
-Related works
-A related work, no machine learning approach, was performed by Romero (1995) who in the third chapter of his doctoral thesis in the field of plant pathology, proposed regression models using stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (Rita and Waldeck, the same as those used in this study but with different names). The time intervals used for that study were: December 1993 thru August 1995. Romero concluded that the model to predict the incubation period accounted a R2 of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a R2 of 78\% in the observed data, however, when validated against an independent dataset (cross validation), the model was incorrect for Weldeck, and for Rita obtained an adjusted R2 of 82\%. 
-A machine learning method was proposed by Glezakos, Moschopoulou, Tsiligiridis, Kintzios, and Yialouris (2010), who presented a genetic algorithm as to smooth out the initial information while, the so produced meta-data sets were used in the training and testing of the applied neural network, producing fitter training data. Given the features of the acquired virus time-series signals of the problem under study, an evolutionary method was proposed in order to produce meta-data from the original time-series initial information, reduce the dimensionality of the input data space, and eliminating the noise inherent in the initial raw information The method was tested against some of the most commonly used classifiers in machine learning (Bayes, Trees and k-NN) via cross-validation and proved its potential towards assisting virus identification. They made their test with CGMM and TR viruses.
-In agricultural area, Alves, de Carvalho, Pozza, Sanches, and Mai (2011) selected the zones that are potentially favorable to coffee, soybean and banana diseases in Brazil according to the spatial-temporal variability of climatic variables and the geographical distribution of hosts. Their study applied methodology enabled the visualization of the variation of areas favorable to epidemics under future scenarios of climate change. The geoscientific and statistical modeling techniques developed in that study enabled the development of predictive models and the characterization of risk areas for soybean rust, coffee rust and black Sigatoka disease of banana.
-There have been attempts to generate software tools, Camargo, Molina, Cadena-Torres, Jiménez, and Kim (2012) presented an information system for the assessment of plant disorders (Isacrodi). They proposed that experts will attain a much better accuracy than the Isacrodi classifier, particularly when provided with samples from the affected crop. However, where such expertise is not available, they suggest that Isacrodi can provide valuable support to farmers. Isacordi includes 15 crop disorders, but the black Sigatoka no is one. The prediction process is based on multi-class Support Vector Machines.
-Regarding black Sigatoka with machine learning methods, Bendini, Moraes, da Silva, Tezuka, and Cruvinel (2013) presented a study about the risk analysis of black Sigatoka occurrence based on polynomial models. A case study was developed in a commercial banana plantation located in Jacupiranga, Brazil, it was monitored weekly during the period from February to December 2005. Data were the weekly monitoring of the disease’s evolution stage, time series of meteorological data and remote sensing data. They obtained a model to estimate the evolution of the disease from satellite imagery. This model relates gray levels (NC) of the corresponding image, band 2 of the Landsat-5 satellite, with the progress status or disease severity (EE): Authors express have reach an R2 of 90%.
-Also there are research related to banana fruit, Soares, Pasqual, Lacerda, Silva, and Donato (2014) show in their study that  to the analyses, the neural network proved to be more accurate in forecasting the weight of the bunch in comparison to the multiple linear regressions in terms of the mean prediction-error (MPE = 1.40), mean square deviation (MSD = 2.29) and coefficient of determination (R2 = 91%).
-In general, machine learning methods applied to prediction plant diseases can be classified in two main approaches: 1) Those that their main inputs are images, and 2) Those that their main inputs are environmental and biological variables. Our study is focus in the second one.
+The connections between the different elements of an Echo State Network have weights randomly generated. The weights of the internal connections of the reservoir $(W)$ as well as the weights of the input layer $(W_in)$, after being generated are set statically during all stages of implementation of the algorithm. The weights between the reservoir and the output layer $(W_out)$ are subject to changes of a supervised learning algorithm to correct the degree of error generated by the entire system \citep{Lukose2012}.
 
-\subsection{Data}
-In this work we used data acquired in two research farms of Corbana in Costa Rica: 1) 28 Millas (located at Matina) and La Rita (located at Pococí), both in the province of Limón, Costa Rica. The banana type is Musa AAA, subgroup Cavendish, cv. Grande Naine. Table 1 shows the variables considered initially.
+\subsubsection{Related works}
+Huang et al. \citep{Huang2010}  surveyed the development of soft computing techniques in agricultural and biological engineering, including fuzzy logic, artificial neural networks, genetic algorithms, bayesian inference and decision trees.
+
+A related work, proposed by Romero \citep{Romero1995} relies on regression models using a stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (Rita and Waldeck, the same as those used in this study but with different names). The study used data from: December 1993 to August 1995. Romero concluded that the model to predict the incubation period accounted a $R^2$ of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a $R^2$ of 78\% \hl{PONER EL VALOR OBTENIDO} in the observed data, however, when validated against an independent dataset (cross validation), the model was incorrect \hl{PONER EL VALOR OBTENIDO} for Weldeck, and for Rita obtained an adjusted $R^2$ of 82\%. 
+
+Glezakos et al. \citep{Glezakos2010} proposed to use Genetic Algorithms (GA) and Neural Networks (NN) to identify plant virus (Tobacco Rattle Virus (TRV) and the Cucumber Green Mottle Mosaic Virus (CGMMV)). This is achieved by the development of ana- lytical tools of evolutionary adaptive width, propelled by Genetic Algorithms (GAs) and Neural Networks (NNs). The method was tested against some of the most commonly used classifiers in machine learning (Bayes, Trees and k-NN) via cross-validation and proved its potential towards the identification. 
+
+In the agricultural context, Alves et al. \citep{Alves2011} used  geoinformation techniques to develop predictive models to study the areas of risk to soybean rust in soybean, coffee leaf rust in coffee, and black Sigatoka in banana, considering Brazil’s climatic characterization and the distribution of soybean, coffee and banana crops. Temperature and rainfall data were obtained for the period from 1950 to 2000, and of simulations for 2020, 2050 and 2080 using the SRES A2 climate change scenarios. Using principal components analysis, a single variable was generated based on 57 variables, in order to determine an index explaining 87\%, 88\% and 90\% of the variability of soybean, coffee and banana crops, respectively, in municipal districts across Brazil. The climatic model was used to generate the zoning of the three plant diseases, using temperature and leaf wetness as input. Areas of favorability for the diseases were plotted against the main coffee, soybean and banana growing areas in Brazil. This methodology enabled the visualization of the changes in areas favorable for epidemics under possible future scenarios of climate change.
+
+Other applications of machine learning methods in precision agriculture include the use of support vector regression to predict carcass weight in beef cattle in advance to the slaughter  \citep{Alonso2013}, machine learning assessments of soil drying for agricultural planning \citep{Coopersmith2014}, and early detection and classification of plant diseases with support vector machines based on hyperspectral reflectance \citep{Rumpf2010}.
+
+Furthermore, there have been attempts to generate software tools. Camargo et al. \citep{Camargo2012} presented an information system for the assessment of plant disorders (Isacrodi). They proposed that experts will attain a much better accuracy than the Isacrodi classifier, particularly when provided with samples from the affected crop. However, those cases where such expertise is not available, they suggest that Isacrodi can provide valuable support to farmers. Isacordi includes 15 crop disorders, but the black Sigatoka no is one of them. The prediction process is based on multi-class support vector machines.
+
+Regarding the prediction of the develpment of the black Sigatoka with machine learning methods, Bendini et al. \citep{Bendini2013}  presented a study about the risk analysis of black Sigatoka occurrence based on polynomial models. A case study was developed in a commercial banana plantation located in Jacupiranga, Brazil. It was monitored weekly during the period from February to December 2005. Data included the weekly monitoring of the disease’s evolution stage, time series of meteorological data and remote sensing data. They obtained a model to estimate the evolution of the disease from satellite imagery. This model relates gray levels (NC) of the band 2 images of the Landsat-5 satellite, with the progress status or disease severity (EE). The authors claim to reach an $R^2$ of 90\%.
+
+Also there are works related to banana fruit. Soares et al. \citep{Soares2014} apply two techniques: artificial neural networks (ANNs) and multiple linear regression (MLR) in banana plant to predict the yield, their results show that the neural network proved to be more accurate in forecasting the weight of the bunch in comparison to the multiple linear regressions in terms of the mean prediction-error $(MPE = 1.40)$, mean square deviation $(MSD = 2.29)$ and coefficient of determination $(R^2 = 91\%)$.
+
+In general, the machine learning methods applied to predict the evolution of plant diseases, can be classified in two main approaches: 1) Those whose main inputs are images, and 2) Those whose main inputs are environmental and biological variables. Our study focuses in the second case.
+
+\subsubsection{Data}
+In this work we use data acquired in two research farms of Corbana in Costa Rica: 1) 28 Millas (located at Matina) and La Rita (located at Pococí), both in the province of Limón, Costa Rica. The banana type is Musa AAA, subgroup Cavendish, cv. Grande Naine. Table 1 shows the variables considered initially.
 Table 1 Variables used in the study
 Variable	Meaning
 %
@@ -342,6 +358,31 @@ We use python programming language with the Integrated Development Environment (
 \bibitem[Wei et al., 2013]{Wei2013} Wei, Z., Tao, T., ZhuoShu, D.,  Zio, E. (2013). A dynamic particle filter-support vector regression method for reliability prediction. Reliability Engineering \& System Safety, 109–116. doi:10.1016/j.ress.2013.05.021.
 
 \bibitem[Libro SVM XXXX, 201X]{XXXX201X} Libro SVM XXXX.
+
+\bibitem[Alonso et al., 2013]{Alonso2013} Alonso, J., Rodríguez Castañón, Á., Bahamonde, A. (2013). Support Vector Regression to predict carcass weight in beef cattle in advance of the slaughter. Computers and Electronics in Agriculture, 116-120.
+
+\bibitem[Pedregosa et al., 2013] {scikitlearn2011} Pedregosa, F. and Varoquaux, G. and Gramfort, A. and Michel, V. and Thirion, B. and Grisel, O. and Blondel, M. and Prettenhofer, P. and Weiss, R. and Dubourg, V. and Vanderplas, J. and Passos, A. and Cournapeau, D. and Brucher, M. and Perrot, M. and Duchesnay, E. (2011) Scikit-learn: Machine Learning in {P}ython. Journal of Machine Learning Research, vol. 12, 2825--2830.
+
+\bibitem[Lukosevicius and Jaeger, 2009] {Lukose2009} Lukosevicius, M. and Jaeger, H. (2009). Reservoir computing approaches to recurrent neural network training. Computer Science Review(3), 127–149. doi:10.1016/j.cosrev.2009.03.005.
+
+\bibitem[Lukosevicius, 2012] {Lukose2012} Lukosevicius, M. (2012). A Practical Guide to Applying Echo State Networks. Neural Networks: Tricks of the Trade. 1-20
+
+\bibitem[Romero, 1995] {Romero1995}  Romero, R. (1995). Dynamics of fungicide resistant populations of Mycosphaerella fijiensis and Epidemiology of black Sigatoka of banana. Costa Rica: North Carolina State University.
+
+\bibitem[Glezakos et al., 2010] {Glezakos2010} Glezakos, T., Moschopoulou, G., Tsiligiridis, T., Kintzios, S., Yialouris, C. (2010). Plant virus identification based on neural networks with evolutionary preprocessing. Computers and Electronics in Agriculture, 70, 263–275.
+
+\bibitem[Alves et al., 2011] {Alves2011} Alves, M., de Carvalho, L., Pozza, E., Sanches, L., Maia, J. (2011). Ecological zoning of soybean rust, coffee rust and banana black sigatoka based on Brazilian climate changes. Procedia Environmental Sciences, 6, 35-49.
+
+\bibitem[Huang et al., 2010] {Huang2010}  Huang, Y., Lan, Y., Thomson, S., Fang, A., Hoffmann, W., Lacey, R. (2010). Development of soft computing and applications in agricultural and biological engineering. Computers and Electronics in Agriculture,(71(2)), 107–127. doi:10.1016/j.compag.
+
+\bibitem[Coopersmith et al., 2010] {Coopersmith2014} Coopersmith, E. J., Minsker, B. S., Wenzel, C. E., Gilmore, B. J. (2014). Machine learning assessments of soil drying for agricultural planning. Computers and Electronics in Agriculture, 104, 93–104. http://doi.org/10.1016/j.compag.2014.04.004
+
+\bibitem[Rumpf et al., 2010] {Rumpf2010} Rumpf, T., Mahlein, a.-K., Steiner, U., Oerke, E.-C., Dehne, H.-W., Plümer, L. (2010). Early detection and classification of plant diseases with Support Vector Machines based on hyperspectral reflectance. Computers and Electronics in Agriculture, 74(1), 91–99. http://doi.org/10.1016/j.compag.2010.06.009
+
+\bibitem[Bendini et al., 2010] {Bendini2013} Bendini, H., Moraes, W., da Silva, S., Tezuka, E., Cruvinel, P. (2013). Análise de risco da ocorrência de Sigatoka-negra baseada em modelos polinomiais: um estudo de caso. Tropical Plant Pathology, 38, 035-043.
+
+\bibitem[Soares et al., 2014] {Soares2014} Soares, J., Pasqual, M., Lacerda, W., Silva, S., Donato, S. (2014). Comparison of techniques used in the prediction of yield in banana plants. Scientia Horticulturae journal, 167, 84-90.
+
 
 \end{thebibliography}
 
