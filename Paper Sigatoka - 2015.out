@@ -1,15 +1,16 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Materials and methods}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Concepts}{section.2}% 3
-\BOOKMARK [3][-]{subsubsection.2.1.1}{Biological warning system}{subsection.2.1}% 4
-\BOOKMARK [3][-]{subsubsection.2.1.2}{Support Vector Regression \(SVR\)}{subsection.2.1}% 5
-\BOOKMARK [3][-]{subsubsection.2.1.3}{Ordinary least squares regression}{subsection.2.1}% 6
-\BOOKMARK [3][-]{subsubsection.2.1.4}{Ridge regression}{subsection.2.1}% 7
-\BOOKMARK [3][-]{subsubsection.2.1.5}{Echo State Networks \(ESN\)}{subsection.2.1}% 8
-\BOOKMARK [2][-]{subsection.2.2}{Related works}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.3}{Data}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.4}{Evaluation criteria}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.5}{Methods}{section.2}% 12
-\BOOKMARK [1][-]{section.3}{Results}{}% 13
-\BOOKMARK [1][-]{section.4}{Discussion and conclusions}{}% 14
-\BOOKMARK [1][-]{section.5}{References}{}% 15
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Black Sigatoka disease}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Biological warning system}{subsection.2.1}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Support Vector Regression \(SVR\)}{subsection.2.1}% 6
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Ordinary least squares regression}{subsection.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.5}{Ridge regression}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.6}{Echo State Networks \(ESN\)}{subsection.2.1}% 9
+\BOOKMARK [3][-]{subsubsection.2.1.7}{Related works}{subsection.2.1}% 10
+\BOOKMARK [3][-]{subsubsection.2.1.8}{Data}{subsection.2.1}% 11
+\BOOKMARK [2][-]{subsection.2.2}{Evaluation criteria}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.3}{Methods}{section.2}% 13
+\BOOKMARK [1][-]{section.3}{Results}{}% 14
+\BOOKMARK [1][-]{section.4}{Discussion and conclusions}{}% 15
+\BOOKMARK [1][-]{section.5}{References}{}% 16

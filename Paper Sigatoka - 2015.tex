@@ -164,6 +164,13 @@ learning methods to forecast black Sigatoka development rate. (FALTA COMPLETAR)
 \section{Materials and methods}
 
 \subsection{Concepts}
+\subsubsection{Black Sigatoka disease}
+
+Black Sigatoka, disease caused by the fungus Mycosphaerella fijiensis Morelet, is the main problem phytopathologic of banana and plantain crops in Central America \citep{MarinVargas1995}. 
+
+This disease attacks the leaves of plants producing a rapid deterioration of the leaf area. It affects the growth and productivity of plants by decreasing photosynthetic capacity. Also causes a reduction in quality of the fruit \citep{MarinVargas1995}. 
+
+The climate has a major effect on the behavior of the black Sigatoka. Precipitation, temperature, relative humidity and wind are the main climatic variables affecting the development of this disease \citep{MarinVargas1995}.
 
 \subsubsection{Biological warning system}
 
@@ -241,6 +248,7 @@ According Pedregosa et al. \citep{ scikitlearn2011}  the coefficient estimates f
 The ridge regression addresses some of the problems of ordinary least squares regression by imposing a penalty on the size of the coefficients. The ridge coefficients minimize a penalized residual sum of squares  \citep{scikitlearn2011}:
 $$\min_{w} { \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \alpha \Bigr| \Bigr| w \Bigr| \Bigr|_2^2 } $$
 Here, $\alpha \ \textgreater \  0$ is a complexity parameter that controls the amount of shrinkage: the larger the value of $\alpha$, the greater the amount of shrinkage and thus the coefficients become more robust to collinearity.
+
 \subsubsection{Echo State Networks (ESN)}
 Recurrent Neural Networks (RNN) are useful for temporal patterns, but when they are trained with backpropagation methods, they are very slow.  Echo State Network (ESN) is an alternative training method to solve that problem.  ESN is based on the observation that if a random RNN possesses certain algebraic properties, training only a linear readout from it is often sufficient to achieve excellent performance in practical applications \citep{Lukose2009}. 
 For a given training input signal $u(n)  \in R^{N_u}$ a desired target output signal $y^{target}(n) \in R^{N_y}$
@@ -258,7 +266,7 @@ The connections between the different elements of an Echo State Network have wei
 \subsubsection{Related works}
 Huang et al. \citep{Huang2010}  surveyed the development of soft computing techniques in agricultural and biological engineering, including fuzzy logic, artificial neural networks, genetic algorithms, bayesian inference and decision trees.
 
-A related work, proposed by Romero \citep{Romero1995} relies on regression models using a stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (Rita and Waldeck, the same as those used in this study but with different names). The study used data from: December 1993 to August 1995. Romero concluded that the model to predict the incubation period accounted a $R^2$ of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a $R^2$ of 78\% \hl{PONER EL VALOR OBTENIDO} in the observed data, however, when validated against an independent dataset (cross validation), the model was incorrect \hl{PONER EL VALOR OBTENIDO} for Weldeck, and for Rita obtained an adjusted $R^2$ of 82\%. 
+A related work, proposed by Romero \citep{Romero1995} relies on regression models using a stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (La Rita and Waldeck, the same as those used in this study but with different names). The study used data from: December 1993 to August 1995. Romero concluded that the model to predict the incubation period accounted a $R^2$ of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a $R^2$ of 78\% \hl{PONER EL VALOR OBTENIDO} in the observed data, however, when validated against an independent dataset (cross validation), the model was incorrect \hl{PONER EL VALOR OBTENIDO} for Weldeck, and for Rita obtained an adjusted $R^2$ of 82\%. 
 
 Glezakos et al. \citep{Glezakos2010} proposed to use Genetic Algorithms (GA) and Neural Networks (NN) to identify plant virus (Tobacco Rattle Virus (TRV) and the Cucumber Green Mottle Mosaic Virus (CGMMV)). This is achieved by the development of ana- lytical tools of evolutionary adaptive width, propelled by Genetic Algorithms (GAs) and Neural Networks (NNs). The method was tested against some of the most commonly used classifiers in machine learning (Bayes, Trees and k-NN) via cross-validation and proved its potential towards the identification. 
 
@@ -275,27 +283,35 @@ Also there are works related to banana fruit. Soares et al. \citep{Soares2014} a
 In general, the machine learning methods applied to predict the evolution of plant diseases, can be classified in two main approaches: 1) Those whose main inputs are images, and 2) Those whose main inputs are environmental and biological variables. Our study focuses in the second case.
 
 \subsubsection{Data}
-In this work we use data acquired in two research farms of Corbana in Costa Rica: 1) 28 Millas (located at Matina) and La Rita (located at Pococí), both in the province of Limón, Costa Rica. The banana type is Musa AAA, subgroup Cavendish, cv. Grande Naine. Table 1 shows the variables considered initially.
-Table 1 Variables used in the study
-Variable	Meaning
-%
-%T_(a_max )	Max air temperature
-%T_(a_min )	Min air temperature
-%T ̅_a	Mean air temperature
-%H	Humidity
-%H_min	Min humidity
-%H_max	Max humidity
-%R	Solar radiation
-%P ̅	Mean precipitation
-%W_max	Max speed wind
-%W ̅	Mean speed wind
-%L_2	Biological warning system – Leaf 2
-%L_3	Biological warning system – Leaf 3
-%L_4	Biological warning system – Leaf 4
-%ES	Biological warning system – Evolution Stage
+In this work we use data acquired in two research farms of Corbana in Costa Rica: 1) 28 Millas (previously called Waldeck and located at Matina) and La Rita (located at Pococí), both in the province of Limón, Costa Rica. The banana type is Musa AAA, subgroup Cavendish, cv. Grande Naine. The \tablename $.$\ref{tabla1} shows the variables available.
 
+\begin{table}[h] 
+\caption{Variables used in the study} 
+\label{tabla1} 
+\centering
+\begin{tabular}{c|c} 
+\hline
+\bfseries Variable & \bfseries Meaning0'0' \\ 
+\hline\hline 
+$T_{a_max}$ &	Max air temperature \\
+$T_{a_min}$ &	Min air temperature \\
+$\overline{T}_{a}$	 & Mean air temperature \\
+$H$	&  Humidity \\
+$H_min$ &	Min humidity \\
+$H_max$	& Max humidity \\
+$R$	& Solar radiation \\
+$\overline{P}$	& Mean precipitation  \\
+$W_max$	& Max speed wind \\
+$\overline{W}$	& Mean speed wind  \\
+$L_2$	& Biological warning system – Leaf 2 \\
+$L_3$	& Biological warning system – Leaf 3 \\
+$L_4$	& Biological warning system – Leaf 4 \\
+$E_s$	& Biological warning system – Evolution Stage \\
+\hline
+\end{tabular} 
+\end{table}
 
-The value to be predicted in all cases was ES, that is the total measure of the biological warning system.
+The value to be predicted in all cases was $E_s$, that is the total measure of the biological warning system.
 The data on the biological warning system are collected once a week. Although Corbana has meteorological stations that take data every five minutes, for these experiments, weekly averages generated by nearby stations to each of the farms were used.
 The time intervals used for this study were: La Rita, week 48 of 2002 to week 17 of the 2015 (647 weeks) and for 28 Miles, week 37 of 2003 to week 18 of 2015 (605 weeks).
 Data preprocessing
