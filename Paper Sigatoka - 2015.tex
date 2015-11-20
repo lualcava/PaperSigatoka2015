@@ -7,6 +7,7 @@
 \modulolinenumbers[1]
 
 \usepackage{soul}
+\usepackage{marginnote}
 
 
 \journal{Journal of \LaTeX\ Templates}
@@ -92,6 +93,8 @@ Banana disease prediction \sep Biological warning system }
 
 \section{Introduction}
 
+\marginnote{La bibliografia debe ser autor, anno}
+
 The black Sigatoka disease caused by the fungus {\it Mycosphaerella
   fijiensis Morelet} is the major pathological problem of banana and
 plantain crops in Central America, Panama, Colombia and Ecuador, as in
@@ -137,6 +140,7 @@ year ranged between \$1800 USD and \$1900 USD. This represents
 about 0.76 cents of the price of a box of 18.14 kilograms. Overall,
 this represents 10\% to 12\% of the total production cost
 \citet{Bresciani2015}.
+\marginnote{Hay que completar la cita de Brescani, o cambiarla}
 
 The past and present rates of disease development  can in principle be used
 to predict its future behavior and to determine whether
@@ -158,7 +162,8 @@ regression (SVR), echo state networks (ESN), ridge regression and
 ordinary least squares linear regression) to predict the development rate of the black Sigatoka disease.
 
 The main contribution of this work is a comparison between machine
-learning methods to forecast black Sigatoka development rate. (FALTA COMPLETAR)
+learning methods to forecast black Sigatoka development rate. 
+\marginnote{FALTA COMPLETAR esta parte}
 
 
 \section{Materials and methods}
@@ -187,6 +192,7 @@ possible, on the same plant. The first observations should consider
 the leaf emission, also the level of infection on the leaves should be
 evaluated considering the stages of development
 \citep{MarinVargas1995}.
+\marginnote{Tendra sentido ampiar esta parte?}
 
 \subsubsection{Support Vector Regression (SVR)}
 From the perspective of Support Vector Regression (SVR) the regression function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ , is represented as a linear function of the form \citep{Wei2013}:
@@ -207,7 +213,7 @@ SVR uses the $ \epsilon -insensitive \ loss \ function$:
 
 which ignores the error if the difference between the prediction value and the actual value is smaller than $ \epsilon$.
 The $ \epsilon -insensitive \ loss \ function$ allows to find the coefficients $w$ and $b$ by solving a convex optimization problem, which balances the empirical error and the generalization ability. In SVR, the empirical error is measured by the loss function є-insensitive and the generalization ability is measured by the Euclidean norm of $w$ \citep{XXXX201X}. Then, the optimization problem to identify the regression model can be formulated by \citep{Wei2013}:
-
+\marginnote{Falta completar la cita XXXXX con el libro de SVR}
 
 \begin{equation} 
 \begin{aligned}
@@ -267,6 +273,7 @@ The connections between the different elements of an Echo State Network have wei
 Huang et al. \citep{Huang2010}  surveyed the development of soft computing techniques in agricultural and biological engineering, including fuzzy logic, artificial neural networks, genetic algorithms, bayesian inference and decision trees.
 
 A related work, proposed by Romero \citep{Romero1995} relies on regression models using a stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (La Rita and Waldeck, the same as those used in this study but with different names). The study used data from: December 1993 to August 1995. Romero concluded that the model to predict the incubation period accounted a $R^2$ of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a $R^2$ of 78\% \hl{PONER EL VALOR OBTENIDO} in the observed data, however, when validated against an independent dataset (cross validation), the model was incorrect \hl{PONER EL VALOR OBTENIDO} for Weldeck, and for Rita obtained an adjusted $R^2$ of 82\%. 
+\marginnote{Revisar si se puede implementar la propuesta de este autor para comparar}
 
 Glezakos et al. \citep{Glezakos2010} proposed to use Genetic Algorithms (GA) and Neural Networks (NN) to identify plant virus (Tobacco Rattle Virus (TRV) and the Cucumber Green Mottle Mosaic Virus (CGMMV)). This is achieved by the development of ana- lytical tools of evolutionary adaptive width, propelled by Genetic Algorithms (GAs) and Neural Networks (NNs). The method was tested against some of the most commonly used classifiers in machine learning (Bayes, Trees and k-NN) via cross-validation and proved its potential towards the identification. 
 
@@ -311,43 +318,74 @@ $E_s$	& Biological warning system – Evolution Stage \\
 \end{tabular} 
 \end{table}
 
-The value to be predicted in all cases was $E_s$, that is the total measure of the biological warning system.
+The value to be predicted in all cases was $E_s$, that is the total measure of the biological warning system.  
+\marginnote{Mas detalle aqui?  o ampliar en los conceptos?}
+
 The data on the biological warning system are collected once a week. Although Corbana has meteorological stations that take data every five minutes, for these experiments, weekly averages generated by nearby stations to each of the farms were used.
+
 The time intervals used for this study were: La Rita, week 48 of 2002 to week 17 of the 2015 (647 weeks) and for 28 Miles, week 37 of 2003 to week 18 of 2015 (605 weeks).
-Data preprocessing
-In 28 Miles farm we detect that 1\% of the data were missing, while in La Rita 2.25\% of the data were missing. To complete the missing value we use spline interpolation. The data collected did not exhibit outliers.
-Due the fact that the variables measure meteorological or biological process, they are discretized in order to reflect trends in the data rather than the specific continuous values. The coefficient of variation $C_v (x)$ of each variable x was used to determine the numbers of discretizations with:
-$$n= ⌊100 C_v (x)⌋$$
-Each discretization range was uniformly partitioned. Besides enabling the capture of tendencies, the discretization removes the effect of small variations in the data collection, either by inaccuracies of the instruments (meteorological variables) or by subjective bias introduced by the human who collects the data (biological warning system).
-Each feature was scaled in a range 0 between 1. The variable to be predicted was not scaled.
+
+\subsubsection{Data preprocessing}
+
+In 28 Miles farm, 1\% of the data were missing, while in La Rita was 2.25\%. To fill-in the missing values we use spline interpolation. The data collected did not exhibit outliers.
+
+Due the fact that the variables measure meteorological or biological process, they are discretized in order to reflect trends in the data, i.e. the continuous values are not directly used. The coefficient of variation $C_v(x)$ of each variable x was used to determine the number $n$ of discretization levels.
+$$n= \lfloor 100 \ C_v(x) \rfloor$$
+where $\lfloor \ \rfloor$  is the round operator.
+
+Each discretization range was uniformly partitioned. Besides enabling the capture of tendencies, the discretization removes the effect of small variations in the data collection, either by inaccuracies of the instruments (meteorological variables) or by subjective bias introduced by the human who collects the data (biological warning system). \hl{ESTO DEBE ESTAR DESCRITO EN ALGUNA PARTE}
+
+Each feature was scaled to fit in a range between 0 and 1. The variable to be predicted was not scaled.
 
 \subsection{Evaluation criteria}
 
-Although there are many types of indicators to assess the quality of the prediction, we selected the root mean square error (RMSE) and the determination coefficient (R2).  This decision is supported by the widespread use in machine learning and agriculture areas (Soares, Pasqual and Lacerda (2013); Soares, Pasqual and Lacerda (2014); Ibrahim and Wibowo (2014) and Demir and Bruzzone (2014)).  
+Although there are many types of indicators to assess the quality of the prediction, we selected the root mean square error $(RMSE)$ and the determination coefficient $(R^2)$.  
 
-\subsection{Methods}
-This research had two phases.\\
-{\bf Phase one } \\
+Given $n$ records, let be $y$ the actual value of the series, $\hat{y}$ the predicted value and $\acute{y}$ the mean of the observed data.
+$$RMSE = \sqrt{ \sum_{i=1}^{n} \frac{{(y-\hat{y})}^2}{n} }$$
 
-In the phase one, we did ten-fold-cross-validation and did a lot of proofs with different machine learning methods and different configuration. 
-We proved with several combinations:
-	Patterns: From one week of observed data to predict the next week until nine weeks before to predict two weeks later.
-	Algorithms: Support vector regression with different kernel functions: linear, RBF (Gaussian) and sigmoid; echo state networks; ordinary least squares linear regression and ridge regression.
-	Variables included in the model. We proved the following combinations:
-	All variables.
-	Only variables that according to expert judgment have more impact on the black Sigatoka development: humidity, precipitation, temperature and wind speed (Marin Vargas and Romero Calderón, 1995).
-	From the four variables listed in the previous paragraph, runs were conducted using each of the variables separately, and combining other runs all the possible pairs of those four variables.\\
-{\bf Phase two } \\
-In the second phase, we used the best configurations obtained en la phase one and did validation with the last 52 and 102 weeks. 
-This second phase pretended to show how these methods behaved on a time of important climate change how are 2014 and 2015 years.
+$$ \bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_i $$
 
-Programming environment
-We use python programming language with the Integrated Development Environment (IDE) Spyder, particularly with libraries: pandas (Comunity, 2014); numpy (numpy.org, 2013); for SVR, ridge and ordinary least squares, we used sklearn (Pedregosa, et al., 2011); and for ESN the python-based code used belongs to Dr. Mantas Lukoševičius (2012) from which we made the necessary adjustments for the experiments of this research. The computer was a Lenovo ThinkPad, processor Intel(R) Core™ i7-4800MQ CPU @ 2.70GHz, 16.0 GB RAM, running Windows 8 Pro.
+$$ S_e^2 = \frac{\sum_{i=1}^{n} {(y_i-\hat{y}_i)}^2 }{n}$$
 
+$$ S_R^2 = \frac{\sum_{i=1}^{n} {(\hat{y}_i-\bar{y}_i)}^2 }{n}$$
 
+$$ S_y^2 = S_R^2 + S_e^2$$
 
+$$ R^2 = \frac{S_R^2}{S_y^2}$$
+	
+This decision is supported by the widespread use in machine learning and agriculture areas \citep{Soares2014}, \citep{Soares2013}, \citep{Ibrahim2014} and \citep{Demir2014}.  
 
+\subsection{Methodology}
+The selection of methods and their parametrisation was performed in two stages.
 
+{\bf Phase one } 
+
+In the phase one, we did ten-fold-cross-validation on a set of  machine learning methods and different configurations:
+
+\begin{itemize}
+\item 	Patterns: n by m, where n from 1 to 8 and m from 1 to 3.
+
+\item Methods: support vector regression with the kernels functions: linear, RBF (Gaussian) and sigmoid; echo state networks; ordinary least squares linear regression and ridge regression.
+
+\item Variables included in the model:
+\begin{itemize}
+\item All variables.
+\item from the set $\{ \overline{T}_{a} , H, \overline{P} , \overline{W}  \}$ use the subsets with one, two or four elements. These variables are according to experts the ones having most impact on the disease development \citep{MarinVargas1995}.
+\end{itemize}
+
+\end{itemize}
+
+{\bf Phase two }
+
+In the second phase, the best configurations obtained in phase one are used to validate with the last 52 and 102 weeks. 
+
+This second phase intents to expose how these methods behave on a considerable climate in the years 2014 and 2015.
+\marginnote{Poner una cita que fundamente este ultimo parrafo}
+
+\subsection{Programming environment}
+
+We use the python programming language with the Integrated Development Environment (IDE) Spyder \citep{Continuum2015}, particularly with the libraries pandas \citep{mckinneypandas2010} and numpy \citep{vanderWalt2011}. For SVR, ridge and ordinary least squares regressions, we used sklearn \citep{scikitlearn2011} and for ESN the python-based code of Dr. $Luko\breve{s} evi \breve{c} ius$ \citep{Lukose2012} on which the necessary were done for adjustments for the experiments of this work. The computer used a processor Intel(R) Core™ i7-4800MQ CPU @ 2.70GHz, 16.0 GB RAM, running Windows 8 Pro.
 
 \section{Results}
 
@@ -398,6 +436,18 @@ We use python programming language with the Integrated Development Environment (
 \bibitem[Bendini et al., 2010] {Bendini2013} Bendini, H., Moraes, W., da Silva, S., Tezuka, E., Cruvinel, P. (2013). Análise de risco da ocorrência de Sigatoka-negra baseada em modelos polinomiais: um estudo de caso. Tropical Plant Pathology, 38, 035-043.
 
 \bibitem[Soares et al., 2014] {Soares2014} Soares, J., Pasqual, M., Lacerda, W., Silva, S., Donato, S. (2014). Comparison of techniques used in the prediction of yield in banana plants. Scientia Horticulturae journal, 167, 84-90.
+
+\bibitem[Soares et al., 2013] {Soares2013} Soares , J., Pasqual, M., Lacerda, W. (2013). Utilization of artificial neural networks in the prediction of the bunches’weight in banana plants. Scientia Horticulturae(155), 24-29.
+
+\bibitem[Ibrahim and Wibowo, 2014] {Ibrahim2014}  Ibrahim, N. and Wibowo, A. (2014). Time Series Support Vector Regression with Missing Data Treatment Based Variables Selection for Water Level Prediction of Galas River in Kelantan Malaysia. International Journal of Applied Research in Engineering and Science, 3, 25-36.
+
+\bibitem[Demir and Bruzzone, 2014] {Demir2014} Demir, B. and Bruzzone, L. (2014). A multiple criteria active learning method for support vector regression. Pattern Recognition, 2558–2567. doi:10.1016/j.patcog.2014.02.001
+
+\bibitem[Continuum Analitycs, 2015] {Continuum2015} Continuum Analitycs. (2015). Anaconda. Retrieved from https://www.continuum.io/
+
+\bibitem[McKinney, 2010] {mckinneypandas2010} McKinney W. (2010). Data Structures for Statistical Computing in Python, Proceedings of the 9th Python in Science Conference, 51-56 
+
+\bibitem[van der Walt et al., 201] {vanderWalt2011} van der Walt S., Colbert C. and Varoquaux G. (2011). The NumPy Array: A Structure for Efficient Numerical Computation, Computing in Science \& Engineering, 13, 22-30 (2011), DOI:10.1109/MCSE.2011.37 
 
 
 \end{thebibliography}

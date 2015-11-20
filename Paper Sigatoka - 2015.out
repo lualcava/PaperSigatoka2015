@@ -9,8 +9,10 @@
 \BOOKMARK [3][-]{subsubsection.2.1.6}{Echo State Networks \(ESN\)}{subsection.2.1}% 9
 \BOOKMARK [3][-]{subsubsection.2.1.7}{Related works}{subsection.2.1}% 10
 \BOOKMARK [3][-]{subsubsection.2.1.8}{Data}{subsection.2.1}% 11
-\BOOKMARK [2][-]{subsection.2.2}{Evaluation criteria}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.3}{Methods}{section.2}% 13
-\BOOKMARK [1][-]{section.3}{Results}{}% 14
-\BOOKMARK [1][-]{section.4}{Discussion and conclusions}{}% 15
-\BOOKMARK [1][-]{section.5}{References}{}% 16
+\BOOKMARK [3][-]{subsubsection.2.1.9}{Data preprocessing}{subsection.2.1}% 12
+\BOOKMARK [2][-]{subsection.2.2}{Evaluation criteria}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.3}{Methodology}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.4}{Programming environment}{section.2}% 15
+\BOOKMARK [1][-]{section.3}{Results}{}% 16
+\BOOKMARK [1][-]{section.4}{Discussion and conclusions}{}% 17
+\BOOKMARK [1][-]{section.5}{References}{}% 18
