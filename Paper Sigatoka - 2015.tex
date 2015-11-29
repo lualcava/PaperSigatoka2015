@@ -133,7 +133,7 @@ its development \citep{MarinVargas1995}.
 \label{figura1} 
 \end{figure}
 
-In Costa Rica for the control of black Sigatoka is necessary the application of chemical fungicides. Depending of the zone of production and the weather conditions 45 – 55 cycles/year of fungicides is needed to keep this disease under control and to produce fruit with quality for exportation. This represent a cost per hectare per year ranged between \$1600 USD and \$2000 USD, about 0,64 - 0.80 cents of the cost of production of a box of 18.14 kilograms. Overall, this represents 10\% to 12\% of the total production cost.
+In Costa Rica for the control of black Sigatoka is necessary the application of chemical fungicides. Depending of the zone of production and the weather conditions 45 - 55 cycles/year of fungicides is needed to keep this disease under control and to produce fruit with quality for exportation. This represent a cost per hectare per year ranged between \$1600 USD and \$2000 USD, about 0,64 - 0.80 cents of the cost of production of a box of 18.14 kilograms. Overall, this represents 10\% to 12\% of the total production cost.
 
 The past and present rates of disease development  can in principle be used
 to predict its future behavior and to determine whether
@@ -150,8 +150,8 @@ machine learning approaches, while \cite{Zhao2013} present an
 intelligent agricultural forecasting system based on wireless sensor
 networks.
 
-In this work, we compare four machine learning techniques (support vector
-regression (SVR), echo state networks (ESN), ridge regression and
+In this work, we compare five machine learning techniques (support vector
+regression (SVR), echo state networks (ESN), ridge regression, elastic-net regression and
 ordinary least squares linear regression) to predict the development rate of the black Sigatoka disease.
 
 The main contribution of this work is a comparison between machine
@@ -197,7 +197,7 @@ The $\epsilon -insensitive \ loss \ function$ allows to find the coefficients $w
 
 \begin{equation} 
 \begin{aligned}
-& \underset{}{\text{miimize}}
+& \underset{}{\text{minimize}}
 & & J(w,\xi_i , \xi_i^* ) = \frac{1}{2}   \Bigr| \Bigr| w \Bigr| \Bigr|^2 + C \sum_{i=1}^{n} (\xi_i , \xi_i^* )    \\
 & \text{subject to}
 & & \begin{array}{lcl} 
@@ -232,8 +232,18 @@ According Pedregosa et al. \citep{ scikitlearn2011}  the coefficient estimates f
 
 \subsubsection{Ridge regression}
 The ridge regression addresses some of the problems of ordinary least squares regression by imposing a penalty on the size of the coefficients. The ridge coefficients minimize a penalized residual sum of squares  \citep{scikitlearn2011}:
+
 $$\min_{w} { \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \alpha \Bigr| \Bigr| w \Bigr| \Bigr|_2^2 } $$
+
 Here, $\alpha \ \textgreater \  0$ is a complexity parameter that controls the amount of shrinkage: the larger the value of $\alpha$, the greater the amount of shrinkage and thus the coefficients become more robust to collinearity.
+
+\subsubsection{Elastic-Net regression}
+Elastic-Net is a linear regression model trained with $L1$ and $L2$ prior as regularizer. This combination allows for learning a sparse model where few of the weights are non-zero like Lasso, while still maintaining the regularization properties of Ridge  \citep{scikitlearn2011}. The convex combination of $L1$ and $L2$ is controled by using the $l1_ratio$ parameter.
+
+Elastic-Net is useful when there are multiple features which are correlated with one another. Lasso is likely to pick one of these at random, while elastic-net is likely to pick both.
+A practical advantage of trading-off between Lasso and Ridge is it allows Elastic-Net to inherit some of Ridge’s stability under rotation. The objective function to minimize is \citep{scikitlearn2011}:
+
+$$\min_{w} { \frac{1}{2n_{samples}} \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \alpha \rho \Bigr| \Bigr| w \Bigr| \Bigr|_1 + \frac{\alpha (1- \rho)}{2} \Bigr| \Bigr| w \Bigr| \Bigr|_2^2 } $$
 
 \subsubsection{Echo State Networks (ESN)}
 Recurrent Neural Networks (RNN) are useful for temporal patterns, but when they are trained with backpropagation methods, they are very slow.  Echo State Network (ESN) is an alternative training method to solve that problem.  ESN is based on the observation that if a random RNN possesses certain algebraic properties, training only a linear readout from it is often sufficient to achieve excellent performance in practical applications \citep{Lukose2009}. 
@@ -319,10 +329,9 @@ Each feature was scaled to fit in a range between 0 and 1. The variable to be pr
 
 \subsection{Evaluation criteria}
 
-Although there are many types of indicators to assess the quality of the prediction, we selected the root mean square error $(RMSE)$ and the determination coefficient $(R^2)$.  
+Although there are many types of indicators to assess the quality of the prediction, we selected the determination coefficient $(R^2)$.  
 
 Given $n$ records, let be $y$ the actual value of the series, $\hat{y}$ the predicted value and $\acute{y}$ the mean of the observed data.
-$$RMSE = \sqrt{ \sum_{i=1}^{n} \frac{{(y-\hat{y})}^2}{n} }$$
 
 $$ \bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_i $$
 
@@ -344,9 +353,9 @@ The selection of methods and their parametrisation was performed in two stages.
 In the phase one, we did ten-fold-cross-validation on a set of  machine learning methods and different configurations:
 
 \begin{itemize}
-\item 	Patterns: n by m, where n from 1 to 8 and m from 1 to 3.
+\item 	Patterns: n by m, where n from 1 to 8 and m from 1 to 2.
 
-\item Methods: support vector regression with the kernels functions: linear, RBF (Gaussian) and sigmoid; echo state networks; ordinary least squares linear regression and ridge regression.
+\item Methods: support vector regression with the kernels functions: linear, RBF (Gaussian) and sigmoid; echo state networks; ordinary least squares linear regression, ridge regression and elastic-net regression.
 
 \item Variables included in the model:
 \begin{itemize}
