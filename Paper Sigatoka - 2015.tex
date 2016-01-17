@@ -1,7 +1,7 @@
 \documentclass[review]{elsarticle}
 
 \usepackage{lineno,hyperref}
-
+\usepackage[utf8]{inputenc}  %% Permite utilizar tildes si archivo usa utf-8
 \usepackage{amsmath}
 
 \modulolinenumbers[1]
@@ -63,17 +63,17 @@
 \ead{lualcava.sa@gmail.com}
 \fntext[myfootnote]{Corresponding author. (506)70104420}
 
-\author[afiCorbana] {Mauricio Guzm\'an-Quesada}
-\author[afiCorbana]{Jos\'e-Antonio Guzm\'an-Alvarez}
+\author[afiCorbana] {Mauricio Guzmán-Quesada}
+\author[afiCorbana]{José-Antonio Guzmán-Alvarez}
 \author[afiPablo]{Pablo Alvarado-Moya}
 
-\address[afiLuisAlex]{DOCINADE, Instituto Tecnol\'ogico de Costa Rica, 
+\address[afiLuisAlex]{DOCINADE, Instituto Tecnológico de Costa Rica, 
 Computer Research Center, Multidisciplinar program eScience, 
 CNCA/CeNAT, Cartago, Costa Rica}
 
-\address[afiCorbana]{Direcci\'on de Investigaciones, Corporaci\'on Bananera Nacional S.A., Gu\'apiles, Costa Rica}
+\address[afiCorbana]{Dirección de Investigaciones, Corporación Bananera Nacional S.A., Guápiles, Costa Rica}
 
-\address[afiPablo]{DOCINADE, Instituto Tecnol\'ogico de Costa Rica, Cartago, Costa Rica}
+\address[afiPablo]{DOCINADE, Instituto Tecnológico de Costa Rica, Cartago, Costa Rica}
 
 
 
@@ -83,8 +83,8 @@ Pending.
 \end{abstract}
 
 \begin{keyword}
-\texttt{Machine learning \sep Black Sigatoka \sep Support vector regression \sep
-Banana disease prediction \sep Biological warning system }
+Machine learning \sep Black Sigatoka \sep Support vector regression \sep
+Banana disease prediction \sep Biological warning system 
 \end{keyword}
 
 \end{frontmatter}
@@ -93,66 +93,73 @@ Banana disease prediction \sep Biological warning system }
 
 \section{Introduction}
 
-\marginnote{La bibliografia debe ser autor, anno}
+\marginnote{La bibliografia debe ser autor, año}
 
-The black Sigatoka disease caused by the fungus {\it Mycosphaerella
+The black Sigatoka disease caused by the fungus \emph{Mycosphaerella
   fijiensis Morelet} is the major pathological problem of banana and
 plantain crops in Central America, Panama, Colombia and Ecuador, as in
 many parts of Africa and Asia \citep{MarinVargas1995}.
 
 This disease attacks the plant leaves producing a rapid deterioration
-of the leaf area, affects the growth and productivity of the plants due to the impairment of their photosinthetic ability  causes a reduction in the quality
-of the fruit, and promotes premature maturation of bunches, which is
-the major cause of product losses associated with the black Sigatoka. \figurename
-$.$\ref{figura1} shows three stages of this disease.
+of the leaf area, affects the growth and productivity of the plants
+due to the impairment of their photosinthetic ability, causes a
+reduction in the quality of the fruit, and promotes premature
+maturation \marginnote{maturation or ripening?} of bunches, which is
+the major cause of product losses associated with the black
+Sigatoka. \figurename~\ref{fig:diseasestages} shows three stages of
+this disease.
 
 Phytopathological studies point out that precipitation, temperature,
 relative humidity and wind are the main climatic variables that affect
 its development \citep{MarinVargas1995}.
  	 
 \begin{figure}[h] 
-\begin{subfigure}{.3\textwidth}
-  \centering
-  \includegraphics[width=.8\linewidth]{Roya_a}
-  \caption{}
-  \label{fig:sfig1}
-\end{subfigure}
-\begin{subfigure}{.3\textwidth}
-  \centering
-  \includegraphics[width=.8\linewidth]{Roya_b}
-  \caption{}
-  \label{fig:sfig2}
-\end{subfigure}
-\begin{subfigure}{.3\textwidth}
-  \centering
-  \includegraphics[width=.8\linewidth]{Roya_c}
-  \caption{}
-  \label{fig:sfig3}
-\end{subfigure}
-\caption{Examples of three disease stages of the black Sigatoka. (a) Initial stage. (b) Intermediate stage, and (c) Advanced stage.} 
-\label{figura1} 
+\centering
+\begin{tabular}{c@{\;}c@{\;}c}
+  \includegraphics[width=.32\linewidth]{Roya_a} &
+  \includegraphics[width=.32\linewidth]{Roya_b} &
+  \includegraphics[width=.32\linewidth]{Roya_c} \\
+  (a) & (b) & (c) 
+\end{tabular}
+\caption{Examples of three disease stages of the black Sigatoka. (a)~Initial stage. (b)~Intermediate stage, and (c)~Advanced stage.} 
+\label{fig:diseasestages} 
 \end{figure}
 
-In Costa Rica for the control of black Sigatoka is necessary the application of chemical fungicides. Depending of the zone of production and the weather conditions 45 - 55 cycles/year of fungicides is needed to keep this disease under control and to produce fruit with quality for exportation. This represent a cost per hectare per year ranged between \$1600 USD and \$2000 USD, about 0,64 - 0.80 cents of the cost of production of a box of 18.14 kilograms. Overall, this represents 10\% to 12\% of the total production cost.
+In Costa Rica the control of black Sigatoka makes use of chemical fungicides.
+%
+Depending on the zone of production and the weather conditions, 45--55
+cycles/year of fungicide applications are required to keep this
+disease under control and to produce the fruit quality expected in the
+international markets.
+%
+This represent a cost per hectare per year in the range between US\$1600 and
+US\$2000; about 0.64--0.80 cents of the production costs for a
+18.14\,kg box.
+%
+Overall, this represents 10\%--12\% of the total production cost.
 
-The past and present rates of disease development  can in principle be used
+The past and present rates of disease development can in principle be used
 to predict its future behavior and to determine whether
-particular fungicide spray schedules will be able to effectively and
+a particular fungicide spray program will be able to effectively and
 economically control the disease \citet{ChuangJeger1987}.
 
+\marginnote{Esto es parte del ``related works''}
+%
 There are efforts to apply machine learning methods for
 decision-making in agriculture, including the control of crop
 diseases. For example, \cite{Camargo2012} present an intelligent
 system for the assessment of crop disorders, \cite{Huang2010}
-introduce a plant virus identification method based on neural networks with an evolutionary preprocessing stage, \cite{Kim2014} summarize in
+introduce a plant virus identification method based on neural networks
+with an evolutionary preprocessing stage, \cite{Kim2014} summarize in
 their survey crop pests prediction methods using regression and
 machine learning approaches, while \cite{Zhao2013} present an
 intelligent agricultural forecasting system based on wireless sensor
 networks.
 
-In this work, we compare five machine learning techniques (support vector
-regression (SVR), echo state networks (ESN), ridge regression, elastic-net regression and
-ordinary least squares linear regression) to predict the development rate of the black Sigatoka disease.
+In this work, we compare five machine learning techniques (support
+vector regression (SVR), echo state networks (ESN), ridge regression,
+elastic-net regression and ordinary least squares linear regression)
+to predict the development rate of the black Sigatoka disease.
 
 The main contribution of this work is a comparison between machine
 learning methods to forecast black Sigatoka development rate. 
@@ -162,9 +169,12 @@ learning methods to forecast black Sigatoka development rate.
 \section{Materials and methods}
 
 \subsection{Concepts}
+
 \subsubsection{Black Sigatoka disease}
 
-Black Sigatoka, disease caused by the fungus Mycosphaerella fijiensis Morelet, is the main problem phytopathologic of banana and plantain crops in Central America \citep{MarinVargas1995}. 
+Black Sigatoka, disease caused by the fungus Mycosphaerella fijiensis
+Morelet, is the main problem phytopathologic of banana and plantain
+crops in Central America \citep{MarinVargas1995}.
 
 This disease attacks the leaves of plants producing a rapid deterioration of the leaf area. It affects the growth and productivity of plants by decreasing photosynthetic capacity. Also causes a reduction in quality of the fruit \citep{MarinVargas1995}. 
 
@@ -172,7 +182,13 @@ The climate has a major effect on the behavior of the black Sigatoka. Precipitat
 
 \subsubsection{Biological warning system}
 
-The early warning system for black Sigatoka is an adaptation of the yellow Sigatoka warning system developed by Ganry and Meyer and modified by Ganry and Laville to use for controlling yellow Sigatoka in Cameroon. Ternesien and Four\'e  later improved Ganry and Laville's system. The latter system is based on weekly observations of disease symtoms on young leaves of the plant, according to Four\'e's symptom (stages) descriptions. Arbitrary coefficientes, based on incidence and severity of disease development, are used to calculate two variables: gross sum and state of evolution. Gross sum is based on the stage present and an arbitrary coefficient, which increases with the advance of the symptoms and the juvenility of the leaf. The state of evolution is calculated using the gross sum and the foliar emission period. Although threshold levels were initially suggested as a guide to spray timing, the fluctuation of these two variables was found to better define appropiate times to spray \citep{Marinetal2003}.
+The early warning system for black Sigatoka is an adaptation of the yellow Sigatoka warning system developed by Ganry and Meyer and modified by Ganry and Laville to use for controlling yellow Sigatoka in Cameroon. Ternesien and Fouré  later improved Ganry and Laville's system.
+%
+The latter system is based on weekly observations of disease symtoms on young leaves of the plant, according to Fourés symptom (stages) descriptions. Arbitrary coefficientes, based on incidence and severity of disease development, are used to calculate two variables: gross sum and state of evolution.
+%
+Gross sum is based on the stage present and an arbitrary coefficient, which increases with the advance of the symptoms and the juvenility of the leaf. The state of evolution is calculated using the gross sum and the foliar emission period.
+%
+Although threshold levels were initially suggested as a guide to spray timing, the fluctuation of these two variables was found to better define appropiate times to spray \citep{Marinetal2003}.
 
 \subsubsection{Support Vector Regression (SVR)}
 From the perspective of Support Vector Regression (SVR) the regression function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ , is represented as a linear function of the form \citep{Wei2013}:
@@ -183,17 +199,23 @@ For nonlinear cases, one proceeds by mapping the input p-dimensional vectors via
 
 $$f(s)=w^T \phi (s)+b$$
 
-SVR uses the $ \epsilon -insensitive \ loss \ function$:
-
-\[l= {\Bigr| y - f(s) \Bigr| }_{\epsilon } = 
-\left\{\begin{array}{lcl}
-	0 & \mbox{} & {\Bigr| y - f(s) \Bigr| } \leq \epsilon \\
-	 &  & \\
-	{\Bigr| y - f(s) \Bigr| - \epsilon} & \mbox{} & else\\ \end{array} \right. \] 
-
+SVR uses the $\epsilon$-insensitive loss function:
+\begin{equation*}
+l= {\left| y - f(s) \right| }_{\epsilon } = 
+\begin{cases}
+   0 & {\left| y - f(s) \right| } \leq \epsilon \\
+   \left| y - f(s) \right| - \epsilon & \text{otherwise}
+\end{cases}
+\end{equation*}
 which ignores the error if the difference between the prediction value and the actual value is smaller than $\epsilon$.
-The $\epsilon -insensitive \ loss \ function$ allows to find the coefficients $w$ and $b$ by solving a convex optimization problem, which balances the empirical error and the generalization ability. In SVR, the empirical error is measured by the loss function є-insensitive and the generalization ability is measured by the Euclidean norm of $w$ \citep{XXXX201X}. Then, the optimization problem to identify the regression model can be formulated by \citep{Wei2013}:
-\marginnote{Falta completar la cita XXXXX con el libro de SVR}
+%
+The $\epsilon$-insensitive loss function allows to find the coefficients $w$ and $b$ by solving a convex optimization problem, which balances the empirical error and the generalization ability.
+%
+In SVR, the empirical error is measured by the loss function $\epsilon$-insensitive and the generalization ability is measured by the Euclidean norm of $w$ \citep{XXXX201X}.
+%
+Then, the optimization problem to identify the regression model can be
+formulated by \citep{Wei2013}: \marginnote{Falta completar la cita
+  XXXXX con el libro de SVR}
 
 \begin{equation} 
 \begin{aligned}
@@ -213,7 +235,7 @@ $.$\ref{figura2} shows this situation.
 \begin{figure}[h] 
  \centering
  \includegraphics[scale=.9]{SVR}
- \caption{$\epsilon -insensitive \ loss \ function \citep{Wei2013}.$} 
+ \caption{$\epsilon$-insensitive loss function \citep{Wei2013}.} 
  \label{figura2} 
 \end{figure}
  
@@ -225,7 +247,6 @@ Operations in the kernel function $K(s,s_i )$ are performed in the input space r
 
 \subsubsection{Ordinary least squares regression}
 This method fits a linear model with coefficients $w = (w1,..,wp)$ to minimize the residual sum of squares between the observed responses in the dataset, and the responses predicted by the linear approximation. Mathematically it solves a problem of the form \citep{ scikit-learn2011}:
-
 $$\min_{w} \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  $$
 where $X$ denotes the features matriz. \\
 According Pedregosa et al. \citep{ scikitlearn2011}  the coefficient estimates for Ordinary Least Squares rely on the independence of the model terms. When terms are correlated and the columns of the design matrix $X$ have an approximate linear dependence, the design matrix becomes close to singular and as a result, the least-squares estimate becomes highly sensitive to random errors in the observed response, producing a large variance. This situation of multicollinearity can arise, for example, when data are collected without an experimental design
@@ -385,7 +406,7 @@ We use the python programming language with the Integrated Development Environme
 \begin{thebibliography}{1}
 
 
-\bibitem[Camargo et al.,2012]{Camargo2012} Camargo, A., Molina, J., Cadena-Torres, J., Jim\'enez, N., Kim, J. 2012. Intelligent systems for the assessment of crop disorders. Computers and Electronics in Agriculture(85), 1-7. doi:10.1016/j.compag.2012.02.017.
+\bibitem[Camargo et al.,2012]{Camargo2012} Camargo, A., Molina, J., Cadena-Torres, J., Jiménez, N., Kim, J. 2012. Intelligent systems for the assessment of crop disorders. Computers and Electronics in Agriculture(85), 1-7. doi:10.1016/j.compag.2012.02.017.
 
 \bibitem[Chuang and Jeger, 1987]{ChuangJeger1987} Chuang, T., Jeger, M. 1987. Predicting the Rate of Development of Black Sigatoka ( Mycosphaerella fijiensis var. difformis ) Disease in Southern Taiwan. Phytopathology, 77, 1542-1547.
 
@@ -393,7 +414,7 @@ We use the python programming language with the Integrated Development Environme
 
 \bibitem[Kim et al., 2014]{Kim2014} Kim, Y., Yoo, S., Gu, Y., Lim, J., Han, D.,  Baik, S. 2014. Crop Pests Prediction Method Using Regression and Machine Learning Technology: Survey. IERI Procedia(6), 52–56. doi:10.1016/j.ieri.2014.03.009.
 
-\bibitem[Marin and Romero, 1995]{MarinVargas1995} Marin Vargas, D., Romero Calderón, R. 1995. El combate de la Sigatoka Negra. Bolet\'in Departamento de Investigaciones, Corbana Costa Rica.
+\bibitem[Marin and Romero, 1995]{MarinVargas1995} Marin Vargas, D., Romero Calderón, R. 1995. El combate de la Sigatoka Negra. Boletín Departamento de Investigaciones, Corbana Costa Rica.
 
 
 \bibitem[Marin et al., 2003]{Marinetal2003} Marin, D., Romero, R., Guzman, M, Sutton, T. 2003. Black Sigatoka: An increasing threat to banana cultivation. Plant Disease, 87(3), 208-222.
