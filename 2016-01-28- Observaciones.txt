@@ -1,0 +1,34 @@
+Hola Alex,
+
+un par de detalles.  El kernel es gaussiano, para producir el efecto similar a RBF.  No existe exactamente un kernel RBF.  Creo que eso no es formalmente correcto.
+
+"Period" creo que no es el término correcto en el contexto, pues técnicamente está asociado a patrones repetitivos en el tiempo, tal que 1/periodo = frecuencia, y eso no existe en este escenario.  Creo que "observation range"  tiene más sentido, pero posíblemente existe otro término más adecuado en predicción.
+
+En el gráfico 3 se vé genial cuál es el frente de pareto (sería el borde convexo superior izquierdo, porque tenés un "fitness" y un "cost") .  Ese frente de pareto permite concentrarse en analizar solo algunas configuraciones que tienen sentido, por ser las otras no óptimas bajo un criterio de dominancia de pareto.
+
+Para el gráfico 4 usá barras y no lineas, porque no hay valores interpolados entre los distintos conjuntos de variables, por lo que no tiene sentido unirlos.
+
+Mañana reviso el otro set que me mandaste...
+
+Saludos,
+
+Pablo
+===================================================================
+Hola Alex,
+
+perdoná que durara tanto con este segundo set, pero se me traspapeló...
+
+Las sugerencias del set 1 aplican igual.
+
+El gráfico 1 deberían ser barras, porque no hay valores "entre" los regresores.  No sé por qué no hay ESN con 1 semana.  "Periodo" me sigue sonando muy muy raro...  Puesto que en Machine Learning está todo el asunto de diccionarios y eso está ligado tarde o temprano a Fourier, supongo que por eso tengo tanta alergia en usar "periodo" para algo que no es periódico (je je, el término lo dice...)
+
+El gráfico 2 no lo entendí.  No sé qué es un "patrón", o más bien el número que caracteriza a ese patrón.   Supongo que poniendo qué es eso en la leyenda debería solucionar el problema.  Lástima que faltan algunos datos.  No sé hasta donde sea aceptable eso... o dejar solo los datos que tiene las dos fincas?
+
+En el gráfico 3, yo usaría puntos de dos colores distintos para cada finca.  El frente de pareto es en ese caso un único punto!!  Es decir, aquí no hay contradicción entre R2 y RMSE.
+
+En el gráfico 4 me parece que habría que buscar otra forma de representación que indique directamente lo que querés resaltar.  Aquí el lector es el que tiene que hacer la comparación...
+
+Saludos,
+
+Pablo
+

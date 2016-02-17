@@ -9,6 +9,8 @@
 \usepackage{soul}
 \usepackage{marginnote}
 
+%  \usepackage{epstopdf} 
+%  \usepackage{epsfig}
 
 \journal{Journal of \LaTeX\ Templates}
 
@@ -311,15 +313,15 @@ In this work we use data acquired in two research farms of Corbana in Costa Rica
 \hline
 \bfseries Variable & \bfseries Meaning0'0' \\ 
 \hline\hline 
-$T_{a_max}$ &	Max air temperature \\
-$T_{a_min}$ &	Min air temperature \\
+$T_{a_{max}}$ &	Max air temperature \\
+$T_{a_{min}}$ &	Min air temperature \\
 $\overline{T}_{a}$	 & Mean air temperature \\
-$H$	&  Humidity \\
-$H_min$ &	Min humidity \\
-$H_max$	& Max humidity \\
-$R$	& Solar radiation \\
-$\overline{P}$	& Mean precipitation  \\
-$W_max$	& Max speed wind \\
+$\overline{H}$	&  Mean Humidity \\
+$H_{min}$ &	Min humidity \\
+$H_{max}$	& Max humidity \\
+$\overline{R}$	& Mean Solar radiation \\
+$P$	& Sum precipitation  \\
+$W_{max}$	& Max speed wind \\
 $\overline{W}$	& Mean speed wind  \\
 $L_2$	& Biological warning system – Leaf 2 \\
 $L_3$	& Biological warning system – Leaf 3 \\
@@ -350,7 +352,7 @@ Each feature was scaled to fit in a range between 0 and 1. The variable to be pr
 
 \subsection{Evaluation criteria}
 
-Although there are many types of indicators to assess the quality of the prediction, we selected the determination coefficient $(R^2)$.  
+Although there are many types of indicators to assess the quality of the prediction, we selected the determination coefficient $(R^2)$ and the Root Mean Square Error $(RMSE)$.  
 
 Given $n$ records, let be $y$ the actual value of the series, $\hat{y}$ the predicted value and $\acute{y}$ the mean of the observed data.
 
@@ -363,6 +365,8 @@ $$ S_R^2 = \frac{\sum_{i=1}^{n} {(\hat{y}_i-\bar{y}_i)}^2 }{n}$$
 $$ S_y^2 = S_R^2 + S_e^2$$
 
 $$ R^2 = \frac{S_R^2}{S_y^2}$$
+
+$$ RMSE = \sqrt{\frac{\sum_{i=1}^{n} {(y_i-\hat{y}_i)}^2 }{n}}$$
 	
 This decision is supported by the widespread use in machine learning and agriculture areas \citep{Soares2014}, \citep{Soares2013}, \citep{Ibrahim2014} and \citep{Demir2014}.  
 
@@ -376,12 +380,12 @@ In the phase one, we did ten-fold-cross-validation on a set of  machine learning
 \begin{itemize}
 \item 	Patterns: n by m, where n from 1 to 8 and m from 1 to 2.
 
-\item Methods: support vector regression with the kernels functions: linear, RBF (Gaussian) and sigmoid; echo state networks; ordinary least squares linear regression, ridge regression and elastic-net regression.
+\item Methods: support vector regression with the kernels functions: linear, gaussian and sigmoid; echo state networks; ordinary least squares linear regression, ridge regression and elastic-net regression.
 
 \item Variables included in the model:
 \begin{itemize}
 \item All variables.
-\item from the set $\{ \overline{T}_{a} , H, \overline{P} , \overline{W}  \}$ use the subsets with one, two or four elements. These variables are according to experts the ones having most impact on the disease development \citep{MarinVargas1995}.
+\item From the set $\{ \overline{T}_{a} , \overline{H}, P , \overline{W}  \}$ use the subsets with one, two or four elements. These variables are according to experts the ones having most impact on the disease development \citep{MarinVargas1995}.
 \end{itemize}
 
 \end{itemize}
@@ -398,6 +402,58 @@ This second phase intents to expose how these methods behave on a considerable c
 We use the python programming language with the Integrated Development Environment (IDE) Spyder \citep{Continuum2015}, particularly with the libraries pandas \citep{mckinneypandas2010} and numpy \citep{vanderWalt2011}. For SVR, ridge and ordinary least squares regressions, we used sklearn \citep{scikitlearn2011} and for ESN the python-based code of Dr. $Luko\breve{s} evi \breve{c} ius$ \citep{Lukose2012} on which the necessary were done for adjustments for the experiments of this work. The computer used a processor Intel(R) Core™ i7-4800MQ CPU @ 2.70GHz, 16.0 GB RAM, running Windows 8 Pro.
 
 \section{Results}
+
+In this section we present the main results for phase.
+
+{\bf Phase one } 
+
+\figurename $.$\ref{figura4} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm.
+
+\begin{figure}[h] 
+ \centering
+ \includegraphics[scale=.3]{Phase_one_Best_R2_for_each_algortihm}
+ \caption{Phase one - Best $R^2$ for each algorithm} 
+ \label{figura4} 
+\end{figure}
+
+\figurename $.$\ref{figura5} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm.
+
+\begin{figure}[h] 
+ \centering
+ \includegraphics[scale=.3]{Phase_one_Best_R2_for_each_number_of_observation_range_in_the_patterm}
+ \caption{Phase one - Best $R^2$ for each algorithm} 
+ \label{figura5} 
+\end{figure}
+
+\figurename $.$\ref{figura6} shows the best $R^2$ for each variables combination. Results are group by farm.
+
+\begin{figure}[h] 
+ \centering
+ \includegraphics[scale=.3]{Phase_one_Best_R2_for_variables}
+ \caption{Phase one - Best $R^2$ for each variable combination} 
+ \label{figura6} 
+\end{figure}
+
+\figurename $.$\ref{figura7} shows the pareto frontier with respect to $R^2$ and $RMSE$. Results are group by farm.
+
+\begin{figure}[h] 
+ \centering
+ \includegraphics[scale=.6]{Phase_one_R2_RMSE}
+ \caption{Phase one - Pareto frontier for $R^2$ and $RMSE$} 
+ \label{figura7} 
+\end{figure}
+
+
+{\bf Phase two }
+
+In the second phase, the best configurations obtained in phase one are used to validate with the last 52 and 102 weeks. 
+
+
+
+
+
+
+
 
 \section{Discussion and conclusions}
 
