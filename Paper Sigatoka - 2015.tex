@@ -8,6 +8,7 @@
 
 \usepackage{soul}
 \usepackage{marginnote}
+\usepackage{float}
 
 %  \usepackage{epstopdf} 
 %  \usepackage{epsfig}
@@ -390,7 +391,7 @@ In the phase one, we did ten-fold-cross-validation on a set of  machine learning
 
 \end{itemize}
 
-{\bf Phase two }
+{\bf Phase two }	
 
 In the second phase, the best configurations obtained in phase one are used to validate with the last 52 and 102 weeks. 
 
@@ -409,44 +410,139 @@ In this section we present the main results for phase.
 
 \figurename $.$\ref{figura4} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
  \centering
- \includegraphics[scale=.3]{Phase_one_Best_R2_for_each_algortihm}
+ \includegraphics[scale=.5]{Phase_one_Best_R2_for_each_algortihm}
  \caption{Phase one - Best $R^2$ for each algorithm} 
  \label{figura4} 
 \end{figure}
 
 \figurename $.$\ref{figura5} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
  \centering
- \includegraphics[scale=.3]{Phase_one_Best_R2_for_each_number_of_observation_range_in_the_patterm}
+ \includegraphics[scale=.5]{Phase_one_Best_R2_for_each_number_of_observation_range_in_the_patterm}
  \caption{Phase one - Best $R^2$ for each algorithm} 
  \label{figura5} 
 \end{figure}
 
 \figurename $.$\ref{figura6} shows the best $R^2$ for each variables combination. Results are group by farm.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
  \centering
- \includegraphics[scale=.3]{Phase_one_Best_R2_for_variables}
+ \includegraphics[scale=.5]{Phase_one_Best_R2_for_variables}
  \caption{Phase one - Best $R^2$ for each variable combination} 
  \label{figura6} 
 \end{figure}
 
-\figurename $.$\ref{figura7} shows the pareto frontier with respect to $R^2$ and $RMSE$. Results are group by farm.
+\figurename $.$\ref{figura7} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. 
 
-\begin{figure}[h] 
+\begin{figure}[H] 
  \centering
- \includegraphics[scale=.6]{Phase_one_R2_RMSE}
+ \includegraphics[scale=.8]{Phase_one_R2_RMSE}
  \caption{Phase one - Pareto frontier for $R^2$ and $RMSE$} 
  \label{figura7} 
 \end{figure}
 
+The Pareto frontier for the La Rita farm is composed by 96 elements. The \tablename $.$\ref{tabla2} shows the composition about variables and observation ranges.
+
+\begin{table}[h] 
+\caption{Composition of the Pareto frontier - La Rita - Phase one} 
+\label{tabla2} 
+\centering
+\begin{tabular}{c|c|c|c|c} 
+\hline
+\bfseries Variable & \bfseries Observation range & \bfseries Quantity & \bfseries Max $R^2$ & \bfseries Min $RMSE$\\ 
+\hline\hline 
+Pair $\overline{T}_{a}$ $\overline{W}$ &	1 to 1  & 36 & 64.25\% & 714.51 \\
+ &	2 to 1  & 6 & 62.97\% & 695.10 \\
+\hline 
+All  & 1 to 1  & 18 & 62.98\% & 701.95 \\
+   & 2 to 1  & 12 & 61.76\% & 679.92 \\
+    & 3 to 1  & 6 & 60.60\% & 676.42 \\
+    & 5 to 1  &  2 & 60.37\% & 672.39 \\
+\hline    
+$\overline{T}_{a}$ & 1 to 1  & 12  & 63.60\% & 708.77 \\
+       &	2 to 1  & 4 & 62.23\% & 689.55 \\
+\hline
+\end{tabular} 
+\end{table}
+
+Similarly, the Pareto frontier for the 28 Millas farm is composed by 75 elements. The \tablename $.$\ref{tabla3} shows the composition about variables and observation ranges.
+
+\begin{table}[h] 
+\caption{Composition of the Pareto frontier - 28 Millas - Phase one} 
+\label{tabla3} 
+\centering
+\begin{tabular}{c|c|c|c|c} 
+\hline
+\bfseries Variable & \bfseries Observation range & \bfseries Quantity & \bfseries Max $R^2$ & \bfseries Min $RMSE$\\ 
+\hline\hline 
+Pair $\overline{T}_{a}$ $\overline{W}$ & 1 to 1 & 8 & 57.80\% & 438.09 \\
+\hline 
+All   &	9 to 1 & 2 & 50.93\% & 397.93 \\
+  & 10 to 1	 & 2 & 50.97\% & 398.81 \\
+  &	8 to 1 & 6 & 51.62\% & 398.93 \\
+  &	7 to 1 & 2 & 52.25\% & 400.28 \\
+  &	6 to 1 & 2 & 53.16\% & 404.14 \\
+  &	4 to 1 & 2 & 54.32\% & 407.54 \\
+\hline    
+$\overline{T}_{a}$ & 1 to 1  & 8  & 59.09\% & 439.44 \\
+\hline
+Pair $\overline{T}_{a}$ $\overline{H}$ & 1 to 1	 & 8 & 57.51\% & 428.61 \\
+ &	2 to 1 & 20 & 56.91\% & 414.37 \\
+ &	3 to 1 & 3 & 54.41\% & 411.55 \\
+ &	4 to 1 & 3 & 53.34\% & 406.65 \\
+\hline
+Pair $\overline{T}_{a}$ $P$ & 3 to 1 & 9 & 56.23\% & 422.76 \\
+\hline
+\end{tabular} 
+\end{table}
+
 
 {\bf Phase two }
 
-In the second phase, the best configurations obtained in phase one are used to validate with the last 52 and 102 weeks. 
+In the second phase, the best configurations obtained in phase one were used to validate with the last 50 and 100 weeks. 
+
+
+\figurename $.$\ref{figura8} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm.
+
+\begin{figure}[H] 
+ \centering
+ \includegraphics[scale=.5]{coming}
+ \caption{Phase two - Best $R^2$ for each algorithm} 
+ \label{figura8} 
+\end{figure}
+
+\figurename $.$\ref{figura9} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm.
+
+\begin{figure}[H] 
+ \centering
+ \includegraphics[scale=.5]{coming}
+ \caption{Phase two - Best $R^2$ for each algorithm} 
+ \label{figura9} 
+\end{figure}
+
+\figurename $.$\ref{figura10} shows the best $R^2$ for each variables combination. Results are group by farm.
+
+\begin{figure}[H] 
+ \centering
+ \includegraphics[scale=.5]{coming}
+ \caption{Phase two - Best $R^2$ for each variable combination} 
+ \label{figura10} 
+\end{figure}
+
+\figurename $.$\ref{figura11} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. 
+
+\begin{figure}[H] 
+ \centering
+ \includegraphics[scale=.8]{coming}
+ \caption{Phase two - Pareto frontier for $R^2$ and $RMSE$} 
+ \label{figura11} 
+\end{figure}
+
+
+
 
 
 
