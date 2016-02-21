@@ -30,8 +30,11 @@ tArchivos = [   ["2016-02-16-Sigatoka - La Rita=01= - 55",tTamTotal1, tTamUsar1]
                 ["2016-02-16-Sigatoka - 28 Millas=12= - 105",tTamTotal2, tTamUsar2],
                 ["2016-02-16-Sigatoka - 28 Millas=13= - 55",tTamTotal1, tTamUsar1],
                 ["2016-02-16-Sigatoka - 28 Millas=14= - 105",tTamTotal2, tTamUsar2],
-                ["2016-02-16-Sigatoka - 28 Millas=15= - 55",tTamTotal2, tTamUsar2],
-                ["2016-02-16-Sigatoka - La Rita=16= - 55",tTamTotal2, tTamUsar2],
+                ["2016-02-16-Sigatoka - 28 Millas=15= - 55",tTamTotal1, tTamUsar1],
+                ["2016-02-16-Sigatoka - La Rita=16= - 55",tTamTotal1, tTamUsar1],
+                ["2016-02-16-Sigatoka - 28 Millas=18= - 105",tTamTotal2, tTamUsar2],
+                ["2016-02-16-Sigatoka - La Rita=17= - 105",tTamTotal2, tTamUsar2],
+
                 ["2015-01-27-Sigatoka - 28 Millas - Semanal - Validacion-ESN - 54",54,50],
                 ["2015-01-27-Sigatoka - La Rita - Semanal - Validacion-SVR - 54",54,50],
                 ["2015-01-27-Sigatoka - La Rita - Semanal - Validacion-SVR - 105",105,100],
@@ -50,7 +53,7 @@ tArchivos = [   ["2016-02-16-Sigatoka - La Rita=01= - 55",tTamTotal1, tTamUsar1]
                 ["2015-01-27-Sigatoka - La Rita - Semanal - Validacion-REL - 105",105,100]
         ]
 os.chdir(tDirectorio)
-tArchSalida = "2016-02-19- Resumen - Validacion - semanal - Sigatoka"
+tArchSalida = "2016-02-20- Resumen - Validacion - semanal - Sigatoka"
 
 
 tTempDic = { "tipo": {}, "patron": {}, "algoritmo": {}, "disc_cont": {}, 

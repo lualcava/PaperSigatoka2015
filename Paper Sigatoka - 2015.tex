@@ -422,7 +422,7 @@ In this section we present the main results for phase.
 \begin{figure}[H] 
  \centering
  \includegraphics[scale=.5]{Phase_one_Best_R2_for_each_number_of_observation_range_in_the_patterm}
- \caption{Phase one - Best $R^2$ for each algorithm} 
+ \caption{Phase one - Best $R^2$ for each observation range} 
  \label{figura5} 
 \end{figure}
 
@@ -509,7 +509,7 @@ In the second phase, the best configurations obtained in phase one were used to 
 
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.5]{coming}
+ \includegraphics[scale=.5]{Phase_two_Best_R2_for_each_algortihm}
  \caption{Phase two - Best $R^2$ for each algorithm} 
  \label{figura8} 
 \end{figure}
@@ -518,8 +518,8 @@ In the second phase, the best configurations obtained in phase one were used to 
 
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.5]{coming}
- \caption{Phase two - Best $R^2$ for each algorithm} 
+ \includegraphics[scale=.5]{Phase_two_Best_R2_for_each_number_of_observation_range_in_the_patterm}
+ \caption{Phase two - Best $R^2$ for each observation range} 
  \label{figura9} 
 \end{figure}
 
@@ -527,7 +527,7 @@ In the second phase, the best configurations obtained in phase one were used to 
 
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.5]{coming}
+ \includegraphics[scale=.5]{Phase_one_Best_R2_for_variables}
  \caption{Phase two - Best $R^2$ for each variable combination} 
  \label{figura10} 
 \end{figure}
@@ -536,17 +536,41 @@ In the second phase, the best configurations obtained in phase one were used to 
 
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.8]{coming}
+ \includegraphics[scale=.8]{Phase_two_R2_RMSE}
  \caption{Phase two - Pareto frontier for $R^2$ and $RMSE$} 
  \label{figura11} 
 \end{figure}
 
 
+In phase two, the Pareto frontier for the La Rita farm is composed by 2 elements. The \tablename $.$\ref{tabla4} shows the composition about variables and observation ranges.
 
+\begin{table}[h] 
+\caption{Composition of the Pareto frontier - La Rita - Phase two} 
+\label{tabla4} 
+\centering
+\begin{tabular}{c|c|c|c|c} 
+\hline
+\bfseries Variable & \bfseries Observation range & \bfseries Quantity & \bfseries Max $R^2$ & \bfseries Min $RMSE$\\ 
+\hline\hline 
+All & 1 to 1  & 2 & 69.33\% & 353.33 \\
+\hline
+\end{tabular} 
+\end{table}
 
+In 28 Millas Farm, the Pareto frontier is composed by 1 element. The \tablename $.$\ref{tabla5} details the result.
 
-
-
+\begin{table}[h] 
+\caption{Pareto frontier - 28 Millas - Phase two} 
+\label{tabla5} 
+\centering
+\begin{tabular}{c|c|c|c|c} 
+\hline
+\bfseries Variable & \bfseries Observation range & \bfseries Quantity & \bfseries Max $R^2$ & \bfseries Min $RMSE$\\ 
+\hline\hline 
+Pair $\overline{T}_{a}$ $P$ & 1 to 1 & 1 & 61.36\% & 339.89 \\
+\hline
+\end{tabular} 
+\end{table}
 
 
 

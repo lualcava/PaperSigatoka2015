@@ -124,7 +124,7 @@ def genereUnGrafico(pDatos, pColores, pTipos, pCol, pTipoGraf, pX, pY, pLoc, pNo
 os.chdir("D:\Cambios\Doctorado\CORRIDAS DEL PROGRAMA\Graficacion")
 
 tArchivoEntrada = "2016-02-04-datos para dispersion - Fase 1.csv"
-tArchivoEntrada = "2016-02-15- Datos- Validacion - Fase 2.csv"
+tArchivoEntrada = "2016-02-20- Datos- Validacion - Fase 2.csv"
 gNombreGlobal = "Fase 2"
 tCuantosHead = 55000
 tRMSEMenorQue = 1200
