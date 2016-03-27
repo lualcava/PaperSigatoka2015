@@ -43,7 +43,7 @@
 %\usepackage{numcompress}\bibliographystyle{model6-num-names}
 
 %% `Elsevier LaTeX' style
-%\bibliographystyle{elsarticle-num}
+\bibliographystyle{elsarticle-num}
 
 %% APA style
 % \bibliographystyle{model5-names}\biboptions{authoryear}
@@ -71,15 +71,11 @@
 \author[afiPablo]{Pablo Alvarado-Moya}
 
 \address[afiLuisAlex]{DOCINADE, Instituto Tecnológico de Costa Rica, 
-Computer Research Center, Multidisciplinar program eScience, 
-CNCA/CeNAT, Cartago, Costa Rica}
+Computer Research Center, Multidisciplinar program eScience, Cartago, Costa Rica}
 
 \address[afiCorbana]{Dirección de Investigaciones, Corporación Bananera Nacional S.A., Guápiles, Costa Rica}
 
 \address[afiPablo]{DOCINADE, Instituto Tecnológico de Costa Rica, Cartago, Costa Rica}
-
-
-
 
 \begin{abstract}
 Pending.
@@ -404,7 +400,7 @@ In this section we present the main results for phase.
 
 {\bf Phase one } 
 
-\figurename $.$\ref{figura4} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Though La Rita obtains different results in magnitude than 28 Millas, the trend is similar. In both farms, the best results are for linear models, second position is occupied for Echo State Networks and  SVR with gausian and sigmoid kernel are the worst results. In linear models, to predict one week ahead is better than two weeks ahead, and this is better than three weeks ahead. 
+\figurename $.$\ref{figura4} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Though La Rita obtains different results in magnitude than 28 Millas, the trend is similar. In both farms, the best results are for linear models, second position is occupied for Echo State Networks and  SVR with gausian and sigmoid kernels are the worst results. In linear models, to predict one week ahead is better than two weeks ahead, and this is better than three weeks ahead. 
 
 \begin{figure}[H] 
  \centering
@@ -431,7 +427,7 @@ In this section we present the main results for phase.
  \label{figura6} 
 \end{figure}
 
-\figurename $.$\ref{figura7} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. 
+\figurename $.$\ref{figura7} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. The Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better RMSE than La Rita. 
 
 \begin{figure}[H] 
  \centering
@@ -494,6 +490,8 @@ Pair $\overline{T}_{a}$ $P$ & 3 to 1 & 9 & 56.23\% & 422.76 \\
 \hline
 \end{tabular} 
 \end{table}
+
+We can conclude that the best configuration in both farms is to consider the climate and the evolution stage of the current week to predict the evolution stage of the next week.
 
 
 {\bf Phase two }
