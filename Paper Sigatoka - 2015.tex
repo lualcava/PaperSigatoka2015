@@ -208,11 +208,10 @@ which ignores the error if the difference between the prediction value and the a
 %
 The $\epsilon$-insensitive loss function allows to find the coefficients $w$ and $b$ by solving a convex optimization problem, which balances the empirical error and the generalization ability.
 %
-In SVR, the empirical error is measured by the loss function $\epsilon$-insensitive and the generalization ability is measured by the Euclidean norm of $w$ \citep{XXXX201X}.
+In SVR, the empirical error is measured by the loss function $\epsilon$-insensitive and the generalization ability is measured by the Euclidean norm of $w$ \citep{Cristiani2005}.
 %
 Then, the optimization problem to identify the regression model can be
-formulated by \citep{Wei2013}: \marginnote{Falta completar la cita
-  XXXXX con el libro de SVR}
+formulated by \citep{Wei2013}: 
 
 \begin{equation} 
 \begin{aligned}
@@ -280,7 +279,7 @@ The connections between the different elements of an Echo State Network have wei
 \subsubsection{Related works}
 Huang et al. \citep{Huang2010}  surveyed the development of soft computing techniques in agricultural and biological engineering, including fuzzy logic, artificial neural networks, genetic algorithms, bayesian inference and decision trees.
 
-A related work, proposed by Romero \citep{Romero1995} relies on regression models using a stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (La Rita and Waldeck, the same as those used in this study but with different names). The study used data from: December 1993 to August 1995. Romero concluded that the model to predict the incubation period accounted a $R^2$ of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a $R^2$ of 78\% in the observed data, however, when validated against an independent dataset (cross validation), the model was incorrect \hl{PONER EL VALOR OBTENIDO} for Weldeck, and for Rita obtained an adjusted $R^2$ of 82\%. 
+A related work, proposed by Romero \citep{Romero1995} relies on regression models using a stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (La Rita and Waldeck, the same as those used in this study but with different names). The study used data from: December 1993 to August 1995. Romero concluded that the model to predict the incubation period accounted a $R^2$ of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a $R^2$ of 78\% in the observed data, however, when validated against an independent dataset (cross validation), for La Rita obtained an adjusted $R^2$ of 82\%, and for Weldeck, none of the models satisfactorily predicted the latent period; and then those predictions were not shown \citep{Romero1995}.
 
 Glezakos et al. \citep{Glezakos2010} proposed to use Genetic Algorithms (GA) and Neural Networks (NN) to identify plant virus (Tobacco Rattle Virus (TRV) and the Cucumber Green Mottle Mosaic Virus (CGMMV)). This is achieved by the development of ana- lytical tools of evolutionary adaptive width, propelled by Genetic Algorithms (GAs) and Neural Networks (NNs). The method was tested against some of the most commonly used classifiers in machine learning (Bayes, Trees and k-NN) via cross-validation and proved its potential towards the identification. 
 
@@ -385,14 +384,14 @@ In the phase one, we did ten-fold-cross-validation on a set of  machine learning
 
 {\bf Phase two }	
 
-In the second phase, the best configurations obtained in phase one are used to validate with the last 52 and 102 weeks. 
+In the second phase, the best configurations obtained in phase one are used to validate with the last 50 and 100 weeks. 
 
 This second phase intents to expose how these methods behave on a considerable climate in the years 2014 and 2015.
 \marginnote{Poner una cita que fundamente este ultimo parrafo}
 
 \subsection{Programming environment}
 
-We use the python programming language with the Integrated Development Environment (IDE) Spyder \citep{Continuum2015}, particularly with the libraries pandas \citep{mckinneypandas2010} and numpy \citep{vanderWalt2011}. For SVR, ridge and ordinary least squares regressions, we used sklearn \citep{scikitlearn2011} and for ESN the python-based code of Dr. $Luko\breve{s} evi \breve{c} ius$ \citep{Lukose2012} on which the necessary were done for adjustments for the experiments of this work. The computer used a processor Intel(R) Core™ i7-4800MQ CPU @ 2.70GHz, 16.0 GB RAM, running Windows 8 Pro.
+We use the python programming language with the Integrated Development Environment (IDE) Spyder \citep{Continuum2015}, particularly with the libraries pandas \citep{mckinneypandas2010} and numpy \citep{vanderWalt2011}. For SVR, ridge and ordinary least squares regressions, we used sklearn \citep{scikitlearn2011} and for ESN the python-based code of Dr. $Luko\breve{s} evi \breve{c} ius$ \citep{Lukose2012} on which the necessary were done for adjustments for the experiments of this work. The computer used a processor Intel(R) Core i7-4800MQ CPU 2.70GHz, 16.0 GB RAM, running Windows 8 Pro.
 
 \section{Results and discussion}
 
@@ -427,7 +426,7 @@ In this section we present the main results for phase.
  \label{figura6} 
 \end{figure}
 
-\figurename $.$\ref{figura7} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. The Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better RMSE than La Rita. 
+\figurename $.$\ref{figura7} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. The Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better $RMSE$ than La Rita. This situation arise because $RMSE$ considers errors only with respect the prediction and in 28 Millas the average of Stage of Evolution is $4316.16$, unlike, in La Rita the average is $5507.30$. So, in La Rita we obtains higher errors in absolute values. $R2$ is a relative metric between 0 thru 1 and it is less sensitive to absolute values.
 
 \begin{figure}[H] 
  \centering
@@ -499,7 +498,7 @@ We can conclude that the best configuration in both farms is to consider the cli
 In the second phase, the best configurations obtained in phase one were used to validate with the last 50 and 100 weeks. 
 
 
-\figurename $.$\ref{figura8} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm.
+\figurename $.$\ref{figura8} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Even if linear models continue with good $R^2$, Echo State Networks improve their scores because in $50$ and $100$ last weeks validation, we are in presence of climate change, then the behaviour is less lineal.
 
 \begin{figure}[H] 
  \centering
@@ -508,7 +507,7 @@ In the second phase, the best configurations obtained in phase one were used to 
  \label{figura8} 
 \end{figure}
 
-\figurename $.$\ref{figura9} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm.
+\figurename $.$\ref{figura9} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm. The results confirms that, in general, to predict one week ahead is better than two weeks ahead, two than three and so on, this for both farms.
 
 \begin{figure}[H] 
  \centering
@@ -517,7 +516,7 @@ In the second phase, the best configurations obtained in phase one were used to 
  \label{figura9} 
 \end{figure}
 
-\figurename $.$\ref{figura10} shows the best $R^2$ for each variables combination. Results are group by farm.
+\figurename $.$\ref{figura10} shows the best $R^2$ for each variables combination. Results are group by farm. This results confirm that $\overline{T}_{a}$ and the combination of $\overline{T}_{a}$ with $\overline{W}$, in both farms are the best variables combinations.
 
 \begin{figure}[H] 
  \centering
@@ -526,7 +525,7 @@ In the second phase, the best configurations obtained in phase one were used to 
  \label{figura10} 
 \end{figure}
 
-\figurename $.$\ref{figura11} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. 
+\figurename $.$\ref{figura11} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$.  You can note that the behaviour of $R^2$ and $RMSE$ is similar to the phase one.
 
 \begin{figure}[H] 
  \centering
@@ -566,7 +565,11 @@ Pair $\overline{T}_{a}$ $P$ & 1 to 1 & 1 & 61.36\% & 339.89 \\
 \end{tabular} 
 \end{table}
 
-\section{Conclusions}
+Again, similar to phase one, we can conclude that the best configuration in both farms is to consider the climate and the evolution stage of the current week to predict the evolution stage of the next week, one week to predict one week ahead with combinations of variables listed above.
+
+\section{Acknowledgements}
+
+The authors would like to thank Corbana S.A. for providing the data for this research. 
 
 \section{References}
 
@@ -591,7 +594,7 @@ Pair $\overline{T}_{a}$ $P$ & 1 to 1 & 1 & 61.36\% & 339.89 \\
 
 \bibitem[Wei et al., 2013]{Wei2013} Wei, Z., Tao, T., ZhuoShu, D.,  Zio, E. (2013). A dynamic particle filter-support vector regression method for reliability prediction. Reliability Engineering \& System Safety, 109–116. doi:10.1016/j.ress.2013.05.021.
 
-\bibitem[Libro SVM XXXX, 201X]{XXXX201X} Libro SVM XXXX.
+\bibitem[Cristiani and Shave-Taylor, 2005]{Cristiani2005} Cristiani, Nello and Shave-Taylor, John. An introduction to support vector machines and other kernel-based learning methods. Cambridge University Press. Ninth printing, United Kingdom, 2005.
 
 \bibitem[Alonso et al., 2013]{Alonso2013} Alonso, J., Rodríguez Castañón, Á., Bahamonde, A. (2013). Support Vector Regression to predict carcass weight in beef cattle in advance of the slaughter. Computers and Electronics in Agriculture, 116-120.
 
