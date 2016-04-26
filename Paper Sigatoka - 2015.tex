@@ -1,4 +1,8 @@
-\documentclass[review]{elsarticle}
+\documentclass[review,authoryear,english]{elsarticle}
+
+\usepackage{babel}
+\usepackage{natbib}
+
 \bibliographystyle{elsarticle-harv}
 
 \usepackage{lineno}
@@ -11,48 +15,12 @@
 \usepackage{soul}
 \usepackage{marginnote}
 \usepackage{float}
-\usepackage{natbib}
 \usepackage{hyperref}
 
 %  \usepackage{epstopdf} 
 %  \usepackage{epsfig}
 
 \journal{Journal of \LaTeX\ Templates}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%
-%% Elsevier bibliography styles
-%%%%%%%%%%%%%%%%%%%%%%%
-%% To change the style, put a % in front of the second line of the current style and
-%% remove the % from the second line of the style you would like to use.
-%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Numbered
-%\bibliographystyle{model1-num-names}
-
-%% Numbered without titles
-%\bibliographystyle{model1a-num-names}
-
-%% Harvard
-%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
-
-%% Vancouver numbered
-%\usepackage{numcompress}\bibliographystyle{model3-num-names}
-
-%% Vancouver name/year
-%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
-
-
-%% AMA style
-%\usepackage{numcompress}\bibliographystyle{model6-num-names}
-
-%% `Elsevier LaTeX' style
-\bibliographystyle{elsarticle-num}
-
-%% APA style
-% \bibliographystyle{model5-names}\biboptions{authoryear}
-
-%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{subcaption}
 
@@ -259,7 +227,7 @@ $$\min_{w} { \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \alpha \Bigr| \Bigr| w \B
 Here, $\alpha \ \textgreater \  0$ is a complexity parameter that controls the amount of shrinkage: the larger the value of $\alpha$, the greater the amount of shrinkage and thus the coefficients become more robust to collinearity.
 
 \subsubsection{Elastic-Net regression}
-Elastic-Net is a linear regression model trained with $L1$ and $L2$ prior as regularizer. This combination allows for learning a sparse model where few of the weights are non-zero like Lasso, while still maintaining the regularization properties of Ridge  \citep{scikitlearn2011}. The convex combination of $L1$ and $L2$ is controled by using the $l1_ratio$ parameter.
+Elastic-Net is a linear regression model trained with $L1$ and $L2$ prior as regularizer. This combination allows for learning a sparse model where few of the weights are non-zero like Lasso, while still maintaining the regularization properties of Ridge  \citep{scikitlearn2011}. The convex combination of $L1$ and $L2$ is controled by using the $l1_{ratio}$ parameter.
 
 Elastic-Net is useful when there are multiple features which are correlated with one another. Lasso is likely to pick one of these at random, while elastic-net is likely to pick both.
 A practical advantage of trading-off between Lasso and Ridge is it allows Elastic-Net to inherit some of Ridge’s stability under rotation. The objective function to minimize is \citep{scikitlearn2011}:
