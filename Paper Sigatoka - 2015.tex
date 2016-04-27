@@ -15,7 +15,9 @@
 \usepackage{soul}
 \usepackage{marginnote}
 \usepackage{float}
-\usepackage{hyperref}
+
+\usepackage[hidelinks]{hyperref}
+
 
 %  \usepackage{epstopdf} 
 %  \usepackage{epsfig}
@@ -64,8 +66,6 @@ Banana disease prediction \sep Biological warning system
 
 \section{Introduction}
 
-\marginnote{La bibliografia debe ser autor, año}
-
 The black Sigatoka disease caused by the fungus \emph{Mycosphaerella
   fijiensis Morelet} is the major pathological problem of banana and
 plantain crops in Central America, Panama, Colombia and Ecuador, as well as in
@@ -73,18 +73,14 @@ many parts of Africa and Asia \citep{MarinVargas1995}.
 
 This disease attacks the plant leaves producing a rapid deterioration
 of the leaf area, affects the growth and productivity of the plants
-due to the impairment of their photosinthetic ability, causes a
+due to the impairment of the photosynthetic process, causes a
 reduction in the quality of the fruit, and promotes premature
-maturation \marginnote{maturation or ripening?} of bunches, which is
+ripening of bunches, which is
 the major cause of product losses associated with the black
 Sigatoka. \figurename~\ref{fig:diseasestages} shows three stages of
 this disease.
-
-Phytopathological studies point out that precipitation, temperature,
-relative humidity and wind are the main climatic variables that affect
-its development \citep{MarinVargas1995}.
- 	 
-\begin{figure}[h] 
+	 
+\begin{figure}[ht] 
 \centering
 \begin{tabular}{c@{\;}c@{\;}c}
   \includegraphics[width=.32\linewidth]{Roya_a} &
@@ -96,25 +92,30 @@ its development \citep{MarinVargas1995}.
 \label{fig:diseasestages} 
 \end{figure}
 
-In Costa Rica the control of black Sigatoka makes use of chemical fungicides.
+Phytopathological studies point out that precipitation, temperature,
+relative humidity and wind are the main climatic variables that affect
+the development of this disease \citep{MarinVargas1995}.
+
+In Costa Rica the black Sigatoka is frequently treated with
+chemical fungicides.
 %
-Depending on the zone of production and the weather conditions, 45--55
-cycles/year of fungicide applications are required to keep this
-disease under control and to produce the fruit quality expected in the
+Depending on the zone of production and the weather conditions,
+45--55~cycles/year of fungicide applications are required to keep this
+disease under control and to produce the expected fruit quality for the
 international markets.
 %
 This represent a cost per hectare per year in the range between US\$1600 and
 US\$2000; about 0.64--0.80 cents of the production costs for a
 18.14\,kg box.
 %
-Overall, this represents 10\%--12\% of the total production cost.
+Overall, this represents 10\%--12\% of the total production costs.
 
 The past and present rates of disease development can in principle be used
 to predict its future behavior and to determine whether
 a particular fungicide spray program will be able to effectively and
-economically control the disease \citet{ChuangJeger1987}.
+economically control the disease \citep{ChuangJeger1987}.
 
-There are efforts to apply machine learning methods for
+There are efforts to apply machine learning methods to support
 decision-making in agriculture, including the control of crop
 diseases. For example, \cite{Camargo2012} present an intelligent
 system for the assessment of crop disorders, \cite{Huang2010}
@@ -125,14 +126,16 @@ machine learning approaches, while \cite{Zhao2013} present an
 intelligent agricultural forecasting system based on wireless sensor
 networks.
 
-In this work, we compare five machine learning techniques (support
+In this work, we compare five machine learning techniques 
+to predict the development rate of the black Sigatoka disease:
+support
 vector regression (SVR), echo state networks (ESN), ridge regression,
-elastic-net regression and ordinary least squares linear regression)
-to predict the development rate of the black Sigatoka disease.
+elastic-net regression and ordinary least squares linear regression.
 
 The main contribution of this work is a comparison between machine
 learning methods to forecast black Sigatoka development rate. 
 \marginnote{FALTA COMPLETAR esta parte}
+
 
 
 \section{Materials and methods}
