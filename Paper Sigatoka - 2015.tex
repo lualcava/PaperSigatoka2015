@@ -15,7 +15,22 @@
 \usepackage{soul}
 \usepackage{marginnote}
 \usepackage{float}
-\usepackage{hyperref}
+
+\usepackage{color}
+\definecolor{dkred}{rgb}{0.5,0,0}       %   dark red
+\definecolor{todocolor}{rgb}{1.0,0.8,0.5}
+
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\todohdr}{Please review:}
+\newcommand{\TODO}[2][\todohdr]{%
+\smallbreak\noindent\colorbox{todocolor}{%
+\begin{minipage}{1\linewidth}
+\textbf{#1}\par{\footnotesize{#2}}
+\end{minipage}}}
+
+\newcommand{\instead}[2]{\textcolor{dkred}{\st{#1}}#2}
+
 
 %  \usepackage{epstopdf} 
 %  \usepackage{epsfig}
@@ -28,18 +43,16 @@
 
 \begin{frontmatter}
 
-\title{Forecasting the black Sigatoka development rate:\\ A comparison of machine learning techniques 
-%\tnoteref{mytitlenote}
-}
-%\tnotetext[mytitlenote]{Fully documented templates are %available in the elsarticle package on \href{http://%www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}%{CTAN}.}
+\title{Forecasting the black Sigatoka development rate:\\ 
+A comparison of machine learning techniques}
 
 %% Group authors per affiliation:
 \author[afiLuisAlex]{Luis-Alexander Calvo-Valverde\fnref{myfootnote}}
 \ead{lualcava.sa@gmail.com}
 \fntext[myfootnote]{Corresponding author. (506)70104420}
 
-\author[afiCorbana] {Mauricio Guzmán-Quesada}
-\author[afiCorbana]{José-Antonio Guzmán-Alvarez}
+\author[afiCorbana]{Mauricio Guzmán-Quesada}
+\author[afiCorbana]{José-Antonio~Guzmán-Alvarez}
 \author[afiPablo]{Pablo Alvarado-Moya}
 
 \address[afiLuisAlex]{DOCINADE, Instituto Tecnológico de Costa Rica, 
@@ -64,8 +77,6 @@ Banana disease prediction \sep Biological warning system
 
 \section{Introduction}
 
-\marginnote{La bibliografia debe ser autor, año}
-
 The black Sigatoka disease caused by the fungus \emph{Mycosphaerella
   fijiensis Morelet} is the major pathological problem of banana and
 plantain crops in Central America, Panama, Colombia and Ecuador, as well as in
@@ -73,18 +84,14 @@ many parts of Africa and Asia \citep{MarinVargas1995}.
 
 This disease attacks the plant leaves producing a rapid deterioration
 of the leaf area, affects the growth and productivity of the plants
-due to the impairment of their photosinthetic ability, causes a
+due to the impairment of the photosynthetic process, causes a
 reduction in the quality of the fruit, and promotes premature
 ripening of bunches, which is
 the major cause of product losses associated with the black
 Sigatoka. \figurename~\ref{fig:diseasestages} shows three stages of
 this disease.
-
-Phytopathological studies point out that precipitation, temperature,
-relative humidity and wind are the main climatic variables that affect
-its development \citep{MarinVargas1995}.
- 	 
-\begin{figure}[h] 
+	 
+\begin{figure}[ht] 
 \centering
 \begin{tabular}{c@{\;}c@{\;}c}
   \includegraphics[width=.32\linewidth]{Roya_a} &
@@ -92,29 +99,35 @@ its development \citep{MarinVargas1995}.
   \includegraphics[width=.32\linewidth]{Roya_c} \\
   (a) & (b) & (c) 
 \end{tabular}
-\caption{Examples of three disease stages of the black Sigatoka. (a)~Initial stage. (b)~Intermediate stage, and (c)~Advanced stage.} 
+\caption{Examples of three disease stages of the black Sigatoka. 
+(a)~Initial stage. (b)~Intermediate stage, and (c)~Advanced stage.} 
 \label{fig:diseasestages} 
 \end{figure}
 
-In Costa Rica the control of black Sigatoka makes use of chemical fungicides.
+Phytopathological studies point out that precipitation, temperature,
+relative humidity and wind are the main climatic variables that affect
+the development of this disease \citep{MarinVargas1995}.
+
+In Costa Rica the black Sigatoka is frequently treated with
+chemical fungicides.
 %
-Depending on the zone of production and the weather conditions, 45--55
-cycles/year of fungicide applications are required to keep this
-disease under control and to produce the fruit quality expected in the
+Depending on the zone of production and the weather conditions,
+45--55~cycles/year of fungicide applications are required to keep this
+disease under control and to produce the expected fruit quality for the
 international markets.
 %
 This represent a cost per hectare per year in the range between US\$1600 and
 US\$2000; about 0.64--0.80 cents of the production costs for a
 18.14\,kg box.
 %
-Overall, this represents 10\%--12\% of the total production cost.
+Overall, this represents 10\%--12\% of the total production costs.
 
 The past and present rates of disease development can in principle be used
 to predict its future behavior and to determine whether
 a particular fungicide spray program will be able to effectively and
-economically control the disease \citet{ChuangJeger1987}.
+economically control the disease \citep{ChuangJeger1987}.
 
-There are efforts to apply machine learning methods for
+There are efforts to apply machine learning methods to support
 decision-making in agriculture, including the control of crop
 diseases. For example, \cite{Camargo2012} present an intelligent
 system for the assessment of crop disorders, \cite{Huang2010}
@@ -125,14 +138,16 @@ machine learning approaches, while \cite{Zhao2013} present an
 intelligent agricultural forecasting system based on wireless sensor
 networks.
 
-In this work, we compare five machine learning techniques (support
+In this work, we compare five machine learning techniques 
+to predict the development rate of the black Sigatoka disease:
+support
 vector regression (SVR), echo state networks (ESN), ridge regression,
-elastic-net regression and ordinary least squares linear regression)
-to predict the development rate of the black Sigatoka disease.
+elastic-net regression and ordinary least squares linear regression.
 
 The main contribution of this work is a comparison between machine
 learning methods to forecast black Sigatoka development rate. 
 \marginnote{FALTA COMPLETAR esta parte}
+
 
 
 \section{Materials and methods}
@@ -141,25 +156,73 @@ learning methods to forecast black Sigatoka development rate.
 
 \subsubsection{Black Sigatoka disease}
 
-Black Sigatoka, disease caused by the fungus Mycosphaerella fijiensis
-Morelet, is the main problem phytopathologic of banana and plantain
-crops in Central America \citep{MarinVargas1995}.
+The black Sigatoka is a disease caused by the fungus
+\emph{Mycosphaerella fijiensis Morelet}.  It is the main
+phytopathologic problem of banana and plantain crops in Central
+America \citep{MarinVargas1995}.
+%
+This disease attacks the plant leaves producing a rapid deterioration
+of the leaf area. It affects the growth and productivity of the
+affected plant by impairing its photosynthetic capacity, which
+consequently causes a reduction in quality of the fruit
+\citep{MarinVargas1995}.
 
-This disease attacks the leaves of plants producing a rapid deterioration of the leaf area. It affects the growth and productivity of plants by decreasing photosynthetic capacity. Also causes a reduction in quality of the fruit \citep{MarinVargas1995}. 
-
-The climate has a major effect on the behavior of the black Sigatoka. Precipitation, temperature, relative humidity and wind are the main climatic variables affecting the development of this disease \citep{MarinVargas1995}.
+The climate has a major effect on the development of the black
+Sigatoka.  Precipitation, temperature, relative humidity and wind are
+the main climatic variables affecting the development of this disease
+\citep{MarinVargas1995}.
 
 \subsubsection{Biological warning system}
 
-The early warning system for black Sigatoka is an adaptation of the yellow Sigatoka warning system developed by Ganry and Meyer and modified by Ganry and Laville to use for controlling yellow Sigatoka in Cameroon. Ternesien and Fouré  later improved Ganry and Laville's system.
+
+\TODO{Revisar si la nueva redacción de este párrafo coincide con la
+  original.  Eso es lo que creo se quería decir, porque no quedaba
+  claro cuál sistema fue creado por quién...  Las referencias a cada
+  sistema en algo así son absolutamente necesarias.  Favor reemplazar
+  \citep{XXX} por las referencias correspondientes (Pablo, 1/5/16)}
+
+The early warning system developed by Ganry and Meyer \citep{XXX} for
+the control of the yellow Sigatoka in Cameroon was adapted by Ganry
+and Meyer \citep{XXX} for the black Sigatoka. 
 %
-The latter system is based on weekly observations of disease symtoms on young leaves of the plant, according to Fourés symptom (stages) descriptions. Arbitrary coefficientes, based on incidence and severity of disease development, are used to calculate two variables: gross sum and state of evolution.
+%The early warning system for black Sigatoka \citep{XXX} is an
+%adaptation of the yellow Sigatoka warning system developed by Ganry
+%and Meyer \citep{XXX}.  It was modified by Ganry and Laville
+%\citep{XXX} for its ito use for controlling yellow Sigatoka in
+%Cameroon.
+Ternesien and Fouré \citep{XXX} later improved Ganry and Laville's system.
+
+The latter system is based on weekly quantified observations of
+the disease progression on young leaves of the plant, according to
+Fouré's scale of the symptom stages.
 %
-Gross sum is based on the stage present and an arbitrary coefficient, which increases with the advance of the symptoms and the juvenility of the leaf. The state of evolution is calculated using the gross sum and the foliar emission period.
+The numeric coefficients describe the degree of incidence and the
+severity of the disease development.  These coefficients are used to
+calculate two variables: gross sum and state of evolution.
+\TODO{coefficients??  No suena como coeficientes (un factor que
+  multiplica términos en una función) sino como una calificación o
+  nota o algo así (quizá ``grade''?).  ``Arbitrary coefficient'' no
+  tiene sentido por el ``arbitrary''... No creo que sean tan
+  arbitrarios sino predefinidos.  De hecho, el párrafo que sigue dice
+  que suben con el avance de síntomas, es decir, no es tan
+  ``arbitrario''.  Quizá querés decir ``arbitrarily chosen''?.  No
+  estoy seguro si entiendo lo que se quiere decir aquí.}
+
+The gross sum is based on the present disease progression stage and 
+\instead{an arbitrary coefficients}{the arbitrarily chosen grading},
+which increases with the advance of the symptoms and the
+juvenility of the leaf.
 %
-Although threshold levels were initially suggested as a guide to spray timing, the fluctuation of these two variables was found to better define appropiate times to spray \citep{Marinetal2003}.
+The state of evolution is calculated using the gross sum and the
+foliar emission period.
+%
+Although threshold levels were initially suggested as a guide to spray
+\instead{timing}{schedules}, the fluctuation of these two variables
+was found to better define appropiate times to spray
+\citep{Marinetal2003}.
 
 \subsubsection{Support Vector Regression (SVR)}
+
 From the perspective of Support Vector Regression (SVR) the regression function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ , is represented as a linear function of the form \citep{Wei2013}:
 $$f(s)=w^Ts+b$$
 where $w$ and $b$ are respectively the weight vector and the intercept of the model, and they are selected to find an optimal fit to the data available in $D$.
