@@ -143,12 +143,12 @@ to predict the development rate of the black Sigatoka disease:
 support
 vector regression (SVR), echo state networks (ESN), ridge regression,
 elastic-net regression and ordinary least squares linear regression.
-
+%
 The main contribution of this work is a comparison between machine
 learning methods to forecast black Sigatoka development rate. 
 \marginnote{FALTA COMPLETAR esta parte}
 
-
+The outline of the paper is as follows. In Section 2, we present materials and methods of our research. In Section 3, we present the main results and their discussion. Our conclusions and future work are presented in Section 4.
 
 \section{Materials and methods}
 
@@ -175,22 +175,13 @@ the main climatic variables affecting the development of this disease
 \subsubsection{Biological warning system}
 
 
-\TODO{Revisar si la nueva redacción de este párrafo coincide con la
+\TODO{ LISTO  Revisar si la nueva redacción de este párrafo coincide con la
   original.  Eso es lo que creo se quería decir, porque no quedaba
   claro cuál sistema fue creado por quién...  Las referencias a cada
   sistema en algo así son absolutamente necesarias.  Favor reemplazar
-  \citep{XXX} por las referencias correspondientes (Pablo, 1/5/16)}
+  {XXX} por las referencias correspondientes (Pablo, 1/5/16)}
 
-The early warning system developed by Ganry and Meyer \citep{XXX} for
-the control of the yellow Sigatoka in Cameroon was adapted by Ganry
-and Meyer \citep{XXX} for the black Sigatoka. 
-%
-%The early warning system for black Sigatoka \citep{XXX} is an
-%adaptation of the yellow Sigatoka warning system developed by Ganry
-%and Meyer \citep{XXX}.  It was modified by Ganry and Laville
-%\citep{XXX} for its ito use for controlling yellow Sigatoka in
-%Cameroon.
-Ternesien and Fouré \citep{XXX} later improved Ganry and Laville's system.
+The early warning system developed by Ganry and Meyer \citep{ganry1972} and modified by Ganry and Laville \citep{ganry1983} to use for controlling yellow Sigatoka in Cameroon, later was adapted for Ternesien \citep{Ternesien1985} and Fouré \citep{foure1988} for the black Sigatoka. 
 
 The latter system is based on weekly quantified observations of
 the disease progression on young leaves of the plant, according to
@@ -199,7 +190,9 @@ Fouré's scale of the symptom stages.
 The numeric coefficients describe the degree of incidence and the
 severity of the disease development.  These coefficients are used to
 calculate two variables: gross sum and state of evolution.
-\TODO{coefficients??  No suena como coeficientes (un factor que
+
+\TODO{ EN REALIDAD ASÍ ES USADO EN EL TEXTO FUENTE
+coefficients??  No suena como coeficientes (un factor que
   multiplica términos en una función) sino como una calificación o
   nota o algo así (quizá ``grade''?).  ``Arbitrary coefficient'' no
   tiene sentido por el ``arbitrary''... No creo que sean tan
@@ -601,6 +594,8 @@ Pair $\overline{T}_{a}$ $P$ & 1 to 1 & 1 & 61.36\% & 339.89 \\
 \end{table}
 
 Again, similar to phase one, we can conclude that the best configuration in both farms is to consider the climate and the evolution stage of the current week to predict the evolution stage of the next week, one week to predict one week ahead with combinations of variables listed above.
+
+\section{Future work}
 
 \section{Acknowledgements}
 
