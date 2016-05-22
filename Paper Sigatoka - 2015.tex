@@ -113,39 +113,29 @@ Sigatoka.  Precipitation, temperature, relative humidity and wind are
 the main climatic variables affecting the development of this disease
 \citep{MarinVargas1995}.
 
-\TODO{ CORREGIDO (LUIS-ALEX)
-revisar si la nueva redacción de este párrafo coincide con la
-  original.  Eso es lo que creo se quería decir, porque no quedaba
-  claro cuál sistema fue creado por quién...  Las referencias a cada
-  sistema en algo así son absolutamente necesarias.  Favor reemplazar
-   por las referencias correspondientes (Pablo, 1/5/16)}
+The early warning system developed by Ganry and Meyer
+\citep{ganry1972} and modified by Ganry and Laville \citep{ganry1983}
+to control yellow Sigatoka in Cameroon, was later adapted by
+Ternesien \citep{Ternesien1985} and Fouré \citep{foure1988} for the
+black Sigatoka.
 
-The early warning system developed by Ganry and Meyer \citep{ganry1972} and modified by Ganry and Laville \citep{ganry1983} to use for controlling yellow Sigatoka in Cameroon, later was adapted for Ternesien \citep{Ternesien1985} and Fouré \citep{foure1988} for the black Sigatoka.  
-
-This bilogical warning system is based on weekly quantified observations of the disease progression on young leaves of the plant, according to
-Fouré's scale of the symptom stages. The numeric coefficients describe the degree of incidence and the severity of the disease development.  These coefficients are used to
+This bilogical warning system is based on weekly quantified
+observations of the disease progression on young leaves of the plant,
+according to Fouré's scale of the symptom stages.
+%
+The numeric coefficients describe the degree of incidence and the
+severity of the disease development.  These coefficients are used to
 calculate two variables: gross sum and state of evolution.
 
-\TODO{ EN REALIDAD ASÍ ES USADO EN EL TEXTO FUENTE EN INGLÉS (LUIS ALEX)
-coefficients??  No suena como coeficientes (un factor que
-  multiplica términos en una función) sino como una calificación o
-  nota o algo así (quizá ``grade''?).  ``Arbitrary coefficient'' no
-  tiene sentido por el ``arbitrary''... No creo que sean tan
-  arbitrarios sino predefinidos.  De hecho, el párrafo que sigue dice
-  que suben con el avance de síntomas, es decir, no es tan
-  ``arbitrario''.  Quizá querés decir ``arbitrarily chosen''?.  No
-  estoy seguro si entiendo lo que se quiere decir aquí.}
-
-The gross sum is based on the present disease progression stage and 
-\instead{an arbitrary coefficients}{the arbitrarily chosen grading},
-which increases with the advance of the symptoms and the
-juvenility of the leaf.
+The gross sum is based on the present disease progression stage and
+the numeric coefficients, which increases with the progression of
+the symptoms and the juvenility of the leaf.
 %
 The state of evolution is calculated using the gross sum and the
 foliar emission period.
 %
 Although threshold levels were initially suggested as a guide to spray
-\instead{timing}{schedules}, the fluctuation of these two variables
+schedules, the fluctuation of these two variables
 was found to better define appropiate times to spray
 \citep{Marinetal2003}.
 
@@ -157,7 +147,7 @@ Depending on the zone of production and the weather conditions,
 disease under control and to produce the expected fruit quality for the
 international markets.
 %
-This represent a cost per hectare per year in the range between US\$1600 and
+This represents a cost per hectare per year in the range between US\$1600 and
 US\$2000; about 0.64--0.80 cents of the production costs for a
 18.14\,kg box.
 %
@@ -166,7 +156,7 @@ Overall, this represents 10\%--12\% of the total production costs.
 The past and present rates of disease development can in principle be used
 to predict its future behavior and to determine whether
 a particular fungicide spray program will be able to effectively and
-economically control the disease \citep{ChuangJeger1987}.
+economically control the disease \citep{ChuangJeger1987} or not.
 
 There are efforts to apply machine learning methods to support
 decision-making in agriculture, including the control of crop
@@ -185,11 +175,20 @@ support
 vector regression (SVR), echo state networks (ESN), ridge regression,
 elastic-net regression and ordinary least squares linear regression.
 %
-The main contribution of this work is the selection of the best machine learning technique to forecast the black Sigatoka development rate according to the metric indicated below. 
+The main contribution of this work is the selection of the best
+machine learning technique to forecast the black Sigatoka development
+rate according to the metric indicated below.
 
-The outline of the paper is as follows. In Section 2, we introduce the machine learning techniques used in this research and the main related works. In section 3, we present the data used and the methodology for the study results. In section 4, we present the results and their discussion. Our conclusions and future work are presented in Section 5.
+The outline of the paper is as follows: in Section~\ref{sec:techs}, we
+introduce the machine learning techniques used in this research and
+the main related works. Section~\ref{sec:data} summarizes the data the
+methodology used in this study.  The results and their discussion are
+presented in section~\ref{sec:results}.  We present the main
+conclusions and lines for future works in Section~\ref{sec:concl}.
 
 \section{Machine learning techniques and Related works}
+\label{sec:techs}
+
 In this section we summary the machine learning techniques used and we present the main related works.
 
 \subsection{Support Vector Regression (SVR)}
@@ -304,6 +303,8 @@ Also there are works related to banana fruit. Soares et al. \citep{Soares2014} a
 In general, the machine learning methods applied to predict the evolution of plant diseases, can be classified in two main approaches: 1) Those whose main inputs are images, and 2) Those whose main inputs are environmental and biological variables. Our study focuses in the second case.
 
 \section{Specification of data and methodology}
+\label{sec:data}
+
 In this section, we present the data and how we worked to obtain our results.
 
 \subsection{Data}
@@ -403,6 +404,7 @@ In the phase one, we did ten-fold-cross-validation on a set of  machine learning
 In the second phase, the best configurations obtained in phase one are used to validate with the last 50 and 100 weeks. 
 
 \section{Results and discussion}
+\label{sec:results}
 
 In this section we present the main results for phase and their discussion.
 
@@ -576,7 +578,10 @@ Pair $\overline{T}_{a}$ $P$ & 1 to 1 & 1 & 61.36\% & 339.89 \\
 
 Again, similar to phase one, we can conclude that the best configuration in both farms is to consider the climate and the evolution stage of the current week to predict the evolution stage of the next week, one week to predict one week ahead with combinations of variables listed above.
 
-\section{Future work}
+\section{Conclusions}
+\label{sec:concl}
+
+\subsection{Future work}
 
 \section{Acknowledgements}
 
