@@ -13,3 +13,8 @@ git push
 
 git pull
 
+
+
+git commit -a -m "mensaje"
+git push
+
