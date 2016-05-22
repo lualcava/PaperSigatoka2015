@@ -30,12 +30,12 @@
 \end{minipage}}}
 
 \newcommand{\instead}[2]{\textcolor{dkred}{\st{#1}}#2}
-
+\newcommand{\figref}[1]{\figurename~\ref{#1}}
 
 %  \usepackage{epstopdf} 
 %  \usepackage{epsfig}
 
-\journal{Journal of \LaTeX\ Templates}
+\journal{Computers and Electronics in Agriculture}
 
 \usepackage{subcaption}
 
@@ -88,7 +88,7 @@ due to the impairment of the photosynthetic process, causes a
 reduction in the quality of the fruit, and promotes premature
 ripening of bunches, which is
 the major cause of product losses associated with the black
-Sigatoka. \figurename~\ref{fig:diseasestages} shows three stages of
+Sigatoka. \figref{fig:diseasestages} shows three stages of
 this disease.
 	 
 \begin{figure}[ht] 
@@ -123,12 +123,12 @@ This bilogical warning system is based on weekly quantified
 observations of the disease progression on young leaves of the plant,
 according to Fouré's scale of the symptom stages.
 %
-The numeric coefficients describe the degree of incidence and the
-severity of the disease development.  These coefficients are used to
-calculate two variables: gross sum and state of evolution.
+Numeric coefficients are used to describe the degree of incidence and
+the severity of the disease development.  These coefficients are used
+to calculate two variables: gross sum and state of evolution.
 
 The gross sum is based on the present disease progression stage and
-the numeric coefficients, which increases with the progression of
+the numeric coefficients, which increase with the progression of
 the symptoms and the juvenility of the leaf.
 %
 The state of evolution is calculated using the gross sum and the
@@ -138,6 +138,9 @@ Although threshold levels were initially suggested as a guide to spray
 schedules, the fluctuation of these two variables
 was found to better define appropiate times to spray
 \citep{Marinetal2003}.
+
+\TODO{No queda claro threshold levels sobre qué variables!?  Tampoco
+  queda claro que quiere decir 'fluctuation' como medida de decisión }
 
 In Costa Rica the black Sigatoka is frequently treated with
 chemical fungicides.
@@ -169,39 +172,69 @@ machine learning approaches, while \cite{Zhao2013} present an
 intelligent agricultural forecasting system based on wireless sensor
 networks.
 
-In this work, we compare five machine learning techniques 
-to predict the development rate of the black Sigatoka disease:
-support
-vector regression (SVR), echo state networks (ESN), ridge regression,
+In this work, we compare five machine learning techniques to predict
+the development rate of the black Sigatoka disease: support vector
+regression (SVR), echo state networks (ESN), ridge regression,
 elastic-net regression and ordinary least squares linear regression.
 %
 The main contribution of this work is the selection of the best
 machine learning technique to forecast the black Sigatoka development
 rate according to the metric indicated below.
 
-The outline of the paper is as follows: in Section~\ref{sec:techs}, we
-introduce the machine learning techniques used in this research and
-the main related works. Section~\ref{sec:data} summarizes the data the
-methodology used in this study.  The results and their discussion are
-presented in section~\ref{sec:results}.  We present the main
-conclusions and lines for future works in Section~\ref{sec:concl}.
+\TODO{Definitivamente ese no es el aporte principal del artículo.
+  Cuando esté listo el resto hay que volver aquí.  Creo que va a ser
+  algo como mostrar la relevancia de la etapa de preprocesamiento, o
+  mostrar que a pesar de ser sistemas complejos, con variables
+  caóticas, lo mejor en este caso son predictores lineales, o algo por
+  el estilo.}
+
+The outline of the paper is as follows: Section~\ref{sec:techs}
+summarizes the machine learning techniques used in this research and
+presents the main related works. In Section~\ref{sec:data} we present
+the methodology used in this study and describe data used for its
+verification.  The results and their discussion are presented in
+section~\ref{sec:results}.  The Section~\ref{sec:concl} concludes this
+article and presents lines for future works.
 
 \section{Machine learning techniques and Related works}
 \label{sec:techs}
 
-In this section we summary the machine learning techniques used and we present the main related works.
+In this section we summarize the machine learning techniques used and we present the main related works.
 
 \subsection{Support Vector Regression (SVR)}
 
-From the perspective of Support Vector Regression (SVR) the regression function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ , is represented as a linear function of the form \citep{Wei2013}:
-$$f(s)=w^Ts+b$$
-where $w$ and $b$ are respectively the weight vector and the intercept of the model, and they are selected to find an optimal fit to the data available in $D$.
+\TODO{Estoy seguro que los lectores van a solicitar reducir esto y
+  dejar solo la referencia.  No hay nada nuevo en el resto del paper
+  que requiera toda esta información, así que hay que resumirlo a nada
+  más lo esencial. }
 
-For nonlinear cases, one proceeds by mapping the input p-dimensional vectors via a nonlinear function $\phi : R^p\rightarrow F$, onto the feature space $F$.  After nonlinear mapping, the regression function evolves to a pervasive form:
 
-$$f(s)=w^T \phi (s)+b$$
+From the perspective of Support Vector Regression (SVR) the regression
+function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ is
+represented as a linear function of the form \citep{Wei2013}:
+\begin{equation*}
+  f(s)=w^Ts+b
+\end{equation*}
+where $w$ and $b$ are respectively the weight vector and the intercept
+of the model, and they are selected to find an optimal fit to the data
+available in $D$ in the sense of ...?
+\TODO{optimal respecto a qué?.  Hay muchísimas posibilidades de optimalidad!}
 
-SVR uses the $\epsilon$-insensitive loss function:
+For nonlinear cases, the $p$-dimensional input vectors are mapped by a
+nonlinear function $\phi : R^p\rightarrow F$ onto a feature space
+$F$.  After the nonlinear mapping, the regression function evolves to a
+pervasive form:
+\begin{equation*}
+f(s)=w^T \phi (s)+b
+\end{equation*}
+
+In SVR the generalization ability is measured by the Euclidean norm of
+$w$, and the empirical error is measured by the $\epsilon$-insensitive
+loss function, given by \citep{Cristiani2005}
+
+\TODO{si $l$ es una función, es función de qué, de $s$? $l(s)$? o de
+  $y$? o de todos $l(y,s;\epsilon)$?}
+
 \begin{equation*}
 l= {\left| y - f(s) \right| }_{\epsilon } = 
 \begin{cases}
@@ -209,15 +242,16 @@ l= {\left| y - f(s) \right| }_{\epsilon } =
    \left| y - f(s) \right| - \epsilon & \text{otherwise}
 \end{cases}
 \end{equation*}
-which ignores the error if the difference between the prediction value and the actual value is smaller than $\epsilon$.
+which ignores the error if the difference between the prediction value
+and the actual value is smaller than $\epsilon$.
 %
-The $\epsilon$-insensitive loss function allows to find the coefficients $w$ and $b$ by solving a convex optimization problem, which balances the empirical error and the generalization ability.
-%
-In SVR, the empirical error is measured by the loss function $\epsilon$-insensitive and the generalization ability is measured by the Euclidean norm of $w$ \citep{Cristiani2005}.
+The $\epsilon$-insensitive loss function allows to find the
+coefficients $w$ and $b$ by solving a convex optimization problem,
+which balances the empirical error and the generalization ability.
 %
 Then, the optimization problem to identify the regression model can be
-formulated by \citep{Wei2013}: 
-
+formulated as \citep{Wei2013}:
+%
 \begin{equation} 
 \begin{aligned}
 & \underset{}{\text{minimize}}
@@ -230,8 +264,9 @@ w^T \phi (s) + b - y_i \leq \epsilon + \xi_i^* & i= 1,2,...,n \\
 \end{array}
 \end{aligned}
 \end{equation}  
-where $C$ denotes the penalty parameter between empirical and generalization errors, and  $\xi_i , \xi_i^*$ are slack variables. \figurename
-$.$\ref{figura2} shows this situation.
+where $C$ denotes the penalty parameter between empirical and
+generalization errors, and $\xi_i , \xi_i^*$ are slack
+variables. \figref{figura2} shows this situation.
 
 \begin{figure}[h] 
  \centering
@@ -240,17 +275,31 @@ $.$\ref{figura2} shows this situation.
  \label{figura2} 
 \end{figure}
  
-The solution of this optimization problem by the Lagrange method is given by:\\
-$$ f(s) = w^T \phi (s) + b = \sum_{i=1}^{n} (\alpha_i - \alpha_i^*) K (s,s_i) + b $$ 
-where $\alpha_i - \alpha_i^*$  are the Lagrange multipliers of the optimization problem’s dual form and $K(s_i,s_j )$ is the kernel function satisfying the Mercer condition, and holds:
-$$K(s_i,s_j ) = \big \langle  \phi(s_i) , \phi(s_j)  \big \rangle $$
-Operations in the kernel function $K(s,s_i )$ are performed in the input space rather than in the potentially high dimensional feature space of $\phi$ \citep{Alonso2013}.
+The solution of this optimization problem by the Lagrange method is given by:
+\begin{equation*}
+f(s) = w^T \phi (s) + b = \sum_{i=1}^{n} (\alpha_i - \alpha_i^*) K (s,s_i) + b
+\end{equation*}
+where $\alpha_i - \alpha_i^*$ are the Lagrange multipliers of the
+optimization problem’s dual form and $K(s_i,s_j )$ is the kernel
+function satisfying the Mercer condition, and holds:
+\begin{equation*}
+K(s_i,s_j ) = \big \langle  \phi(s_i) , \phi(s_j)  \big \rangle
+\end{equation*}
+Operations in the kernel function $K(s,s_i )$ are performed in the
+input space rather than in the potentially high dimensional feature
+space of $\phi$ \citep{Alonso2013}.
 
 \subsection{Ordinary least squares regression}
-This method fits a linear model with coefficients $w = (w1,..,wp)$ to minimize the residual sum of squares between the observed responses in the dataset, and the responses predicted by the linear approximation. Mathematically it solves a problem of the form \citep{scikitlearn2011}:
+
+This method fits a linear model with coefficients $w = (w_1,..,w_p)$
+to minimize the residual sum of squares between the observed responses
+in the dataset, and the responses predicted by the linear
+approximation. Mathematically it solves a problem of the form
+\citep{scikitlearn2011}:
 $$\min_{w} \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  $$
-where $X$ denotes the features matriz. \\
-According Pedregosa et al. \citep{scikitlearn2011}  the coefficient estimates for Ordinary Least Squares rely on the independence of the model terms. When terms are correlated and the columns of the design matrix $X$ have an approximate linear dependence, the design matrix becomes close to singular and as a result, the least-squares estimate becomes highly sensitive to random errors in the observed response, producing a large variance. This situation of multicollinearity can arise, for example, when data are collected without an experimental design
+where $X$ denotes the features matrix.
+
+According Pedregosa et al. \citep{scikitlearn2011}  the coefficient estimates for Ordinary Least Squares rely on the independence of the model terms. When terms are correlated and the columns of the design matrix $X$ have an approximate linear dependence, the design matrix becomes close to singular and as a result, the least-squares estimate becomes highly sensitive to random errors in the observed response, producing a large variance. This situation of multicollinearity can arise, for example, when data are collected without an experimental design.
 
 \subsection{Ridge regression}
 The ridge regression addresses some of the problems of ordinary least squares regression by imposing a penalty on the size of the coefficients. The ridge coefficients minimize a penalized residual sum of squares  \citep{scikitlearn2011}:
@@ -270,8 +319,7 @@ $$\min_{w} { \frac{1}{2n_{samples}} \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \a
 \subsection{Echo State Networks (ESN)}
 Recurrent Neural Networks (RNN) are useful for temporal patterns, but when they are trained with backpropagation methods, they are very slow.  Echo State Network (ESN) is an alternative training method to solve that problem.  ESN is based on the observation that if a random RNN possesses certain algebraic properties, training only a linear readout from it is often sufficient to achieve excellent performance in practical applications \citep{Lukose2009}. 
 For a given training input signal $u(n)  \in R^{N_u}$ a desired target output signal $y^{target}(n) \in R^{N_y}$
-is known. Here $n = 1, . . . ,T$ is the discrete time and $T$ is the number of data points in the training dataset. The task is to learn a model with output $y(n) \in R^{N_y}$, where $y(n)$ matches $y^target(n)$ as well as possible, minimizing an error measure $E(y,y^target)$, and, more importantly, generalizes well to unseen data. The untrained RNN part of an ESN is called a dynamical reservoir, and the resulting states x(n) are termed echoes of its input history \citep{Lukose2012}. Finally, these signals are sent to an output layer as shown in the \figurename
-$.$\ref{figura3}.
+is known. Here $n = 1, . . . ,T$ is the discrete time and $T$ is the number of data points in the training dataset. The task is to learn a model with output $y(n) \in R^{N_y}$, where $y(n)$ matches $y^target(n)$ as well as possible, minimizing an error measure $E(y,y^target)$, and, more importantly, generalizes well to unseen data. The untrained RNN part of an ESN is called a dynamical reservoir, and the resulting states x(n) are termed echoes of its input history \citep{Lukose2012}. Finally, these signals are sent to an output layer as shown in the \figref{figura3}.
 \begin{figure}[h] 
  \centering
  \includegraphics[scale=.9]{Reservorio}
@@ -410,7 +458,7 @@ In this section we present the main results for phase and their discussion.
 
 {\bf Phase one } 
 
-\figurename $.$\ref{figura4} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Though La Rita obtains different results in magnitude than 28 Millas, the trend is similar. In both farms, the best results are for linear models, second position is occupied for Echo State Networks and  SVR with gausian and sigmoid kernels are the worst results. In linear models, to predict one week ahead is better than two weeks ahead, and this is better than three weeks ahead. 
+\figref{figura4} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Though La Rita obtains different results in magnitude than 28 Millas, the trend is similar. In both farms, the best results are for linear models, second position is occupied for Echo State Networks and  SVR with gausian and sigmoid kernels are the worst results. In linear models, to predict one week ahead is better than two weeks ahead, and this is better than three weeks ahead. 
 
 \begin{figure}[H] 
  \centering
@@ -419,7 +467,7 @@ In this section we present the main results for phase and their discussion.
  \label{figura4} 
 \end{figure}
 
-\figurename $.$\ref{figura5} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm. In general, to predict one week ahead is better than two weeks ahead and so on. The number of weeks consider in the observation range in the pattern is not the main discriminant factor, but it is clear that we get better $R^2$ for one week ahead than two weeks ahead and so on.
+\figref{figura5} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm. In general, to predict one week ahead is better than two weeks ahead and so on. The number of weeks consider in the observation range in the pattern is not the main discriminant factor, but it is clear that we get better $R^2$ for one week ahead than two weeks ahead and so on.
 
 \begin{figure}[H] 
  \centering
@@ -428,7 +476,7 @@ In this section we present the main results for phase and their discussion.
  \label{figura5} 
 \end{figure}
 
-\figurename $.$\ref{figura6} shows the best $R^2$ for each variables combination. Results are group by farm. The better results are obtained with $\overline{T}_{a}$ and the combination of $\overline{T}_{a}$ with $\overline{W}$, in both farms of similarly. You can note that the use of all variables in the model or the inclusion of the four variables suggest for expert criteria do not improve significantly the results, then the use of more sensors do not assure a better result. 
+\figref{figura6} shows the best $R^2$ for each variables combination. Results are group by farm. The better results are obtained with $\overline{T}_{a}$ and the combination of $\overline{T}_{a}$ with $\overline{W}$, in both farms of similarly. You can note that the use of all variables in the model or the inclusion of the four variables suggest for expert criteria do not improve significantly the results, then the use of more sensors do not assure a better result. 
 
 \begin{figure}[H] 
  \centering
@@ -437,7 +485,7 @@ In this section we present the main results for phase and their discussion.
  \label{figura6} 
 \end{figure}
 
-\figurename $.$\ref{figura7} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. The Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better $RMSE$ than La Rita. This situation arise because $RMSE$ considers errors only with respect the prediction and in 28 Millas the average of Stage of Evolution is $4316.16$, unlike, in La Rita the average is $5507.30$. So, in La Rita we obtains higher errors in absolute values. $R2$ is a relative metric between 0 thru 1 and it is less sensitive to absolute values.
+\figref{figura7} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. The Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better $RMSE$ than La Rita. This situation arise because $RMSE$ considers errors only with respect the prediction and in 28 Millas the average of Stage of Evolution is $4316.16$, unlike, in La Rita the average is $5507.30$. So, in La Rita we obtains higher errors in absolute values. $R2$ is a relative metric between 0 thru 1 and it is less sensitive to absolute values.
 
 \begin{figure}[H] 
  \centering
@@ -509,7 +557,7 @@ We can conclude that the best configuration in both farms is to consider the cli
 In the second phase, the best configurations obtained in phase one were used to validate with the last 50 and 100 weeks. 
 
 
-\figurename $.$\ref{figura8} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Even if linear models continue with good $R^2$, Echo State Networks improve their scores because in $50$ and $100$ last weeks validation, we are in presence of climate change, then the behaviour is less lineal.
+\figref{figura8} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Even if linear models continue with good $R^2$, Echo State Networks improve their scores because in $50$ and $100$ last weeks validation, we are in presence of climate change, then the behaviour is less lineal.
 
 \begin{figure}[H] 
  \centering
@@ -518,7 +566,7 @@ In the second phase, the best configurations obtained in phase one were used to 
  \label{figura8} 
 \end{figure}
 
-\figurename $.$\ref{figura9} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm. The results confirms that, in general, to predict one week ahead is better than two weeks ahead, two than three and so on, this for both farms.
+\figref{figura9} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm. The results confirms that, in general, to predict one week ahead is better than two weeks ahead, two than three and so on, this for both farms.
 
 \begin{figure}[H] 
  \centering
@@ -527,7 +575,7 @@ In the second phase, the best configurations obtained in phase one were used to 
  \label{figura9} 
 \end{figure}
 
-\figurename $.$\ref{figura10} shows the best $R^2$ for each variables combination. Results are group by farm. This results confirm that $\overline{T}_{a}$ and the combination of $\overline{T}_{a}$ with $\overline{W}$, in both farms are the best variables combinations.
+\figref{figura10} shows the best $R^2$ for each variables combination. Results are group by farm. This results confirm that $\overline{T}_{a}$ and the combination of $\overline{T}_{a}$ with $\overline{W}$, in both farms are the best variables combinations.
 
 \begin{figure}[H] 
  \centering
@@ -536,7 +584,7 @@ In the second phase, the best configurations obtained in phase one were used to 
  \label{figura10} 
 \end{figure}
 
-\figurename $.$\ref{figura11} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$.  You can note that the behaviour of $R^2$ and $RMSE$ is similar to the phase one.
+\figref{figura11} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$.  You can note that the behaviour of $R^2$ and $RMSE$ is similar to the phase one.
 
 \begin{figure}[H] 
  \centering
