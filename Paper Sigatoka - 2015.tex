@@ -108,6 +108,47 @@ Phytopathological studies point out that precipitation, temperature,
 relative humidity and wind are the main climatic variables that affect
 the development of this disease \citep{MarinVargas1995}.
 
+The climate has a major effect on the development of the black
+Sigatoka.  Precipitation, temperature, relative humidity and wind are
+the main climatic variables affecting the development of this disease
+\citep{MarinVargas1995}.
+
+\TODO{ CORREGIDO (LUIS-ALEX)
+revisar si la nueva redacción de este párrafo coincide con la
+  original.  Eso es lo que creo se quería decir, porque no quedaba
+  claro cuál sistema fue creado por quién...  Las referencias a cada
+  sistema en algo así son absolutamente necesarias.  Favor reemplazar
+   por las referencias correspondientes (Pablo, 1/5/16)}
+
+The early warning system developed by Ganry and Meyer \citep{ganry1972} and modified by Ganry and Laville \citep{ganry1983} to use for controlling yellow Sigatoka in Cameroon, later was adapted for Ternesien \citep{Ternesien1985} and Fouré \citep{foure1988} for the black Sigatoka.  
+
+This bilogical warning system is based on weekly quantified observations of the disease progression on young leaves of the plant, according to
+Fouré's scale of the symptom stages. The numeric coefficients describe the degree of incidence and the severity of the disease development.  These coefficients are used to
+calculate two variables: gross sum and state of evolution.
+
+\TODO{ EN REALIDAD ASÍ ES USADO EN EL TEXTO FUENTE EN INGLÉS (LUIS ALEX)
+coefficients??  No suena como coeficientes (un factor que
+  multiplica términos en una función) sino como una calificación o
+  nota o algo así (quizá ``grade''?).  ``Arbitrary coefficient'' no
+  tiene sentido por el ``arbitrary''... No creo que sean tan
+  arbitrarios sino predefinidos.  De hecho, el párrafo que sigue dice
+  que suben con el avance de síntomas, es decir, no es tan
+  ``arbitrario''.  Quizá querés decir ``arbitrarily chosen''?.  No
+  estoy seguro si entiendo lo que se quiere decir aquí.}
+
+The gross sum is based on the present disease progression stage and 
+\instead{an arbitrary coefficients}{the arbitrarily chosen grading},
+which increases with the advance of the symptoms and the
+juvenility of the leaf.
+%
+The state of evolution is calculated using the gross sum and the
+foliar emission period.
+%
+Although threshold levels were initially suggested as a guide to spray
+\instead{timing}{schedules}, the fluctuation of these two variables
+was found to better define appropiate times to spray
+\citep{Marinetal2003}.
+
 In Costa Rica the black Sigatoka is frequently treated with
 chemical fungicides.
 %
@@ -144,77 +185,14 @@ support
 vector regression (SVR), echo state networks (ESN), ridge regression,
 elastic-net regression and ordinary least squares linear regression.
 %
-The main contribution of this work is a comparison between machine
-learning methods to forecast black Sigatoka development rate. 
-\marginnote{FALTA COMPLETAR esta parte}
+The main contribution of this work is the selection of the best machine learning technique to forecast the black Sigatoka development rate according to the metric indicated below. 
 
-The outline of the paper is as follows. In Section 2, we present materials and methods of our research. In Section 3, we present the main results and their discussion. Our conclusions and future work are presented in Section 4.
+The outline of the paper is as follows. In Section 2, we introduce the machine learning techniques used in this research and the main related works. In section 3, we present the data used and the methodology for the study results. In section 4, we present the results and their discussion. Our conclusions and future work are presented in Section 5.
 
-\section{Materials and methods}
+\section{Machine learning techniques and Related works}
+In this section we summary the machine learning techniques used and we present the main related works.
 
-\subsection{Concepts}
-
-\subsubsection{Black Sigatoka disease}
-
-The black Sigatoka is a disease caused by the fungus
-\emph{Mycosphaerella fijiensis Morelet}.  It is the main
-phytopathologic problem of banana and plantain crops in Central
-America \citep{MarinVargas1995}.
-%
-This disease attacks the plant leaves producing a rapid deterioration
-of the leaf area. It affects the growth and productivity of the
-affected plant by impairing its photosynthetic capacity, which
-consequently causes a reduction in quality of the fruit
-\citep{MarinVargas1995}.
-
-The climate has a major effect on the development of the black
-Sigatoka.  Precipitation, temperature, relative humidity and wind are
-the main climatic variables affecting the development of this disease
-\citep{MarinVargas1995}.
-
-\subsubsection{Biological warning system}
-
-
-\TODO{ LISTO  Revisar si la nueva redacción de este párrafo coincide con la
-  original.  Eso es lo que creo se quería decir, porque no quedaba
-  claro cuál sistema fue creado por quién...  Las referencias a cada
-  sistema en algo así son absolutamente necesarias.  Favor reemplazar
-  {XXX} por las referencias correspondientes (Pablo, 1/5/16)}
-
-The early warning system developed by Ganry and Meyer \citep{ganry1972} and modified by Ganry and Laville \citep{ganry1983} to use for controlling yellow Sigatoka in Cameroon, later was adapted for Ternesien \citep{Ternesien1985} and Fouré \citep{foure1988} for the black Sigatoka. 
-
-The latter system is based on weekly quantified observations of
-the disease progression on young leaves of the plant, according to
-Fouré's scale of the symptom stages.
-%
-The numeric coefficients describe the degree of incidence and the
-severity of the disease development.  These coefficients are used to
-calculate two variables: gross sum and state of evolution.
-
-\TODO{ EN REALIDAD ASÍ ES USADO EN EL TEXTO FUENTE
-coefficients??  No suena como coeficientes (un factor que
-  multiplica términos en una función) sino como una calificación o
-  nota o algo así (quizá ``grade''?).  ``Arbitrary coefficient'' no
-  tiene sentido por el ``arbitrary''... No creo que sean tan
-  arbitrarios sino predefinidos.  De hecho, el párrafo que sigue dice
-  que suben con el avance de síntomas, es decir, no es tan
-  ``arbitrario''.  Quizá querés decir ``arbitrarily chosen''?.  No
-  estoy seguro si entiendo lo que se quiere decir aquí.}
-
-The gross sum is based on the present disease progression stage and 
-\instead{an arbitrary coefficients}{the arbitrarily chosen grading},
-which increases with the advance of the symptoms and the
-juvenility of the leaf.
-%
-The state of evolution is calculated using the gross sum and the
-foliar emission period.
-%
-Although threshold levels were initially suggested as a guide to spray
-\instead{timing}{schedules}, the fluctuation of these two variables
-was found to better define appropiate times to spray
-\citep{Marinetal2003}.
-
-\subsubsection{Support Vector Regression (SVR)}
+\subsection{Support Vector Regression (SVR)}
 
 From the perspective of Support Vector Regression (SVR) the regression function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ , is represented as a linear function of the form \citep{Wei2013}:
 $$f(s)=w^Ts+b$$
@@ -269,20 +247,20 @@ where $\alpha_i - \alpha_i^*$  are the Lagrange multipliers of the optimization 
 $$K(s_i,s_j ) = \big \langle  \phi(s_i) , \phi(s_j)  \big \rangle $$
 Operations in the kernel function $K(s,s_i )$ are performed in the input space rather than in the potentially high dimensional feature space of $\phi$ \citep{Alonso2013}.
 
-\subsubsection{Ordinary least squares regression}
+\subsection{Ordinary least squares regression}
 This method fits a linear model with coefficients $w = (w1,..,wp)$ to minimize the residual sum of squares between the observed responses in the dataset, and the responses predicted by the linear approximation. Mathematically it solves a problem of the form \citep{scikitlearn2011}:
 $$\min_{w} \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  $$
 where $X$ denotes the features matriz. \\
 According Pedregosa et al. \citep{scikitlearn2011}  the coefficient estimates for Ordinary Least Squares rely on the independence of the model terms. When terms are correlated and the columns of the design matrix $X$ have an approximate linear dependence, the design matrix becomes close to singular and as a result, the least-squares estimate becomes highly sensitive to random errors in the observed response, producing a large variance. This situation of multicollinearity can arise, for example, when data are collected without an experimental design
 
-\subsubsection{Ridge regression}
+\subsection{Ridge regression}
 The ridge regression addresses some of the problems of ordinary least squares regression by imposing a penalty on the size of the coefficients. The ridge coefficients minimize a penalized residual sum of squares  \citep{scikitlearn2011}:
 
 $$\min_{w} { \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \alpha \Bigr| \Bigr| w \Bigr| \Bigr|_2^2 } $$
 
 Here, $\alpha \ \textgreater \  0$ is a complexity parameter that controls the amount of shrinkage: the larger the value of $\alpha$, the greater the amount of shrinkage and thus the coefficients become more robust to collinearity.
 
-\subsubsection{Elastic-Net regression}
+\subsection{Elastic-Net regression}
 Elastic-Net is a linear regression model trained with $L1$ and $L2$ prior as regularizer. This combination allows for learning a sparse model where few of the weights are non-zero like Lasso, while still maintaining the regularization properties of Ridge  \citep{scikitlearn2011}. The convex combination of $L1$ and $L2$ is controled by using the $l1_{ratio}$ parameter.
 
 Elastic-Net is useful when there are multiple features which are correlated with one another. Lasso is likely to pick one of these at random, while elastic-net is likely to pick both.
@@ -290,7 +268,7 @@ A practical advantage of trading-off between Lasso and Ridge is it allows Elasti
 
 $$\min_{w} { \frac{1}{2n_{samples}} \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \alpha \rho \Bigr| \Bigr| w \Bigr| \Bigr|_1 + \frac{\alpha (1- \rho)}{2} \Bigr| \Bigr| w \Bigr| \Bigr|_2^2 } $$
 
-\subsubsection{Echo State Networks (ESN)}
+\subsection{Echo State Networks (ESN)}
 Recurrent Neural Networks (RNN) are useful for temporal patterns, but when they are trained with backpropagation methods, they are very slow.  Echo State Network (ESN) is an alternative training method to solve that problem.  ESN is based on the observation that if a random RNN possesses certain algebraic properties, training only a linear readout from it is often sufficient to achieve excellent performance in practical applications \citep{Lukose2009}. 
 For a given training input signal $u(n)  \in R^{N_u}$ a desired target output signal $y^{target}(n) \in R^{N_y}$
 is known. Here $n = 1, . . . ,T$ is the discrete time and $T$ is the number of data points in the training dataset. The task is to learn a model with output $y(n) \in R^{N_y}$, where $y(n)$ matches $y^target(n)$ as well as possible, minimizing an error measure $E(y,y^target)$, and, more importantly, generalizes well to unseen data. The untrained RNN part of an ESN is called a dynamical reservoir, and the resulting states x(n) are termed echoes of its input history \citep{Lukose2012}. Finally, these signals are sent to an output layer as shown in the \figurename
@@ -304,7 +282,9 @@ $.$\ref{figura3}.
  
 The connections between the different elements of an Echo State Network have weights randomly generated. The weights of the internal connections of the reservoir $(W)$ as well as the weights of the input layer $(W_in)$, after being generated are set statically during all stages of implementation of the algorithm. The weights between the reservoir and the output layer $(W_out)$ are subject to changes of a supervised learning algorithm to correct the degree of error generated by the entire system \citep{Lukose2012}.
 
-\subsubsection{Related works}
+\subsection{Related works}
+Now, we present the main and recently works related with our study.
+
 Huang et al. \citep{Huang2010}  surveyed the development of soft computing techniques in agricultural and biological engineering, including fuzzy logic, artificial neural networks, genetic algorithms, bayesian inference and decision trees.
 
 A related work, proposed by Romero \citep{Romero1995} relies on regression models using a stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (La Rita and Waldeck, the same as those used in this study but with different names). The study used data from: December 1993 to August 1995. Romero concluded that the model to predict the incubation period accounted a $R^2$ of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a $R^2$ of 78\% in the observed data, however, when validated against an independent dataset (cross validation), for La Rita obtained an adjusted $R^2$ of 82\%, and for Weldeck, none of the models satisfactorily predicted the latent period; and then those predictions were not shown \citep{Romero1995}.
@@ -323,8 +303,11 @@ Also there are works related to banana fruit. Soares et al. \citep{Soares2014} a
 
 In general, the machine learning methods applied to predict the evolution of plant diseases, can be classified in two main approaches: 1) Those whose main inputs are images, and 2) Those whose main inputs are environmental and biological variables. Our study focuses in the second case.
 
-\subsubsection{Data}
-In this work we use data acquired in two research farms of Corbana in Costa Rica: 1) 28 Millas (previously called Waldeck and located at Matina) and La Rita (located at Pococí), both in the province of Limón, Costa Rica. The banana type is Musa AAA, subgroup Cavendish, cv. Grande Naine. The \tablename $.$\ref{tabla1} shows the variables available.
+\section{Specification of data and methodology}
+In this section, we present the data and how we worked to obtain our results.
+
+\subsection{Data}
+We use data acquired in two research farms of Corbana in Costa Rica: 1) 28 Millas (previously called Waldeck and located at Matina) and La Rita (located at Pococí), both in the province of Limón, Costa Rica. The banana type is Musa AAA, subgroup Cavendish, cv. Grande Naine. The \tablename $.$\ref{tabla1} shows the variables available.
 
 \begin{table}[h] 
 \caption{Variables used in the study} 
@@ -358,7 +341,8 @@ The data on the biological warning system are collected once a week. Although Co
 
 The time intervals used for this study were: La Rita, week 48 of 2002 to week 17 of the 2015 (647 weeks) and for 28 Miles, week 37 of 2003 to week 18 of 2015 (605 weeks).
 
-\subsubsection{Data preprocessing}
+\subsection{Data preprocessing}
+Usually, data need preprocessing to prepare for use. In this section we explain that process.
 
 In 28 Miles farm, 1\% of the data were missing, while in La Rita was 2.25\%. To fill-in the missing values we use spline interpolation. The data collected did not exhibit outliers.
 
@@ -390,8 +374,12 @@ $$ RMSE = \sqrt{\frac{\sum_{i=1}^{n} {(y_i-\hat{y}_i)}^2 }{n}}$$
 	
 This decision is supported by the widespread use in machine learning and agriculture areas \citep{Soares2014}, \citep{Soares2013}, \citep{Ibrahim2014} and \citep{Demir2014}.  
 
+\subsection{Programming environment}
+
+We use the python programming language with the Integrated Development Environment (IDE) Spyder \citep{Continuum2015}, particularly with the libraries pandas \citep{mckinneypandas2010} and numpy \citep{vanderWalt2011}. For SVR, ridge and ordinary least squares regressions, we used sklearn \citep{scikitlearn2011} and for ESN the python-based code of Dr. $Luko\breve{s} evi \breve{c} ius$ \citep{Lukose2012} on which the necessary were done for adjustments for the experiments of this work. The computer used a processor Intel(R) Core i7-4800MQ CPU 2.70GHz, 16.0 GB RAM, running Windows 8 Pro.
+
 \subsection{Methodology}
-The selection of methods and their parametrisation was performed in two stages.
+The selection of the technique and its parametrisation was performed in two stages that they are presented below.
 
 {\bf Phase one } 
 
@@ -414,16 +402,9 @@ In the phase one, we did ten-fold-cross-validation on a set of  machine learning
 
 In the second phase, the best configurations obtained in phase one are used to validate with the last 50 and 100 weeks. 
 
-This second phase intents to expose how these methods behave on a considerable climate in the years 2014 and 2015.
-\marginnote{Poner una cita que fundamente este ultimo parrafo}
-
-\subsection{Programming environment}
-
-We use the python programming language with the Integrated Development Environment (IDE) Spyder \citep{Continuum2015}, particularly with the libraries pandas \citep{mckinneypandas2010} and numpy \citep{vanderWalt2011}. For SVR, ridge and ordinary least squares regressions, we used sklearn \citep{scikitlearn2011} and for ESN the python-based code of Dr. $Luko\breve{s} evi \breve{c} ius$ \citep{Lukose2012} on which the necessary were done for adjustments for the experiments of this work. The computer used a processor Intel(R) Core i7-4800MQ CPU 2.70GHz, 16.0 GB RAM, running Windows 8 Pro.
-
 \section{Results and discussion}
 
-In this section we present the main results for phase.
+In this section we present the main results for phase and their discussion.
 
 {\bf Phase one } 
 
