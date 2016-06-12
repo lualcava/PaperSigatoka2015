@@ -1,20 +1,144 @@
 \section{Related works}
 \label{sec:related}
 
-Huang et al. \citep{Huang2010}  surveyed the development of soft computing techniques in agricultural and biological engineering, including fuzzy logic, artificial neural networks, genetic algorithms, bayesian inference and decision trees.
+Several efforts have been made to apply machine learning techniques in
+the automated discovery of relationships between environmental
+variables and quantified descriptors for variables of agricultural 
+interest such as the progress of diseases.
+% 
+\citet{Huang2010} summarize in their survey the
+development of soft computing techniques in agricultural and
+biological engineering, including fuzzy logic, artificial neural
+networks, genetic algorithms, bayesian inference and decision trees.
+%
+Similarly, \citet{Kim2014} survey more recent prediction
+methods for crop pests using regression and machine learning approaches.
 
-A related work, proposed by Romero \citep{Romero1995} relies on regression models using a stepwise procedure to predict incubation and latency times of black Sigatoka. The author performed experiments on two farms located in Costa Rica (La Rita and Waldeck, the same as those used in this study but with different names). The study used data from: December 1993 to August 1995. Romero concluded that the model to predict the incubation period accounted a $R^2$ of 69\% in his observed data but it was not a good predictor when it was validated against an independent dataset (cross validation). For latency, he developed two models that accounted a $R^2$ of 78\% in the observed data, however, when validated against an independent dataset (cross validation), for La Rita obtained an adjusted $R^2$ of 82\%, and for Weldeck, none of the models satisfactorily predicted the latent period; and then those predictions were not shown \citep{Romero1995}.
+\TODO{Falta indicar qué concluyen los dos surveys anteriores}
 
-Glezakos et al. \citep{Glezakos2010} proposed to use Genetic Algorithms (GA) and Neural Networks (NN) to identify plant virus (Tobacco Rattle Virus (TRV) and the Cucumber Green Mottle Mosaic Virus (CGMMV)). This is achieved by the development of ana- lytical tools of evolutionary adaptive width, propelled by Genetic Algorithms (GAs) and Neural Networks (NNs). The method was tested against some of the most commonly used classifiers in machine learning (Bayes, Trees and k-NN) via cross-validation and proved its potential towards the identification. 
+In general, the machine learning methods applied to predict the
+evolution of plant diseases, can be classified in two main approaches:
+1)~those whose main inputs are images, and 2)~Those whose main inputs
+are environmental and biological variables. Our study focuses in the
+second case.
 
-In the agricultural context, Alves et al. \citep{Alves2011} used  geoinformation techniques to develop predictive models to study the areas of risk to soybean rust in soybean, coffee leaf rust in coffee, and black Sigatoka in banana, considering Brazil’s climatic characterization and the distribution of soybean, coffee and banana crops. Temperature and rainfall data were obtained for the period from 1950 to 2000, and of simulations for 2020, 2050 and 2080 using the SRES A2 climate change scenarios. Using principal components analysis, a single variable was generated based on 57 variables, in order to determine an index explaining 87\%, 88\% and 90\% of the variability of soybean, coffee and banana crops, respectively, in municipal districts across Brazil. The climatic model was used to generate the zoning of the three plant diseases, using temperature and leaf wetness as input. Areas of favorability for the diseases were plotted against the main coffee, soybean and banana growing areas in Brazil. This methodology enabled the visualization of the changes in areas favorable for epidemics under possible future scenarios of climate change.
 
-Other applications of machine learning methods in precision agriculture include the use of support vector regression to predict carcass weight in beef cattle in advance to the slaughter  \citep{Alonso2013}, machine learning assessments of soil drying for agricultural planning \citep{Coopersmith2014}, and early detection and classification of plant diseases with support vector machines based on hyperspectral reflectance \citep{Rumpf2010}.
+% %
+% For example, 
+% 
+% Me parece que aquí hay un error: Huang2010 es el survey, y sería mucha
+% coincidencia que fuera lo mismo que el \citet{Glezakos2010} ¿o no?
+%
+% \cite{Huang2010} introduce a plant virus
+% identification method based on neural networks with an evolutionary
+% preprocessing stage, 
+%
 
-Furthermore, there have been attempts to generate software tools. Camargo et al. \citep{Camargo2012} presented an information system for the assessment of plant disorders (Isacrodi). They proposed that experts will attain a much better accuracy than the Isacrodi classifier, particularly when provided with samples from the affected crop. However, those cases where such expertise is not available, they suggest that Isacrodi can provide valuable support to farmers. Isacordi includes 15 crop disorders, but the black Sigatoka no is one of them. The prediction process is based on multi-class support vector machines.
+\citet{Romero1995} relied on regression models using a stepwise
+procedure to predict incubation and disease latency periods for the
+black Sigatoka.
+% 
+He collected environmental data from two different farms in Costa Rica
+between December 1993 and August 1995.
+%
+The prediction models reached coefficients of determination $R^2$ of
+69\% or 78\% on the observed data for the incubation and disease
+latency periods, respectively; however, the cross validation on
+independent data sets failed.
 
-Regarding the prediction of the develpment of the black Sigatoka with machine learning methods, Bendini et al. \citep{Bendini2013}  presented a study about the risk analysis of black Sigatoka occurrence based on polynomial models. A case study was developed in a commercial banana plantation located in Jacupiranga, Brazil. It was monitored weekly during the period from February to December 2005. Data included the weekly monitoring of the disease’s evolution stage, time series of meteorological data and remote sensing data. They obtained a model to estimate the evolution of the disease from satellite imagery. This model relates gray levels (NC) of the band 2 images of the Landsat-5 satellite, with the progress status or disease severity (EE). The authors claim to reach an $R^2$ of 90\%.
+More recently, \citet{Glezakos2010} used genetic algorithms (GA) and
+neural networks (NN) to identify the Tobacco Rattle Virus (TRV) and
+the Cucumber Green Mottle Mosaic Virus (CGMMV).
+%
+The method was tested against some of the most commonly used
+classifiers in machine learning (Bayes classifiers, decision trees and
+$k$-nearest neighbors) via cross-validation and proved their
+applicability in these kind of problems.
 
-Also there are works related to banana fruit. Soares et al. \citep{Soares2014} apply two techniques: artificial neural networks (ANNs) and multiple linear regression (MLR) in banana plant to predict the yield, their results show that the neural network proved to be more accurate in forecasting the weight of the bunch in comparison to the multiple linear regressions in terms of the mean prediction-error $(MPE = 1.40)$, mean square deviation $(MSD = 2.29)$ and coefficient of determination $(R^2 = 91\%)$.
+\citet{Alves2011} used geoinformation techniques to
+develop predictive models in the study of risk areas to soybean rust,
+coffee leaf rust, and banana black Sigatoka, under consideration of
+Brazil’s climatic characteristics and the distribution of soybean,
+coffee and banana crops.
+%
+Temperature and rainfall data were acquired for the period from 1950
+to 2000, and simulated data were generated for 2020, 2050 and 2080
+using the SRES~A2 climate change scenarios.
+%
+Using principal components analysis, a single variable was generated
+as a linear combination of 57 input variables, in order to determine
+an index explaining 87\%, 88\% and 90\% of the
+%
+\todofn{variability}{variabilidad de qué?}  
+%
+of soybean, coffee and
+banana crops, respectively, in municipal districts across Brazil.
+%
+The climatic model was used to generate the zoning of the three plant
+diseases, using temperature and leaf wetness as input.
+%
+%Redunda con lo que sigue:
+%Areas favorable for the diseases were plotted against the main coffee,
+%soybean and banana growing areas in Brazil.
+%
+This methodology enabled the visualization of the changes in areas
+favorable for epidemics under possible future scenarios of climate
+change.
 
-In general, the machine learning methods applied to predict the evolution of plant diseases, can be classified in two main approaches: 1) Those whose main inputs are images, and 2) Those whose main inputs are environmental and biological variables. Our study focuses in the second case.
+Other applications of machine learning methods in precision
+agriculture include the use of support vector regression to predict
+carcass weight in beef cattle in advance to the slaughter
+\citep{Alonso2013}, machine learning assessments of soil drying for
+agricultural planning \citep{Coopersmith2014}, and early detection and
+classification of plant diseases with support vector machines based on
+hyperspectral reflectance \citep{Rumpf2010}.
+
+Furthermore, there have been attempts to generate software
+tools. \citet{Camargo2012} presented an information
+system for the assessment of plant disorders (Isacrodi).
+%
+They showed that human experts will attain a much accurate assessment
+than the Isacrodi classifier, particularly when provided with samples
+from the affected crop. However, in those cases where such expertise
+is not available, the authors suggest that Isacrodi can still provide
+valuable support to farmers.
+%
+Isacordi includes 15 crop disorders, but the black Sigatoka is none
+of them. The prediction process is based on multi-class support vector
+machines.
+
+Regarding the prediction of the black Sigatoka disease development
+with machine learning methods, \citet{Bendini2013} presented a study
+on the risk analysis of its occurrence based on polynomial models.
+%
+A case study was developed in a commercial banana plantation located
+in Jacupiranga, Brazil. It was monitored weekly from February to
+December 2005.
+%
+The data included the weekly monitoring of the disease’s evolution
+stage, time series of meteorological data and remote sensing
+data.
+%
+They obtained a model to estimate the evolution of the disease from
+satellite imagery. This model relates gray levels (NC) of the band 2
+images of the Landsat-5 satellite, with the progress status or disease
+severity (EE). The authors claim to reach an $R^2$ of 90\%.
+
+There are also works related to the banana fruit. \citet{Soares2014}
+apply two techniques: artificial neural networks (ANNs) and multiple
+linear regression (MLR) in banana plant to predict the yield.
+%
+Their results show that the neural network is more accurate in
+forecasting the weight of the bunch in comparison to the multiple
+linear regressors in terms of the mean prediction-error $(MPE =
+1.40)$, mean square deviation $(MSD = 2.29)$ and coefficient of
+determination $(R^2 = 91\%)$.
+
+% Este no calza, porque no se ve qué es lo de machine learning que usa...
+%
+%\citet{Zhao2013} present an intelligent agricultural
+%forecasting system based on wireless sensor networks.
+
+\TODO{Importantísimo es explicar aquí brevemente por qué esos otros
+  trabajos no se aplican al caso de la Sigatoka, o qué es lo que han
+  hecho mal, que este trabajo sí hace bien.}
