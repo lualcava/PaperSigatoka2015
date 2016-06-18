@@ -1,7 +1,61 @@
-\section{Machine learning techniques and Related works}
+\section{Compared regression techniques}
 \label{sec:techs}
 
-In this section we summarize the machine learning techniques used and we present the main related works.
+In the prediction of the development rate of the black Sigatoka, we
+compare techniques such as least squares or ridge regression, commonly
+encountered in the agricultural literature with machine learning
+methods such as support vector regression, elastic regression and echo
+state networks, where the parameter space of each technique is also
+taken into account.
+
+\subsection{Ordinary least squares regression}
+
+Given a data set 
+\begin{equation}
+  D=\left\{(\vct{x}_i,y_i) \mid i=1\ldots n\right\}
+\end{equation}
+composed of the $d$-dimensional%
+\footnote{Without loss of generality assume that the first component
+  of every vector $\vct{x}_i$ is always $1$.}
+%
+feature vectors $\vct{x}_i\in\setR^d$ and the corresponding responses
+$y_i$.
+%
+The ordinary least squares regression (OLSR) fits a linear model
+$\tilde{y}_i = f(\vct{x}_i) = \vct{w}^T\vct{x}_i$ such that the sum of
+squares of the residuals $(\tilde{y}_i-y_i)$ is minimized.
+%
+Let $\mat{X}$ be the $n\times{}d$ feature matrix containing the data
+samples in its rows and $\vct{y}$ contain all the responses $y_i$
+corresponding to each row, then the least squares regression finds
+\begin{equation*}
+  \hat{\vct{w}} =
+  \arg\min_{\vct{w}}\left\| \mat{X}\vct{w} - \vct{y}\right\|_2^2
+\end{equation*}
+which is solved by means of the pseudoinverse
+($\hat{\vct{w}}=\mat{X}^\dagger\vct{y}$) or equivalently by the singular
+value decomposition of $\mat{X}$ \citep{Press2007}.
+
+\TODO{Alex, no sé hasta donde hiciste en las pruebas ese ``arreglo''
+  de que los datos tengan todos una entrada igual a 1.  De no ser así,
+  el método no puede encontrar el offset, y sería como forzar que el
+  modelo tenga que pasar por cero...}
+
+\subsection{Ridge regression}
+
+In contrast to the OLSR, the ridge regression (RR) adds a term to
+penalize large weights \citep{scikitlearn2011}:
+\begin{equation*}
+\hat{\vct{w}} = 
+\arg\min_{\vct{w}} \left\| \mat{X}\vct{w} - \vct{y} \right\|_2^2 + 
+                 \alpha \left\|\vct{w}\right\|_2^2 
+\end{equation*}
+where the parameter $\alpha>0$ controls how strong is the shrinking of
+the estimates towards zero.  This shrinkage introduces some bias but
+helps to reduce the variance of the estimate.
+%
+The solution is given by $\hat{\vct{w}}=(\mat{X}^T\mat{X} +
+\lambda\mat{I})^{-1}\mat{X}^T \vct{y}$.
 
 \subsection{Support Vector Regression (SVR)}
 
@@ -10,108 +64,78 @@ In this section we summarize the machine learning techniques used and we present
   que requiera toda esta información, así que hay que resumirlo a nada
   más lo esencial. }
 
-
 From the perspective of Support Vector Regression (SVR) the regression
-function $y = f(s)$ for a given dataset $D=\{(s_i,y_i)\}_{i=1}^n$ is
-represented as a linear function of the form \citep{Wei2013}:
-\begin{equation*}
-  f(s)=w^Ts+b
-\end{equation*}
-where $w$ and $b$ are respectively the weight vector and the intercept
-of the model, and they are selected to find an \todofn{optimal}%
-{optimal respecto a qué?.  Hay muchísimas posibilidades de optimalidad!}
+function is usually stated as 
+\begin{equation}
+\label{eq:svrfunc}
+  \tilde{y} = f(\vct{x}) = \vct{w}^T\vct{x} + b
+\end{equation}
+The weights are selected in a convex optimization problem
+\citep{Smola2004}:
+\begin{align*}
+  \text{minimize}   & \frac{1}{2}\|\vct{w}\|^2 + C\sum_{i=1}^n(\xi_i+\xi_i^\ast \\
+  \text{subject to} & 
+  \begin{cases}
+    y_i - \vct{w}^T\vct{x}_i - b &\leq \epsilon + \xi_i    \\
+    \vct{w}^T\vct{x}_i + b -y_i  &\leq \epsilon + \xi_i^\ast\\
+    \xi_i,\xi_i^\ast               &\geq 0
+  \end{cases}
+\end{align*}
+where $\epsilon$ is the maximal allowed deviation of the targets
+$\tilde{y}_i$ from $y_i$, the slack variables $\xi_i$ and $\xi_i^\ast$
+allow to cope with otherwise unfeasible constraints for the
+optimization problem, and the constant $C>0$ controls the trade-off
+between the flatness of $f$ and the tolerance to deviations larger
+than $\epsilon$.
+
+Note that since OLSR and RR use a squared error function, data
+outliers will have a strong influence on the resulting weights
+$\vct{w}$.  On the SVR formulation, however, the usage of the $L_1$
+norm and the slack variables considerably restrict or completely block
+the influence of those outliers.
+
+The SVR problem is reformulated by means of the dual optimization
+problem into
+\begin{equation}
+  \label{eq:svrw}
+  \vct{w}=\sum_{i=1}^n(\alpha_i-\alpha_i^\ast)\vct{x}_i
+\end{equation}
+where $\alpha_i,\alpha_i^\ast\in[0,C]$ are Lagrange multipliers
+subject to $\sum_{i=1}^n(\alpha_i-\alpha_i^\ast)=0$.
 %
-fit to the data available in $D$ \review{in the sense of ...?}
-
-For nonlinear cases, the $p$-dimensional input vectors are mapped by a
-nonlinear function $\phi : R^p\rightarrow F$ onto a feature space
-$F$.  After the nonlinear mapping, the regression function evolves to a
-pervasive form:
-\begin{equation*}
-f(s)=w^T \phi (s)+b
-\end{equation*}
-
-In SVR the generalization ability is measured by the Euclidean norm of
-$w$, and the empirical error is measured by the $\epsilon$-insensitive
-loss function, given by \citep{Cristiani2005}
-
-\TODO{si $l$ es una función, es función de qué, de $s$? $l(s)$? o de
-  $y$? o de todos $l(y,s;\epsilon)$?}
-
-\begin{equation*}
-l= {\left| y - f(s) \right| }_{\epsilon } = 
-\begin{cases}
-   0 & {\left| y - f(s) \right| } \leq \epsilon \\
-   \left| y - f(s) \right| - \epsilon & \text{otherwise}
-\end{cases}
-\end{equation*}
-which ignores the error if the difference between the prediction value
-and the actual value is smaller than $\epsilon$.
+In this so-called \emph{Support Vector expansion} the weights are
+expressed as a linear combination of the data set patterns
+$\vct{x}_i$.
 %
-The $\epsilon$-insensitive loss function allows to find the
-coefficients $w$ and $b$ by solving a convex optimization problem,
-which balances the empirical error and the generalization ability.
+Inserting (\ref{eq:svrw}) in (\ref{eq:svrfunc}) leads to
+\begin{equation}
+  \label{eq:svrf}
+ f(\vct{x}) = \sum_{i=1}^n(\alpha_i-\alpha_i^\ast)\vct{x}_i^T\vct{x} + b
+\end{equation}
+The Lagrange multipliers $\alpha_i,\alpha_i^\ast$ are both non-zero
+only for those data points where $|f(\vct{x}_i) - y_i|\geq\epsilon$.
+Hence, the expansion of $\vct{w}$ in terms of $\vct{x}_i$ is sparse.
+Those data points with non-vanishing coefficients are called
+\emph{Support Vectors} \citep{Wei2013}.
+
+Additionally, in (\ref{eq:svrf}) it is possible to employ the
+\emph{kernel trick} and replace the terms $\vct{x}_i^T\vct{x}$ with
+the evaluation of any Mercer kernel
+$k(\vct{x}_i,\vct{x})=\phi(\vct{x}_i)^T\phi(\vct{x})$, where
+$\phi(\vct{x})$ is a non-linear mapping of the input space onto a
+higher (even infinite) dimensional feature space.
 %
-Then, the optimization problem to identify the regression model can be
-formulated as \citep{Wei2013}:
+The kernel evaluation draws unnecessary the explicit evaluation of the
+non-linear mapping.
 %
-\begin{equation} 
-\begin{aligned}
-& \underset{}{\text{minimize}}
-& & J(w,\xi_i , \xi_i^* ) = \frac{1}{2}   \Bigr| \Bigr| w \Bigr| \Bigr|^2 + C \sum_{i=1}^{n} (\xi_i , \xi_i^* )    \\
-& \text{subject to}
-& & \begin{array}{lcl} 
-y_i - w^T \phi (s) - b  \leq \epsilon + \xi_i   \\
-w^T \phi (s) + b - y_i \leq \epsilon + \xi_i^* & i= 1,2,...,n \\
-\xi_i , \xi_i^* \geq 0  \\
-\end{array}
-\end{aligned}
-\end{equation}  
-where $C$ denotes the penalty parameter between empirical and
-generalization errors, and $\xi_i , \xi_i^*$ are slack
-variables. \figref{figura2} shows this situation.
+This allows to solve non-linear regressions in the input space by
+implicitly mapping through the kernel the samples into the higher
+dimensional space, where the linear regression occurs \citep{Alonso2013}.
 
-\begin{figure}[h] 
- \centering
- \includegraphics[scale=.9]{SVR}
- \caption{$\epsilon$-insensitive loss function \citep{Wei2013}.} 
- \label{figura2} 
-\end{figure}
- 
-The solution of this optimization problem by the Lagrange method is given by:
-\begin{equation*}
-f(s) = w^T \phi (s) + b = \sum_{i=1}^{n} (\alpha_i - \alpha_i^*) K (s,s_i) + b
-\end{equation*}
-where $\alpha_i - \alpha_i^*$ are the Lagrange multipliers of the
-optimization problem’s dual form and $K(s_i,s_j )$ is the kernel
-function satisfying the Mercer condition, and holds:
-\begin{equation*}
-K(s_i,s_j ) = \big \langle  \phi(s_i) , \phi(s_j)  \big \rangle
-\end{equation*}
-Operations in the kernel function $K(s,s_i )$ are performed in the
-input space rather than in the potentially high dimensional feature
-space of $\phi$ \citep{Alonso2013}.
-
-\subsection{Ordinary least squares regression}
-
-This method fits a linear model with coefficients $w = (w_1,..,w_p)$
-to minimize the residual sum of squares between the observed responses
-in the dataset, and the responses predicted by the linear
-approximation. Mathematically it solves a problem of the form
-\citep{scikitlearn2011}:
-$$\min_{w} \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  $$
-where $X$ denotes the features matrix.
-
-According Pedregosa et al. \citep{scikitlearn2011}  the coefficient estimates for Ordinary Least Squares rely on the independence of the model terms. When terms are correlated and the columns of the design matrix $X$ have an approximate linear dependence, the design matrix becomes close to singular and as a result, the least-squares estimate becomes highly sensitive to random errors in the observed response, producing a large variance. This situation of multicollinearity can arise, for example, when data are collected without an experimental design.
-
-\subsection{Ridge regression}
-The ridge regression addresses some of the problems of ordinary least squares regression by imposing a penalty on the size of the coefficients. The ridge coefficients minimize a penalized residual sum of squares  \citep{scikitlearn2011}:
-
-$$\min_{w} { \Bigr| \Bigr| Xw - y \Bigr| \Bigr|_2^2  + \alpha \Bigr| \Bigr| w \Bigr| \Bigr|_2^2 } $$
-
-Here, $\alpha \ \textgreater \  0$ is a complexity parameter that controls the amount of shrinkage: the larger the value of $\alpha$, the greater the amount of shrinkage and thus the coefficients become more robust to collinearity.
+\TODO{Habría que insertar aquí los kernels utilizados en los experimentos}
 
 \subsection{Elastic-Net regression}
+
 Elastic-Net is a linear regression model trained with $L1$ and $L2$ prior as regularizer. This combination allows for learning a sparse model where few of the weights are non-zero like Lasso, while still maintaining the regularization properties of Ridge  \citep{scikitlearn2011}. The convex combination of $L1$ and $L2$ is controled by using the $l1_{ratio}$ parameter.
 
 Elastic-Net is useful when there are multiple features which are correlated with one another. Lasso is likely to pick one of these at random, while elastic-net is likely to pick both.
