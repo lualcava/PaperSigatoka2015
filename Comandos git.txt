@@ -18,3 +18,6 @@ git pull
 git commit -a -m "mensaje"
 git push
 
+
+para borrar cambios
+git stash
