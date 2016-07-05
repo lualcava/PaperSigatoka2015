@@ -47,7 +47,9 @@ or equivalently by the singular value decomposition of $\mat{X}$
   de que los datos tengan todos una entrada igual a 1.  De no ser así,
   el método no puede encontrar el offset, y sería como forzar que el
   modelo tenga que pasar por cero...  a menos por supuesto que la
-  constante se haya sacado de la ecuación al optimizar...}
+  constante se haya sacado de la ecuación al optimizar...
+  
+  Comentario:  Pero si por feature scaling los datos están entre -1 y 1, con 0 en medio?}
 
 \subsection{Ridge regression}
 
@@ -103,7 +105,9 @@ still likely pick both.
   con las selección adecuada de parámetros este método debería
   comportarse al menos igual o mejor que esos otros regresores!  No sé
   hasta donde sea justificable usar este Y los otros, porque este ES
-  los otros...}
+  los otros...
+  
+  Comentario: En realidad la idea era mostrar los diversos resultados, pero me suena bien reducirlo a ElasticNet (optimizado los parámetros) lo cual reduce resultados y gráficos en dos (quitando ridge y OLSR).  Cuando hablamos confirmamos y lo quito.  }
 
 
 \TODO{Alex, veo que usas mucho \citep{scikitlearn2011} para los
@@ -111,7 +115,9 @@ still likely pick both.
   originales de los métodos.  Usualmente uno hace referencia a algún
   artículo, libro o tutorial donde ojalá los que propusieron el método
   son los que lo explican.  Ahí metí entonces en las referencias otros
-  artículos por ese motivo.}
+  artículos por ese motivo.
+  
+  Comentario: muchas gracias..}
 
 \subsection{Support Vector Regression (SVR)}
 
@@ -185,6 +191,26 @@ non-linear mapping, and it allows to solve non-linear regressions in
 the input space by implicitly mapping the samples through the kernel
 into the higher dimensional space, where the linear regression occurs
 \citep{Alonso2013}.
+
+Kernels used in this work were:
+
+Linear kernel: 
+\begin{equation*}
+K(\vct{x}_i,\vct{x}_j)={\vct{x}_i}^T \vct{x}_j
+\end{equation*}
+
+RBF: 
+\begin{equation*}
+K(\vct{x}_i,\vct{x}_j)= exp{\vct{x}_i}^T \vct{x}_j
+\end{equation*}
+
+%K(x_i,x_j )=  exp((||x_i- x_j | |^2)/(2σ^2 ))
+%donde σ es el parámetro del modelo Gausiano.
+
+Sigmoid:
+%K(x_i,x_j )=  tanh[-c+ (x_i x_j)/σ^2 ]
+%Con c ≥0  y σ^2 es el vector de escalamiento
+
 
 \TODO{Habría que insertar aquí los kernels utilizados en los experimentos}
 
