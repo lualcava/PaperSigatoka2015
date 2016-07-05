@@ -8,13 +8,13 @@ interest such as the progress of diseases.
 % 
 \citet{Huang2010} summarize in their survey the
 development of soft computing techniques in agricultural and
-biological engineering, including fuzzy logic, artificial neural
-networks, genetic algorithms, bayesian inference and decision trees.
+biological engineering, especially in the soil and water context for crop management and decision support in precision agriculture, including fuzzy logic, artificial neural
+networks, genetic algorithms, Bayesian inference and decision trees. They do not present numeric results of each paper, only mention the main idea.
 %
 Similarly, \citet{Kim2014} survey more recent prediction
-methods for crop pests using regression and machine learning approaches.
+methods for crop pests using regression and machine learning approaches. Nor do they provide numerical results of each paper.
 
-\TODO{Falta indicar qué concluyen los dos surveys anteriores}
+\TODO{Falta indicar qué concluyen los dos surveys anteriores - Modificado: como indico, en realidad ellos mencionan qué métodos han usado en los paper, pero no dan R2 o rmse, ni detallan resultados en general}
 
 In general, the machine learning methods applied to predict the
 evolution of plant diseases, can be classified in two main approaches:
@@ -33,6 +33,9 @@ second case.
 % identification method based on neural networks with an evolutionary
 % preprocessing stage, 
 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Nota. la cita para lo de plant virus identificacion es  \citet{Glezakos2010}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \citet{Romero1995} relied on regression models using a stepwise
 procedure to predict incubation and disease latency periods for the
@@ -45,6 +48,8 @@ The prediction models reached coefficients of determination $R^2$ of
 69\% or 78\% on the observed data for the incubation and disease
 latency periods, respectively; however, the cross validation on
 independent data sets failed.
+%
+In contrast, our proposal presents a model that can be generalizable to other farms that have data.
 
 More recently, \citet{Glezakos2010} used genetic algorithms (GA) and
 neural networks (NN) to identify the Tobacco Rattle Virus (TRV) and
@@ -54,6 +59,8 @@ The method was tested against some of the most commonly used
 classifiers in machine learning (Bayes classifiers, decision trees and
 $k$-nearest neighbors) via cross-validation and proved their
 applicability in these kind of problems.
+%
+These authors do not prove their methods in Sigatoka disease and they do classification. Instead we do regression.
 
 \citet{Alves2011} used geoinformation techniques to
 develop predictive models in the study of risk areas to soybean rust,
@@ -67,9 +74,9 @@ using the SRES~A2 climate change scenarios.
 %
 Using principal components analysis, a single variable was generated
 as a linear combination of 57 input variables, in order to determine
-an index explaining 87\%, 88\% and 90\% of the
+an index explaining 87\%, 88\% and 90\% of the data
 %
-\todofn{variability}{variabilidad de qué?}  
+\todofn{variability}{variabilidad de qué? - Comentario: de los datos de cada uno }  
 %
 of soybean, coffee and
 banana crops, respectively, in municipal districts across Brazil.
@@ -84,6 +91,8 @@ diseases, using temperature and leaf wetness as input.
 This methodology enabled the visualization of the changes in areas
 favorable for epidemics under possible future scenarios of climate
 change.
+%
+How intermediate result, they characterized the monociclic process of the black Sigatoka using  nonlinear regression. Although they do not present the detailed results, it no seem that they wanted to predict the progression of the black Sigatoka in one, two or more periods ahead, how we do.
 
 Other applications of machine learning methods in precision
 agriculture include the use of support vector regression to predict
@@ -134,6 +143,8 @@ linear regressors in terms of the mean prediction-error $(MPE =
 1.40)$, mean square deviation $(MSD = 2.29)$ and coefficient of
 determination $(R^2 = 91\%)$.
 
+Although these studies have their contribution, none proposed the kind of preprocessing that we present, nor pose how to predict more than one period ahead without trying to predict climate.
+
 % Este no calza, porque no se ve qué es lo de machine learning que usa...
 %
 %\citet{Zhao2013} present an intelligent agricultural
@@ -141,4 +152,4 @@ determination $(R^2 = 91\%)$.
 
 \TODO{Importantísimo es explicar aquí brevemente por qué esos otros
   trabajos no se aplican al caso de la Sigatoka, o qué es lo que han
-  hecho mal, que este trabajo sí hace bien.}
+  hecho mal, que este trabajo sí hace bien. - Modificado}

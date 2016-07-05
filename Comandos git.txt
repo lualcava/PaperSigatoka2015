@@ -21,3 +21,9 @@ git push
 
 para borrar cambios
 git stash
+
+dos personas trabajando, una hace cambios
+git commit -a -m "mensaje"
+git push
+
+git --version
