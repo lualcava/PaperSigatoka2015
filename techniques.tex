@@ -128,8 +128,8 @@ function is usually formulated as
 The weights are selected in a convex optimization problem
 \citep{Smola2004}:
 \begin{align*}
-  \text{minimize}   & \frac{1}{2}\|\vct{w}\|^2 + C\sum_{i=1}^n(\xi_i+\xi_i^\ast \\
-  \text{subject to} & 
+  \text{minimize} \quad  & \frac{1}{2}\|\vct{w}\|^2 + C\sum_{i=1}^n(\xi_i+\xi_i^\ast) \\
+  \text{subject to} \quad & 
   \begin{cases}
     y_i - \dotp{\vct{w},\vct{x}_i} - b &\leq \epsilon + \xi_i    \\
     \dotp{\vct{w},\vct{x}_i} + b -y_i  &\leq \epsilon + \xi_i^\ast\\
