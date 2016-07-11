@@ -49,7 +49,7 @@ or equivalently by the singular value decomposition of $\mat{X}$
   modelo tenga que pasar por cero...  a menos por supuesto que la
   constante se haya sacado de la ecuación al optimizar...
   
-  Comentario:  Pero si por feature scaling los datos están entre -1 y 1, con 0 en medio?}
+  COMENTARIO:  Modificado según lo conversado}
 
 \subsection{Ridge regression}
 
@@ -107,7 +107,10 @@ still likely pick both.
   hasta donde sea justificable usar este Y los otros, porque este ES
   los otros...
   
-  Comentario: En realidad la idea era mostrar los diversos resultados, pero me suena bien reducirlo a ElasticNet (optimizado los parámetros) lo cual reduce resultados y gráficos en dos (quitando ridge y OLSR).  Cuando hablamos confirmamos y lo quito.  }
+  Comentario: Revisando la documentación de la bibliteca (ver abajo), parece que por implementación no debería excluirse OLSR por separado.
+  Estos son dos parámetros de las ElasticNet
+alpha : float.  Constant that multiplies the penalty terms. Defaults to 1.0 See the notes for the exact mathematical meaning of this parameter. alpha = 0 is equivalent to an ordinary least square, solved by the LinearRegression object. For numerical reasons, using alpha = 0 with the Lasso object is not advised and you should prefer the LinearRegression object.
+l1ratio    The ElasticNet mixing parameter, with 0 < = l1ratio < = 1. For l1ratio = 0 the penalty is an L2 penalty. For l1ratio = 1 it is an L1 penalty. For 0 < l1ratio < 1, the penalty is a combination of L1 and L2 }
 
 
 \TODO{Alex, veo que usas mucho \citep{scikitlearn2011} para los
@@ -123,7 +126,9 @@ still likely pick both.
 
 \TODO{Estoy seguro que los lectores van a solicitar reducir esto y
   dejar solo la referencia.  Dejé solo lo que considero relevante,
-  pero podés reducirlo más, si querés.}
+  pero podés reducirlo más, si querés.
+  
+  Comentario: Ok, gracias }
 
 From the perspective of Support Vector Regression (SVR) the regression
 function is usually formulated as 
@@ -199,20 +204,20 @@ Linear kernel:
 K(\vct{x}_i,\vct{x}_j)={\vct{x}_i}^T \vct{x}_j
 \end{equation*}
 
-RBF: 
+Radial basis function (RBF): 
 \begin{equation*}
-K(\vct{x}_i,\vct{x}_j)= exp{\vct{x}_i}^T \vct{x}_j
+K(\vct{x}_i,\vct{x}_j) = exp\left( \frac{ \| \vct{x}_i - \vct{x}_j \|^2}{2 \sigma^2} \right)
 \end{equation*}
-
-%K(x_i,x_j )=  exp((||x_i- x_j | |^2)/(2σ^2 ))
-%donde σ es el parámetro del modelo Gausiano.
+where $\sigma$ is the parameter of gausian model.
 
 Sigmoid:
-%K(x_i,x_j )=  tanh[-c+ (x_i x_j)/σ^2 ]
-%Con c ≥0  y σ^2 es el vector de escalamiento
+\begin{equation*}
+K(\vct{x}_i,\vct{x}_j) = tanh \left[ -c + \frac{ \vct{x}_i  \vct{x}_j }{ \sigma^2} \right]
+\end{equation*}
+with $c \geq 0$  and $\sigma^2$ is the scaling vector.
 
 
-\TODO{Habría que insertar aquí los kernels utilizados en los experimentos}
+\TODO{LISTO - Habría que insertar aquí los kernels utilizados en los experimentos}
 
 
 \subsection{Echo State Networks (ESN)}
@@ -233,7 +238,7 @@ For a given training input signal $u(n) \in \setR^{N_u}$ a desired target
 output signal $y^{target}(n) \in \setR^{N_y}$ is known.
 %
 Here $n = 1,\ldots,T$ is the discrete time and \todofn{$T$ is the number of
-data points in the training dataset.}{No puede ser!}
+data points in the training dataset.}{No puede ser! -- Así está en el paper original, lo puse en el repositorio}
 
 The training seeks to learn a model with output $y(n) \in
 \setR^{N_y}$, where $y(n)$ matches $y^{target}(n)$ as close as
