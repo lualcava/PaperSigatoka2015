@@ -33,18 +33,15 @@ The available input and output variables are summarized in
 $T_{a_{max}}$       & Maximal air temperature & $[^\circ$C$]$ \\
 $T_{a_{min}}$       & Minimal air temperature & $[^\circ$C$]$ \\
 $\overline{T}_{a}$ & Mean air temperature    & $[^\circ$C$]$ \\
-$\overline{H}$    & Mean humidity           & ???  \\
-$H_{min}$          & Minimal humidity        & ???  \\
-$H_{max}$          & Maximal humidity        & ???  \\
-$\overline{R}$    & Mean solar radiation    & $[$W/m$^2$$]$ \\
-$P$               & Sum precipitation       & ??? \\
-$W_{max}$          & Maximal wind speed      & $[$km/h$]$ \\
-$\overline{W}$    & Mean speed wind         & $[$km/h$]$ \\
-$L_2$             & Biological warning system – Leaf 2 & ???\\
-$L_3$             & Biological warning system – Leaf 3 & ???\\
-$L_4$             & Biological warning system – Leaf 4 & ???\\
+$\overline{H}$    & Mean relative humidity           & $[0 - 100]$   \\
+$H_{min}$          & Minimal relative humidity        & $[0 - 100]$  \\
+$H_{max}$          & Maximal relative humidity        & $[0 - 100]$  \\
+$\overline{R}$    & Mean solar radiation    & $[W/m^2]$ \\
+$P$               & Precipitation       & $[mm]$ \\
+$W_{max}$          & Maximal wind speed      & $[m/s]$ \\
+$\overline{W}$    & Mean speed wind         & $[m/s]$ \\
 \hline
-$E_s$             & Biological warning system – Evolution Stage  & ???\\
+$E_s$             & Biological warning system – Evolution Stage  & $>0$\\
 \hline
 \end{tabular} 
 \caption{Variables available for the learning algorithms} 
@@ -87,8 +84,7 @@ computed on the data collected by nearby stations in each farm.
 \TODO{The mean variables ... }
 
 The value to be predicted in all cases is the evolution stage $E_s$,
-which corresponds to the total measure of the biological warning
-system.
+which is a measure of the level of disease progression.
 
 \subsection{Data preprocessing}
 
