@@ -1,0 +1,29 @@
+touch README.md
+git init
+git add README.md
+git commit -m "comentario"
+git remote add origin https://github.com/LuchoCastillo/Repositorio.git
+git push -u origin master
+
+
+git add archivo
+git commit -m "comentario"
+git push
+
+
+git pull
+
+
+
+git commit -a -m "mensaje"
+git push
+
+
+para borrar cambios
+git stash
+
+dos personas trabajando, una hace cambios
+git commit -a -m "mensaje"
+git push
+
+git --version

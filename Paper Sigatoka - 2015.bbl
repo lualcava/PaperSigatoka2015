@@ -1,0 +1,169 @@
+\begin{thebibliography}{30}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Alonso et~al.(2013)Alonso, {Rodr{\'i}guez~Casta{\~n}{\'o}n}, and
+  Bahamonde}]{Alonso2013}
+Alonso, J., {Rodr{\'i}guez~Casta{\~n}{\'o}n}, {\'A}., Bahamonde, A., 2013.
+  Support vector regression to predict carcass weight in beef cattle in advance
+  of the slaughter. Computers and Electronics in Agriculture, 116--120.
+
+\bibitem[{Alves et~al.(2011)Alves, de~Carvalho, Pozza, Sanches, and
+  Maia}]{Alves2011}
+Alves, M., de~Carvalho, L., Pozza, E., Sanches, L., Maia, J., 2011. Ecological
+  zoning of soybean rust, coffee rust and banana black {S}igatoka based on
+  {B}razilian climate changes. Procedia Environmental Sciences 6, 35--49.
+
+\bibitem[{Analitycs(2015)}]{Continuum2015}
+Analitycs, C., 2015. Anaconda. Online; accessed 25-April-2016.
+\newline\urlprefix\url{https://www.continuum.io/}
+
+\bibitem[{Bendini et~al.(2013)Bendini, Moraes, da~S.~Silva, Tezuka, and
+  Cruvinel}]{Bendini2013}
+Bendini, H., Moraes, W., da~S.~Silva, Tezuka, E., Cruvinel, P., 2013.
+  An{\'a}lise de risco da ocorr{\^e}ncia de sigatoka-negra baseada em modelos
+  polinomiais: um estudo de caso. Tropical Plant Pathology 38~(1), 35--43.
+
+\bibitem[{Camargo et~al.(2012)Camargo, Molina, Cadena-Torres, Jim{\'e}nez, and
+  Kim}]{Camargo2012}
+Camargo, A., Molina, J., Cadena-Torres, J., Jim{\'e}nez, N., Kim, J., 2012.
+  Intelligent systems for the assessment of crop disorders. Computers and
+  Electronics in Agriculture 85, 1--7.
+
+\bibitem[{Chuang and Jeger(1987)}]{ChuangJeger1987}
+Chuang, T., Jeger, M., 1987. Predicting the rate of development of black
+  {S}igatoka (\emph{Mycosphaerella fijiensis var. difformis}) disease in
+  southern {T}aiwan. Phytopathology 77, 1542--1547.
+
+\bibitem[{Coopersmith et~al.(2014)Coopersmith, Minsker, Wenzel, and
+  Gilmore}]{Coopersmith2014}
+Coopersmith, E.~J., Minsker, B.~S., Wenzel, C.~E., Gilmore, B.~J., 2014.
+  Machine learning assessments of soil drying for agricultural planning.
+  Computers and Electronics in Agriculture 104, 93--104.
+
+\bibitem[{Cristiani and Shave-Taylor(2005)}]{Cristiani2005}
+Cristiani, N., Shave-Taylor, J., 2005. An introduction to support vector
+  machines and other kernel-based learning methods, ninth printing Edition.
+  Cambridge University Press, United Kingdom.
+
+\bibitem[{Demir and Bruzzone(2014)}]{Demir2014}
+Demir, B., Bruzzone, L., 2014. A multiple criteria active learning method for
+  support vector regression. Pattern Recognition, 2558--2567.
+
+\bibitem[{Four{\'e}(1988)}]{foure1988}
+Four{\'e}, E., 1988. Strat{\'e}gies de lutte contre la cercosporioses noire des
+  bananiers et plan-tains provoqu{\'e}e par {M}ycosphaerella fijiensis
+  {M}orelet . {L}\' avertissement biologique au {C}ameroun. {E}valuation des
+  possibilit{\'e}s d92\’ am{\'e}lioration. Fruits 43, 269--274.
+
+\bibitem[{Ganry and Laville(1972)}]{ganry1972}
+Ganry, J., Laville, E., 1972. La lutte control{\'e}e contre le {C}ercospora aux
+  antilles. {B}ases climatiques de l\' avertissement. Fruits 27, 665--676.
+
+\bibitem[{Ganry and Meyer(1983)}]{ganry1983}
+Ganry, J., Meyer, J., 1983. Les cerco-sporioses du bananier et leurs
+  traitements. {E}volution des m{\'e}thods de traitement. Fruits 38, 3--20.
+
+\bibitem[{Glezakos et~al.(2010)Glezakos, Moschopoulou, Tsiligiridis, Kintzios,
+  and Yialouris}]{Glezakos2010}
+Glezakos, T., Moschopoulou, G., Tsiligiridis, T., Kintzios, S., Yialouris, C.,
+  2010. Plant virus identification based on neural networks with evolutionary
+  preprocessing. Computers and Electronics in Agriculture 70, 263--275.
+
+\bibitem[{Huang et~al.(2010)Huang, Lan, Thomson, Fang, Hoffmann, and
+  Lacey}]{Huang2010}
+Huang, Y., Lan, Y., Thomson, S., Fang, A., Hoffmann, W., Lacey, R., 2010.
+  Development of soft computing and applications in agricultural and biological
+  engineering. Computers and Electronics in Agriculture 71~(2), 107--127.
+
+\bibitem[{Ibrahim and Wibowo(2014)}]{Ibrahim2014}
+Ibrahim, N., Wibowo, A., 2014. Time series support vector regression with
+  missing data treatment based variables selection for water level prediction
+  of {G}alas {R}iver in {K}elantan {M}alaysia. International Journal of Applied
+  Research in Engineering and Science 3, 25--36.
+
+\bibitem[{Kim et~al.(2014)Kim, Yoo, Gu, Lim, Han, and Baik}]{Kim2014}
+Kim, Y., Yoo, S., Gu, Y., Lim, J., Han, D., Baik, S., 2014. Crop pests
+  prediction method using regression and machine learning technology: Survey.
+  IERI Procedia 6, 52--56.
+
+\bibitem[{Lukosevicius(2012)}]{Lukose2012}
+Lukosevicius, M., 2012. A practical guide to applying echo state networks.
+  Neural Networks: Tricks of the Trade, 1--20.
+
+\bibitem[{Lukosevicius and Jaeger(2009)}]{Lukose2009}
+Lukosevicius, M., Jaeger, H., 2009. Reservoir computing approaches to recurrent
+  neural network training. Computer Science Review 3, 127--149.
+
+\bibitem[{Mar\'in et~al.(2003)Mar\'in, Romero, Guzm\'an, and
+  Sutton}]{Marinetal2003}
+Mar\'in, D., Romero, R., Guzm\'an, M., Sutton, T., 2003. Black {S}igatoka: An
+  increasing threat to banana cultivation. Plant Disease 87~(3), 208--222.
+
+\bibitem[{{Mar\'in\ Vargas} and {Ro\-me\-ro\
+  Cal\-de\-r{\'o}n}(1995)}]{MarinVargas1995}
+{Mar\'in\ Vargas}, D., {Ro\-me\-ro\ Cal\-de\-r{\'o}n}, R., 1995. El combate de
+  la {S}igatoka {N}egra. In: Bolet{\'i}n Departamento de Investigaciones.
+  Corbana, Costa Rica.
+
+\bibitem[{McKinney(2010)}]{mckinneypandas2010}
+McKinney, W., 2010. Data structures for statistical computing in {P}ython. In:
+  Proceedings of the 9th Python in Science Conference. pp. 51--56.
+
+\bibitem[{Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel,
+  Thirion, Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
+  Cournapeau, Brucher, Perrot, and Duchesnay}]{scikitlearn2011}
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel,
+  O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J.,
+  Passos, A., Cournapeau, D., Brucher, M., Perrot, M., Duchesnay, E., 2011.
+  Scikit-learn: Machine learning in python. Journal of Machine Learning
+  Research 12, 2825--2830.
+
+\bibitem[{{Romero~Calder{\'o}n}(1995)}]{Romero1995}
+{Romero~Calder{\'o}n}, R., 1995. Dynamics of fungicide resistant populations of
+  \emph{Mycosphaerella fijiensis} and epidemiology of black {S}igatoka of
+  banana. Ph.D. thesis, Department of Plant Pathology, North Carolina State
+  University.
+
+\bibitem[{Rumpf et~al.(2010)Rumpf, Mahlein, Steiner, Oerke, Dehne, and
+  Pl{\"u}mer}]{Rumpf2010}
+Rumpf, T., Mahlein, A.-K., Steiner, U., Oerke, E.-C., Dehne, H.-W., Pl{\"u}mer,
+  L., 2010. Early detection and classification of plant diseases with support
+  vector machines based on hyperspectral reflectance. Computers and Electronics
+  in Agriculture 74~(1), 91--99.
+
+\bibitem[{Soares et~al.(2013)Soares, Pasqual, and Lacerda}]{Soares2013}
+Soares, J., Pasqual, M., Lacerda, W., 2013. Utilization of artificial neural
+  networks in the prediction of the bunches' weight in banana plants. Scientia
+  Horticulturae 155, 24--29.
+
+\bibitem[{Soares et~al.(2014)Soares, Pasqual, Lacerda, Silva, and
+  Donato}]{Soares2014}
+Soares, J., Pasqual, M., Lacerda, W., Silva, S., Donato, S., 2014. Comparison
+  of techniques used in the prediction of yield in banana plants. Scientia
+  Horticulturae 167, 84--90.
+
+\bibitem[{Ternesien(1985)}]{Ternesien1985}
+Ternesien, E., 1985. La cercorporioses des bananiers et plantains. {M}ethodes
+  de lutte-{A}vertissements. {P}erspectives au cameroun. {M}emoire de fin
+  d’etudes.
+
+\bibitem[{van~der Walt et~al.(2011)van~der Walt, Colbert, and
+  Varoquaux}]{vanderWalt2011}
+van~der Walt, S., Colbert, C., Varoquaux, G., 2011. The {NumPy} {A}rray: A
+  structure for efficient numerical computation. Computing in Science \&
+  Engineering 13, 22--30.
+
+\bibitem[{Wei et~al.(2013)Wei, Tao, ZhuoShu, and Zio}]{Wei2013}
+Wei, Z., Tao, T., ZhuoShu, D., Zio, E., 2013. A dynamic particle filter-support
+  vector regression method for reliability prediction. Reliability Engineering
+  \& System Safety, 109--116.
+
+\bibitem[{Zhao et~al.(2013)Zhao, He, Harry, and Jin}]{Zhao2013}
+Zhao, L., He, L., Harry, W., Jin, X., 2013. Intelligent agricultural
+  forecasting system based on wireless sensor. Journal of Networks 8,
+  1817--1824.
+
+\end{thebibliography}

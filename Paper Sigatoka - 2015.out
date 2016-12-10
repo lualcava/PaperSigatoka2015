@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Machine learning techniques and Related works}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Support Vector Regression \(SVR\)}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Ordinary least squares regression}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Ridge regression}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Elastic-Net regression}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Echo State Networks \(ESN\)}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Related works}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Specification of data and methodology}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Data}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Data preprocessing}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Evaluation criteria}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{Programming environment}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.5}{Methodology}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Results and discussion}{}% 15
+\BOOKMARK [1][-]{section.5}{Future work}{}% 16
+\BOOKMARK [1][-]{section.6}{Acknowledgements}{}% 17
+\BOOKMARK [1][-]{section.7}{References}{}% 18

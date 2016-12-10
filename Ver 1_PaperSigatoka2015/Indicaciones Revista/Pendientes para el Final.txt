@@ -1,0 +1,75 @@
+Pendientes:
+
+- Poner número de linea a cada línea del documento.
+- En las referencias debe estar las páginas utilizadas.
+- Abstract no más de 400 palabras
+- 
+
+Abstract A concise and factual abstract is required which should not be longer than 400 words. The abstract should state briefly the purpose of the research, the principal results and major conclusions. An abstract is often presented separately from the article, so it must be able to stand alone. For this reason, References should be avoided, but if essential, then cite the author(s) and year(s). Also, non- standard or uncommon abbreviations should be avoided, but if essential they must be defined at their first mention in the abstract itself.
+
+Introduction State the objectives of the work and provide an adequate background, avoiding a detailed literature survey or a summary of the results. Additional sections Background and/or Literature may be necessary, but only if these aspects of the work cannot be adequately covered in the Introduction.
+materials and methods This section is necessary if your paper involves experimentation. Provide sufficient detail to allow the work to be reproduced. Methods already published should be indicated by a reference: only relevant modifications should be described. However, work published in Computers and Electronics in Agriculture will often not comprise a straightforward experimental investigation or testing of a hypothesis. Therefore, rather than Materials and Methods, other section headings may be appropriate. e.g. one or more of: Design Requirement Measurement Requirement Control Requirement Specification of . . . 
+A section headed Performance Evaluation or Validation or Assessment may then be appropriate.
+results is expected for all experimental work. Results should be clear and concise; and report only your work, i.e. comparisons with other work from cited literature should be set out in the subsequent section Discussion.
+Discussion This should explore the significance of the results of the work, not repeat them. A combined Results and Discussion section may be appropriate, but if this is adopted it is essential to maintain clarity as regards which results/achievements are your work and which are the work of others. Avoid extensive citations and discussion of published literature.
+Conclusions The main conclusions of the study may be presented in a short Conclusions section.
+Appendices If there is more than one appendix, they should be identified as A, B, etc. Formulae and equations in appendices should be given separate numbering: Eq. (A.1), Eq. (A.2), etc.; in a subsequent appendix, Eq. (B.1) and so on. Similarly for tables and figures: Table A.1; Fig. A.1, etc
+
+Graphical abstract Although a graphical abstract is optional, its use is encouraged as it draws more attention to the online article. The graphical abstract should summarize the contents of the article in a concise, pictorial form designed to capture the attention of a wide readership. Graphical abstracts should be submitted as a separate file in the online submission system. Image size: Please provide an image with a minimum of 531 × 1328 pixels (h × w) or proportionally more. The image should be readable at a size of 5 × 13 cm using a regular screen resolution of 96 dpi. Preferred file types: TIFF, EPS, PDF or MS Office files. See http://www.elsevier.com/graphicalabstracts for examples. Authors can make use of Elsevier's Illustration and Enhancement service to ensure the best presentation of their images and in accordance with all technical requirements: Illustration Service.
+
+Highlights Highlights are mandatory for this journal. They consist of a short collection of bullet points that convey the core findings of the article and should be submitted in a separate editable file in the online submission system. Please use 'Highlights' in the file name and include 3 to 5 bullet points (maximum 85 characters, including spaces, per bullet point). See http://www.elsevier.com/highlights for examples
+
+Keywords Immediately after the abstract, provide a maximum of 6 keywords, using American spelling and avoiding general and plural terms and multiple concepts (avoid, for example, 'and', 'of'). Be sparing with abbreviations: only abbreviations firmly established in the field may be eligible. These keywords will be used for indexing purposes.
+
+Abbreviations Define abbreviations that are not standard in this field in a footnote to be placed on the first page of the article. Such abbreviations that are unavoidable in the abstract must be defined at their first mention there, as well as in the footnote. Ensure consistency of abbreviations throughout the article.
+Acknowledgements Collate acknowledgements in a separate section at the end of the article before the references and do not, therefore, include them on the title page, as a footnote to the title or otherwise. List here those individuals who provided help during the research (e.g., providing language help, writing assistance or proof reading the article, etc.).
+Nomenclature and units 1. Authors and Editor(s) are, by general agreement, obliged to accept the rules governing biological nomenclature, as laid down in the International Code of Botanical Nomenclature, the International Code of Nomenclature of Bacteria, and the International Code of Zoological Nomenclature.
+2. All biotica (crops, plants, insects, birds, mammals, etc.) should be identified by their scientific names when the English term is first used, with the exception of common domestic animals.
+3. All biocides and other organic compounds must be identified by their Geneva names when first used in the text. Active ingredients of all formulations should be likewise identified.
+4. For chemical nomenclature, the conventions of the International Union of Pure and Applied Chemistry and the official recommendations of the IUPAC-IUB Combined Commission on Biochemical Nomenclature should be followed.
+Formulae 1. All formulae should be presented consistently and clearly with regard to the meaning of each symbol and its correct location. Formulae must be typed throughout.
+2. All unusual symbols must be collected in a separate list in the appendix, giving a clear explanation of each symbol.
+3. Please try to keep the notation as simple as possible, and avoid ambiguities. Do not use special typefonts if there is no urgent need to do so.
+
+4. Different formulae should be clearly separated in the manuscript, at least by punctuation marks, if not by words. Avoid breaking formulae if breaking is not strictly necessary (i.e., if the equation is less than one typed line). Never let a sentence consist of formulae alone (i.e., without any connection with the preceding text).
+5. Do not use complicated juxtapositions of symbols. Also, try to avoid complicated subscripts and superscripts; third-order indices especially present difficulties as to their size and position, and fourth- order indices are taboo.
+6. The manuscript must show a clear distinction between similar symbols, (e.g., between zero (0) and the letter O, between one (1) and the letter l, and between multiplication (×) and the letter x).
+7. Important formulae (e.g.definitions) must be displayed. All formulae which are to be referred to later on must be displayed and numbered consecutively throughout the paper; the number should appear on the right-hand side of the page.
+8. In chemical formulae the valence of ions must be given as, for example, Ca2+ and CO32 rather than as Ca++ and CO3--.
+
+9. Isotope numbers should precede the symbols (e.g., 18O).
+Footnotes Footnotes should be used sparingly. Number them consecutively throughout the article. Many word processors build footnotes into the text, and this feature may be used. Should this not be the case, indicate the position of footnotes in the text and present the footnotes themselves separately at the end of the article.
+
+Artwork
+Electronic artwork General points • Make sure you use uniform lettering and sizing of your original artwork. • Preferred fonts: Arial (or Helvetica), Times New Roman (or Times), Symbol, Courier. • Number the illustrations according to their sequence in the text. • Use a logical naming convention for your artwork files. • Indicate per figure if it is a single, 1.5 or 2-column fitting image. • For Word submissions only, you may still provide figures and their captions, and tables within a single file at the revision stage. • Please note that individual figure files larger than 10 MB must be provided in separate source files. A detailed guide on electronic artwork is available on our website: http://www.elsevier.com/artworkinstructions.
+
+You are urged to visit this site; some excerpts from the detailed information are given here. Formats Regardless of the application used, when your electronic artwork is finalized, please 'save as' or convert the images to one of the following formats (note the resolution requirements for line drawings, halftones, and line/halftone combinations given below): EPS (or PDF): Vector drawings. Embed the font or save the text as 'graphics'. TIFF (or JPG): Color or grayscale photographs (halftones): always use a minimum of 300 dpi. TIFF (or JPG): Bitmapped line drawings: use a minimum of 1000 dpi. TIFF (or JPG): Combinations bitmapped line/half-tone (color or grayscale): a minimum of 500 dpi is required. Please do not: • Supply files that are optimized for screen use (e.g., GIF, BMP, PICT, WPG); the resolution is too low. • Supply files that are too low in resolution. • Submit graphics that are disproportionately large for the content.
+
+Figure captions Ensure that each illustration has a caption. A caption should comprise a brief title (not on the figure itself) and a description of the illustration. Keep text in the illustrations themselves to a minimum but explain all symbols and abbreviations used.
+Tables 1. Authors should take notice of the limitations set by the size and lay-out of the journal. Large tables should be avoided. Reversing columns and rows will often reduce the dimensions of a table.
+2. If many data are to be presented, an attempt should be made to divide them over two or more tables.
+3. Tables should be numbered according to their sequence in the text. The text should include references to all tables.
+4. Each table should be typewritten on a separate page of the manuscript. Tables should never be included in the text.
+5. Each table should have a brief and self-explanatory title
+6. Column headings should be brief, but sufficiently explanatory. Standard abbreviations of units of measurement should be added between parentheses.
+7. Vertical lines should not be used to separate columns. Leave some extra space between the columns instead.
+8. Any explanation essential to the understanding of the table should be given as a footnote at the bottom of the table.
+References
+
+References References 1. All publications cited in the text should be presented in a list of references following the text of the manuscript. The manuscript should be carefully checked to ensure that the spelling of author's names and dates are exactly the same in the text as in the reference list. 2. In the text refer to the author's name (without initial) and year of publication, followed - if necessary - by a short reference to appropriate pages. Examples: "Since Peterson (1993) has shown that ...." "This is in agreement with results obtained later (Peterson and Kramer, 1993, pp. 12-16)". 3. If reference is made in the text to a publication written by more than two authors the name of the first author should be used followed by "et al." This indication, however, should never be used in the list of references. In this list names of first author and co-authors should be mentioned. 4. References cited together in the text should be arranged chronologically. The list of references should be arranged alphabetically on authors' names, and chronologically per author. If an author's name in the list is also mentioned with co-authors the following order should be used: publications of the single author, arranged according to publication dates - publications of the same author with one co-author - publications of the author with more than one co-author. Publications by the same author(s) in the same year should be listed as 1994a, 1994b, etc. 5. Use the following system for arranging your references: 
+5.1 For periodicals Yang, Q., 1993. Classification of apple surface features using machine vision and neural networks. Comput. Electron. Agric. 9, 1-12. 5.2 For entire (special) issue of journal Glaser, R., Bond, L. (Eds). 1981. Testing: Concepts and Research (special issue). American Psychologist 36 (10). 5.3 For books Peart, R.M., Brooks, R.C. (Eds.), 1992. Analysis of Agricultural Energy Systems. Energy in World agriculture, 5. Elsevier, Amsterdam.
+5.4 For multi-author books Price, D.R., Chen, T.H., Peart, R.M. 1992. Acknowledge-based decision system for control of waste heat for a greenhouse-aquaculture complex. In: Peart, R.M., Brooks, R.C. (Eds.), Analysis of Agricultural Energy Systems. Energy in World Agriculture, 5. Elsevier, Amsterdam, pp. 33-46. 5.5 For unpublished reports, departmental notes, etc. Deshazer, J.A., Moran, P., Onyango, C.M., Schofield, C.P., 1988. Imaging systems to improve stockmanship in pig production. Div. Note 1549, AFRC Institute of Engineering Research, Silsoe, UK. 6. Do not abbreviate the titles of periodicals mentioned in the list of references; alternatively use the International List of Periodical Title Word Abbreviations. 7. In the case of publications in any language other than English, the original title is to be retained. However, the titles of publications in non-Latin alphabets should be transliterated, and a notation such as "(in Russian)" or "(in Greek with English abstract)" should be added. 8. Work accepted for publication but not yet published should be referred to as "in press". 9. References concerning unpublished data and "personal communications" should not be cited in the reference list buy may be mentioned in the text.
+
+Ensure that the following items are present:
+One author has been designated as the corresponding author with contact details: • E-mail address • Full postal address • Telephone
+All necessary files have been uploaded, and contain: • Keywords
+• All figure captions
+• All tables (including title, description, footnotes) Further considerations
+• Manuscript has been 'spell-checked' and 'grammar-checked' • All references mentioned in the Reference list are cited in the text, and vice versa • Permission has been obtained for use of copyrighted material from other sources (including the Internet) Printed version of figures (if applicable) in color or black-and-white • Indicate clearly whether or not color or black-and-white in print is required. • For reproduction in black-and-white, please supply black-and-white versions of the figures for printing purposes. For any further information please visit our customer support site at http://support.elsevier.com.
+
+
+
+
+
+
+
