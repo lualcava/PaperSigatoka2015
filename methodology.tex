@@ -77,7 +77,7 @@ processing stages.
 
 In the farm 28 Miles 1\% and in La Rita 2.25\% of the data were missing.
 %
-To fill-in the missing values spline interpolation was used. \TODO{Falta poner una cita de spline interpolation}
+To fill-in the missing values spline interpolation was used \citet{Alglib2017}.
 %
 The data collected did not exhibit outliers.
 
@@ -133,12 +133,7 @@ framework.
 
 \subsection{Methodology}
 
-The evaluation of the techniques under consideration of their
-parameter space, was performed in two stages, described below.
-
-\subsubsection{Phase one} 
-
-In the phase one, ten-fold-cross-validation on the total set of
+Ten-fold-cross-validation on the total set of
 machine learning methods under a subset of configurations was evaluated:
 
 \begin{itemize}
@@ -163,10 +158,3 @@ machine learning methods under a subset of configurations was evaluated:
 \end{itemize}
 
 \end{itemize}
-
-\subsubsection{Phase two} 
-
-In the second phase, the best configurations obtained in phase one are
-used to validate with the last 50 and 100 weeks.
-
-\TODO{Hmm, ¿entonces cuántas/cuáles semanas se usaron para la fase uno?}
