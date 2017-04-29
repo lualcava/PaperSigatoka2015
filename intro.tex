@@ -24,7 +24,7 @@ disease progression on young leaves of the plant.
 %
 \figref{fig:diseasestages} shows an example of three progressive
 stages of the black Sigatoka.
-	 
+%	 
 \begin{figure}[ht] 
 \centering
 \begin{tabular}{c@{\;}c@{\;}c}
@@ -82,24 +82,20 @@ these variables correlate with the disease development and hence its
 automated discovery can support decision-making in the control of crop
 diseases.
 
-In this work, we compare five machine learning techniques to predict
+In this work, we compare four machine learning techniques to predict
 the development rate of the black Sigatoka disease: support vector
-regression (SVR), echo state networks (ESN), ridge regression,
-elastic-net regression and ordinary least squares linear regression,
-using input variables such as: air temperature, relative humidity, solar radiation, precipitation and wind speed \review{LISTO - completar las variables de
-  entrada usada} to predict the evolution stage in the biological warning system\review{LISTO - completar las variables de salida - Modificado}.
+regression (SVR), echo state networks (ESN), elastic net regression 
+and ordinary least squares linear regression,
+using input variables: maximal air temperature, minimal air temperature,
+ mean air temperature, mean relative humidity, minimal relative humidity, 
+ maximal relative humidity, mean solar radiation, sum of precipitation, 
+ maximal wind speed and mean speed wind, to predict the evolution stage 
+ in the biological warning system. 
 
-\todofn{The main contribution of this work}%
-{Definitivamente ese no es el aporte principal del artículo.  Cuando
-  esté listo el resto hay que volver aquí.  Creo que va a ser algo
-  como mostrar la relevancia de la etapa de preprocesamiento, o
-  mostrar que a pesar de ser sistemas complejos, con variables
-  caóticas, lo mejor en este caso son predictores lineales, o algo por
-  el estilo - Pendiente} %
-% 
- is the selection of the best machine learning technique
-to forecast the black Sigatoka development rate according to the
-metric indicated below.
+ The main findings were: 1) The highest R2 was 60\% 2) The highest R2 
+ were reached with linear models like support vector regression with 
+ linear kernel, 3) As little as three meteorological variables can 
+ be used because of the correlations detected among variables. 
 
 The outline of the paper is as follows: Section~\ref{sec:related}
 presents related works and Section~\ref{sec:techs} summarizes the
@@ -109,4 +105,4 @@ and describe data used for its verification.  The results and their
 discussion are presented in section~\ref{sec:results}.  The
 Section~\ref{sec:concl} concludes this article and presents lines for
 future works.
-
+%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.24)  6 OCT 2016 13:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.24)  18 APR 2017 20:41
 entering extended mode
 **./Paper_Sigatoka_-_2015.tex
 (Paper_Sigatoka_-_2015.tex
@@ -817,12 +817,7 @@ Overfull \hbox (167.69536pt too wide) in paragraph at lines 85--91
 g sys-tem[][][][][][]. 
  []
 
-[3]) (related.tex
-Overfull \hbox (6.0pt too wide) in paragraph at lines 17--18
-[][][][][][] 
- []
-
-[4] [5]) (techniques.tex
+[3]) (related.tex [4] [5]) (techniques.tex
 Overfull \hbox (6.0pt too wide) in paragraph at lines 155--1
 [][][][][][]
  []
@@ -868,79 +863,68 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 220--221
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 84--85
-[][][][][][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 86--87
-[][][][][][] 
- []
-
-[13]
-Overfull \hbox (2.50514pt too wide) in paragraph at lines 109--139
+Overfull \hbox (2.50514pt too wide) in paragraph at lines 85--115
 \OT1/cmr/m/n/10 cesses, they are dis-cretized [][][][][][][][][]. The vari-a-ti
 on range
  []
 
-
-Overfull \hbox (6.83397pt too wide) in paragraph at lines 140--160
+[13]
+Overfull \hbox (2.84784pt too wide) in paragraph at lines 116--136
 \OML/cmm/m/it/10 x$ \OT1/cmr/m/n/10 is used to de-ter-mine the num-ber $\OML/cm
 m/m/it/10 n$ \OT1/cmr/m/n/10 of dis-cretiza-tion lev-els as [][][][][][][][][]
  []
 
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 143--144
+[][][][][][] 
+ []
+
 [14]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 167--168
+Overfull \hbox (6.0pt too wide) in paragraph at lines 150--151
 [][][][][][] 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 174--175
+Overfull \hbox (6.0pt too wide) in paragraph at lines 189--190
 [][][][][][] 
  []
 
 [15]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 213--214
-[][][][][][] 
- []
-
-
-Overfull \hbox (102.5564pt too wide) in paragraph at lines 217--229
+Overfull \hbox (102.5564pt too wide) in paragraph at lines 193--205
 []\OT1/cmr/m/n/10 We use the Python pro-gram-ming lan-guage [][][][][][][][][]
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 238.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 214.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 238.
- [16]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 214.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 252.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 228.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 253--254
+Overfull \hbox (6.0pt too wide) in paragraph at lines 229--230
 [][][][][][] 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 262--263
+Overfull \hbox (6.0pt too wide) in paragraph at lines 238--239
 [][][][][][] 
  []
 
-) (results.tex
-Overfull \hbox (6.0pt too wide) in paragraph at lines 279--1
+[16]) (results.tex
+Overfull \hbox (6.0pt too wide) in paragraph at lines 255--1
 [][][][][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--1
+Underfull \hbox (badness 10000) in paragraph at lines 255--1
 
  []
 
-[17]
-<./fig/Phase_one_Best_R2_for_each_algortihm.pdf, id=343, 794.97pt x 614.295pt>
+
+<./fig/Phase_one_Best_R2_for_each_algortihm.pdf, id=337, 794.97pt x 614.295pt>
 File: ./fig/Phase_one_Best_R2_for_each_algortihm.pdf Graphic file (type pdf)
 
 <use ./fig/Phase_one_Best_R2_for_each_algortihm.pdf>
@@ -952,9 +936,9 @@ Overfull \hbox (52.48402pt too wide) in paragraph at lines 12--13
  [][] 
  []
 
-[18 <./fig/Phase_one_Best_R2_for_each_algortihm.pdf>]
+[17]
 <./fig/Phase_one_Best_R2_for_each_number_of_observation_range_in_the_patterm.pd
-f, id=665, 794.97pt x 614.295pt>
+f, id=344, 794.97pt x 614.295pt>
 File: ./fig/Phase_one_Best_R2_for_each_number_of_observation_range_in_the_patte
 rm.pdf Graphic file (type pdf)
 
@@ -968,7 +952,8 @@ Overfull \hbox (52.48402pt too wide) in paragraph at lines 21--22
  [][] 
  []
 
-<./fig/Phase_one_Best_R2_for_variables.pdf, id=667, 794.97pt x 614.295pt>
+[18 <./fig/Phase_one_Best_R2_for_each_algortihm.pdf>]
+<./fig/Phase_one_Best_R2_for_variables.pdf, id=665, 794.97pt x 614.295pt>
 File: ./fig/Phase_one_Best_R2_for_variables.pdf Graphic file (type pdf)
 
 <use ./fig/Phase_one_Best_R2_for_variables.pdf>
@@ -981,7 +966,7 @@ Overfull \hbox (52.48402pt too wide) in paragraph at lines 30--31
  []
 
 [19 <./fig/Phase_one_Best_R2_for_each_number_of_observation_range_in_the_patter
-m.pdf>] <./fig/Phase_one_R2_RMSE.pdf, id=1195, 433.62pt x 289.08pt>
+m.pdf>] <./fig/Phase_one_R2_RMSE.pdf, id=1193, 433.62pt x 289.08pt>
 File: ./fig/Phase_one_R2_RMSE.pdf Graphic file (type pdf)
 
 <use ./fig/Phase_one_R2_RMSE.pdf>
@@ -994,7 +979,7 @@ Overfull \hbox (1.89647pt too wide) in paragraph at lines 39--40
 
 [20 <./fig/Phase_one_Best_R2_for_variables.pdf>] [21 <./fig/Phase_one_R2_RMSE.p
 df>]
-<./fig/Phase_two_Best_R2_for_each_algortihm.pdf, id=1254, 794.97pt x 614.295pt>
+<./fig/Phase_two_Best_R2_for_each_algortihm.pdf, id=1252, 794.97pt x 614.295pt>
 File: ./fig/Phase_two_Best_R2_for_each_algortihm.pdf Graphic file (type pdf)
 <use ./fig/Phase_two_Best_R2_for_each_algortihm.pdf>
 Package pdftex.def Info: ./fig/Phase_two_Best_R2_for_each_algortihm.pdf used on
@@ -1007,7 +992,7 @@ Overfull \hbox (52.48402pt too wide) in paragraph at lines 111--112
 
 [22]
 <./fig/Phase_two_Best_R2_for_each_number_of_observation_range_in_the_patterm.pd
-f, id=1261, 794.97pt x 614.295pt>
+f, id=1259, 794.97pt x 614.295pt>
 File: ./fig/Phase_two_Best_R2_for_each_number_of_observation_range_in_the_patte
 rm.pdf Graphic file (type pdf)
 
@@ -1034,7 +1019,7 @@ Overfull \hbox (52.48402pt too wide) in paragraph at lines 129--130
  []
 
 [24 <./fig/Phase_two_Best_R2_for_each_number_of_observation_range_in_the_patter
-m.pdf>] <./fig/Phase_two_R2_RMSE.pdf, id=1809, 578.16pt x 433.62pt>
+m.pdf>] <./fig/Phase_two_R2_RMSE.pdf, id=1807, 578.16pt x 433.62pt>
 File: ./fig/Phase_two_R2_RMSE.pdf Graphic file (type pdf)
 
 <use ./fig/Phase_two_R2_RMSE.pdf>
@@ -1055,13 +1040,17 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 118.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 118.
 Package rerunfilecheck Info: File `Paper_Sigatoka_-_2015.out' has not changed.
 (rerunfilecheck)             Checksum: 48B3B56FD2DE05F6C1C1C9B9E2208FA5;1256.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 118.
  ) 
 Here is how much of TeX's memory you used:
  9577 strings out of 493334
- 137823 string characters out of 3136660
+ 137821 string characters out of 3136660
  245709 words of memory out of 3000000
- 12809 multiletter control sequences out of 15000+200000
+ 12810 multiletter control sequences out of 15000+200000
  12971 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,15n,40p,605b,497s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1089,9 +1078,9 @@ fonts/cm/cmti7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmti8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmtt8.pfb>
-Output written on Paper_Sigatoka_-_2015.pdf (30 pages, 2249136 bytes).
+Output written on Paper_Sigatoka_-_2015.pdf (30 pages, 2246931 bytes).
 PDF statistics:
- 1975 PDF objects out of 2073 (max. 8388607)
- 119 named destinations out of 1000 (max. 500000)
+ 1973 PDF objects out of 2073 (max. 8388607)
+ 118 named destinations out of 1000 (max. 500000)
  203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

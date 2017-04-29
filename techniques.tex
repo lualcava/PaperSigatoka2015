@@ -2,9 +2,9 @@
 \label{sec:techs}
 
 In the prediction of the development rate of the black Sigatoka, we
-compare techniques such as least squares or ridge regression, commonly
+compare techniques such as least squares regression and elastic-net regression, commonly
 encountered in the agricultural literature with machine learning
-methods such as support vector regression, elastic regression and echo
+methods such as support vector regression and echo
 state networks, where the parameter space of each technique is also
 taken into account.
 
@@ -43,36 +43,10 @@ $\hat{\vct{w}}=\mat{X}^+\vct{y}=(\mat{X}^T\mat{X})^{-1}\mat{X}^T\vct{y}$
 or equivalently by the singular value decomposition of $\mat{X}$
 \citep{Press2007}.
 
-\TODO{Alex, no sé hasta donde hiciste en las pruebas ese ``arreglo''
-  de que los datos tengan todos una entrada igual a 1.  De no ser así,
-  el método no puede encontrar el offset, y sería como forzar que el
-  modelo tenga que pasar por cero...  a menos por supuesto que la
-  constante se haya sacado de la ecuación al optimizar...
-  
-  COMENTARIO:  Modificado según lo conversado}
-
-\subsection{Ridge regression}
-
-In contrast to the OLSR, for the ridge regression (RR)
-\citet{Hoerl1988} proposed to add a term to penalize large weights
-into the error function
-\begin{equation*}
-  E(\vct{w}) = 
-  \left\| \mat{X}\vct{w} - \vct{y} \right\|_2^2 + 
-  \alpha \left\|\vct{w}\right\|_2^2 
-\end{equation*}
-where the parameter $\alpha>0$ controls how strong is the shrinking of
-the estimates towards zero.  This shrinkage introduces some bias but
-helps to reduce the variance of the estimate.
-%
-The solution of the optimization problem (\ref{eq:problem}) in this
-case is given by $\hat{\vct{w}}=(\mat{X}^T\mat{X} +
-\lambda\mat{I})^{-1}\mat{X}^T \vct{y}$.
-
 \subsection{Elastic net regression}
 
 Instead of $L_2$ regularization prior
-($\alpha\left\|\vct{w}\right\|_2^2$) included in the ridge regression,
+($\alpha\left\|\vct{w}\right\|_2^2$) included in the ridge regression (RR),
 \citet{Tibshirani1996} used an $L_1$ term ($\lambda
 \left\|\vct{w}\right\|_1$) for his lasso estimator, which permits to
 select a subset of the available features by zeroing the weights of
@@ -100,35 +74,7 @@ The elastic net is useful when multiple features are correlated: lasso
 will likely pick one of these at random, while the elastic net will
 still likely pick both.
 
-\TODO{Algo que no entiendo es que las elastic net son en realidad una
-  generalización del ridge, Lasso y OLSR.  Así que en los experimentos
-  con las selección adecuada de parámetros este método debería
-  comportarse al menos igual o mejor que esos otros regresores!  No sé
-  hasta donde sea justificable usar este Y los otros, porque este ES
-  los otros...
-  
-  COMENTARIO: Revisando la documentación de la bibliteca (ver abajo), parece que por implementación no debería excluirse OLSR por separado.
-  Estos son dos parámetros de las ElasticNet
-alpha : float.  Constant that multiplies the penalty terms. Defaults to 1.0 See the notes for the exact mathematical meaning of this parameter. alpha = 0 is equivalent to an ordinary least square, solved by the LinearRegression object. For numerical reasons, using alpha = 0 with the Lasso object is not advised and you should prefer the LinearRegression object.
-l1ratio    The ElasticNet mixing parameter, with 0 < = l1ratio < = 1. For l1ratio = 0 the penalty is an L2 penalty. For l1ratio = 1 it is an L1 penalty. For 0 < l1ratio < 1, the penalty is a combination of L1 and L2 }
-
-
-\TODO{Alex, veo que usas mucho \citep{scikitlearn2011} para los
-  métodos, pero ese es solo el paper de un tool y no los proponentes
-  originales de los métodos.  Usualmente uno hace referencia a algún
-  artículo, libro o tutorial donde ojalá los que propusieron el método
-  son los que lo explican.  Ahí metí entonces en las referencias otros
-  artículos por ese motivo.
-  
-  COMENTARIO: muchas gracias..}
-
 \subsection{Support Vector Regression (SVR)}
-
-\TODO{Estoy seguro que los lectores van a solicitar reducir esto y
-  dejar solo la referencia.  Dejé solo lo que considero relevante,
-  pero podés reducirlo más, si querés.
-  
-  COMENTARIO: Ok, gracias }
 
 From the perspective of Support Vector Regression (SVR) the regression
 function is usually formulated as 
@@ -216,10 +162,6 @@ K(\vct{x}_i,\vct{x}_j) = tanh \left[ -c + \frac{ \vct{x}_i  \vct{x}_j }{ \sigma^
 \end{equation*}
 with $c \geq 0$  and $\sigma^2$ is the scaling vector.
 
-
-\TODO{LISTO - Habría que insertar aquí los kernels utilizados en los experimentos}
-
-
 \subsection{Echo State Networks (ESN)}
 
 Recurrent neural networks (RNN) are capable of learning temporal
@@ -237,11 +179,12 @@ learns to select during the training \citep{Lukose2009}.
 For a given training input signal $u(n) \in \setR^{N_u}$ a desired target
 output signal $y^{target}(n) \in \setR^{N_y}$ is known.
 %
-Here $n = 1,\ldots,T$ is the discrete time and \todofn{$T$ is the number of
-data points in the training dataset.}{No puede ser! -- Así está en el paper original, lo puse en el repositorio}
+Here $n = 1,\ldots,T$ is the discrete time and $T$ is the number of
+data points in the training dataset.
 
 The training seeks to learn a model with output $y(n) \in
 \setR^{N_y}$, where $y(n)$ matches $y^{target}(n)$ as close as
 possible, by means of the minimization of an error measure
 $E(y,y^{target})$ such that it also generalizes well to unseen data
 \citep{Lukose2012}.
+%

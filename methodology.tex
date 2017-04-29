@@ -77,78 +77,18 @@ processing stages.
 
 In the farm 28 Miles 1\% and in La Rita 2.25\% of the data were missing.
 %
-To fill-in the missing values \todofn{spline interpolation}{falta una
-  referencia} was used.
+To fill-in the missing values spline interpolation was used. \TODO{Falta poner una cita de spline interpolation}
 %
 The data collected did not exhibit outliers.
-
-Due the fact that the variables measure meteorological or biological
-processes, they are discretized \todofn{in order to reflect data trends}%
-%
-{Formalmente la discretización NO captura tendencias, sino la derivada
-  de la función en el tiempo.  Para que no se capture ruido uno
-  simplemente usa un filtro pasabajas primero (los estadísticos le
-  dicen diferente, pero no sé cómo).  En otras palabras, si querés la
-  tendencia, con usar la derivada de un filtro gaussiano sobre los
-  datos ya se ve la tendencia muy bien con el signo de esa derivada.
-  Con la varianza del filtro uno ajusta qué nivel de detalle le
-  interesa, o lo qué es lo mismo, cuanto tiempo quiere usar para el
-  pronóstico de tendencias (variable crece, está igual o decrece).  El
-  valor de salida de la derivada filtrada también se puede discretizar
-  si solo interesa esa tendencia de forma difusa, pero quizá para la
-  regresión es mejor mantenerla continua (si está filtrada, con un
-  filtro o mejor aún con un banco de filtros, al estilo wavelets).
-
-  Eso es TOTALMENTE independiente de la cuantificación.  Ahora, un
-  cuantificador tiene en principio un efecto de filtro pasabajas, pero
-  eso reduce el ruido y en realidad no dice nada de tendencias.  En
-  resumen, formalmente la cuantificación en sí no refleja nada de un
-  comportamiento temporal, y ``tendencia'' es en principio un
-  comportamiento temporal!}.
-%
-The variation range of each variable is uniformly discretized.
-%
-This discretization removes the effect of small variations in the data,
-either by inaccuracies of the instruments (meteorological variables)
-or by subjective bias introduced by the human collecting the data
-(biological warning system).
-
-The coefficient of variation
-$C_v(x)={\sqrt{E((x-E(x))^2)}}/{E(x)}$ of each variable $x$ is
-used to determine the number $n$ of discretization levels as
-\todofn{$n=\lfloor 100 \ C_v(x) \rfloor$,}%
-%
-{Hay algo que no entiendo.  ¿De dónde sale el 100?  ¿Por qué 100?
-  Así como está esto, el mismo rango de variación de temperatura
-  produce diferentes $n$, con solo un cambio en el promedio!  Eso es
-  muy extraño.  Por otro lado, los rangos de las variables son tan
-  diferentes, que el número $n$ va a terminar siendo casi cualquier
-  cosa.  Yo hubiese esperado que la desviación estándar se use para
-  discretizar las variables.  Otro problema formal más serio, es que
-  el coeficiente de variación solo se puede usar/tiene sentido si la
-  escala de medición es de razón, y la temperatura, la precipitación y
-  la humedad son usualmente mediciones de intervalo! Los $L_i$ ni tan
-  siquiera sé qué son porque creo que son algo subjetivos a la persona
-  que los toma ¿no?, aunque creo que iban con el porcentaje de área
-  afectado, lo que también sería medición de intervalo!}
-%
-where $\lfloor \cdot \rfloor$ is the round operator.
-
-
-Each feature \todofn{was scaled}{¿escaladas cómo? ¿$sx$? ¿$sx+b$?
-  ¿$sf(x)$?} to fit in the range 0 and 1. The variable $E_s$ to be
-predicted was not scaled.
-
-\TODO{Aquí faltan la fórmula general de normalización usada.  Lo que
-  sigue lo estoy asumiendo, pero puede ser que no sea así}
 
 Each variable $x\in[x_{\min},x_{\max}]$ was normalized into the
 interval $[0,1]$ with the linear map $x_n = mx+b$ with
 $m=1/(x_{\max}-x_{\min})$ and $b=-mx_{\min}$.
 
-\TODO{Explicar brevemente la razón de la normalización, ojalá con una
-  referencia bibliográfica}
-
+The variable $E_s$ to be predicted was not normalized.
+This normalization step was made because learning schemes, like regression methods, 
+deals only with ratio scales because they calculate the distance between two instances based on the 
+values of their attributes \citet{Witten2011}.
 
 \subsection{Evaluation criteria}
 
@@ -166,8 +106,8 @@ process. The mean $\bar{y}$ of the observed data is given by
   \bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_i
 \end{equation*}
 Let $\hat{y}_i$ be the predicted value for $y_i$. Then, the mean
-square error (MSE) $S_e^2$ and the \review{¿cómo se llama esto?
-  ¿unexplained variance?} $S_R^2$ are estimated as
+square error (MSE) $S_e^2$ and the unexplained variance $S_R^2$ 
+are estimated as \citet{Pennstate2017}
 \begin{align*}
 S_e^2 &= \frac{\sum_{i=1}^{n} {(y_i-\hat{y}_i)}^2 }{n} &
 S_R^2 &= \frac{\sum_{i=1}^{n} {(\hat{y}_i-\bar{y})}^2 }{n}
@@ -178,41 +118,18 @@ coefficient of determination is
 R^2 = \frac{S_R^2}{S_R^2 + S_e^2}
 \end{equation*}
  
-
-\TODO{Favor revisar.  Vi una representación en términos de $R^2=1 -
-  MSE/\sigma^2$ (con $\sigma^2$ la varianza), que no sé si está bien o
-  no, pero lo mejor será poner la fuente de donde se tomó la anterior
-  definición.  Había en el $S_R^2$ un $\bar{y}_i$ pero el promedio no
-  depende de $i$ por lo que no tenía sentido.  Supuse que era el
-  promedio, pero no sé.  El cuadrado en las $S^2$ ¿está bien?, o
-  indirectamente estás diciendo que $RMSE=S_e$, que sería una mejor
-  notación matemática (dejando RMSE solo como abreviatura textual)!}
-
 \subsection{Programming environment}
 
-We use the Python programming language \todofn{with the Integrated
-  Development Environment (IDE)}%
-{El IDE es para la reproducción de resultados irrelevante, y por lo
-  tanto información circunstancial que es mejor evitar.  Lo relevante
-  es lo que tenga efectos directos en los resultados.  Si yo prefiero
-  usar un editor de texto corriente para programar, el restulado final
-  es el mismo, si uso el mismo compilador/intérprete.  Eso es la
-  información relevante: ¿qué versión de Python concretamente? ¿Se
-  compiló el Python o se usó interpretado?  ¿Cuáles versiones de
-  Pandas y Numpy en concreto se usaron?} %
-Spyder \citep{Continuum2015}, particularly with the libraries Pandas
-\citep{mckinneypandas2010} and Numpy \citep{vanderWalt2011}.
+We use Python programming language in its interpreted 3.5.2 version,
+ particularly with the libraries; Pandas (0.18.1 version)
+\citep{mckinneypandas2010} and Numpy (1.11.1 version) \citep{vanderWalt2011}.
 
-The implementation for SVR, ridge and ordinary least squares
+The implementation for SVR, elastic net and ordinary least squares
 regressions in scikit-learn \citep{scikitlearn2011} were used.
 %
 Adjustments to the ESN implementation code of \citet{Lukose2012} were
 necessary to allow its integration into our experimental
 framework.
-
-All experiments were performed on a PC computer with an
-Intel\textsuperscript{\textregistered} Core i7-4800MQ processor,
-2.70\,GHz, 16.0\,GB RAM, under the operating system MS Windows 8 Pro.
 
 \subsection{Methodology}
 
