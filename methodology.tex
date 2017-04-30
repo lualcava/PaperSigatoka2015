@@ -145,15 +145,15 @@ with $n=1\ldots{}12$ and $m=1\ldots{}3$.
 \item Techniques: Se utilizaron las siguientes técnicas, revisando el espacio
 paramétrico especificado a continuación:
 \begin{itemize}
-\item SVR with linear kernel: C [0.001, 1, 10, 100, 1000], epsilon [0.0, 0.4, 0.9].
-\item SVR with gaussian kernel: C [0.001, 1, 10, 100, 1000], epsilon [0.0, 0.4, 0.9],
-gamma [0.0, 0.4, 0.9].
-\item SVR with sigmoid kernel: C [0.001, 1, 10, 100, 1000], epsilon [0.0, 0.4, 0.9],
-gamma [0.0, 0.4, 0.9], coef0 [0.0, 0.5, 5, 10].
-\item Echo state networks: LeakingRate [0.02 .. 0.9], neurons [1\% .. 90\%] de la 
-cardinalidad del training set, InitLen [ 0.1 .. 0.8 ].
+\item SVR with linear kernel: $C$ $[0.001, 1, 10, 100, 1000]$, $epsilon$ $[0.0, 0.4, 0.9]$.
+\item SVR with gaussian kernel: $C$ $[0.001, 1, 10, 100, 1000]$, $epsilon$ $[0.0, 0.4, 0.9]$,
+$gamma$ $[0.0, 0.4, 0.9]$.
+\item SVR with sigmoid kernel: $C$ $[0.001, 1, 10, 100, 1000]$, $epsilon$ $[0.0, 0.4, 0.9]$,
+$gamma$ $[0.0, 0.4, 0.9]$, $coef0$ $[0.0, 0.5, 5, 10]$.
+\item Echo state networks: $LeakingRate$ $[0.02 .. 0.9]$, $neurons$ $[1\% .. 90\%]$ de la 
+cardinalidad del training set, $InitLen$ $[ 0.1 .. 0.8 ]$.
 \item Ordinary least squares linear regression: No parameters.
-\item Elastic-net regression: alpha [0 .. 0.9], l1_ratio [0 .. 1.0].
+\item Elastic-net regression: $alpha$ $[0 .. 0.9]$, $l1\_ratio$ $[0 .. 1.0]$.
 \end{itemize}
 
 \item Variables included in the model:

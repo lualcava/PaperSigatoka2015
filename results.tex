@@ -1,15 +1,13 @@
 \section{Results and discussion}
 \label{sec:results}
 
-In this section we present the main results for phase and their discussion.
-
-{\bf Phase one } 
+In this section the main results are presented and discussed.
 
 \figref{figura4} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Though La Rita obtains different results in magnitude than 28 Millas, the trend is similar. In both farms, the best results are for linear models, second position is occupied for Echo State Networks and  SVR with gausian and sigmoid kernels are the worst results. In linear models, to predict one week ahead is better than two weeks ahead, and this is better than three weeks ahead. 
 
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.5]{Phase_one_Best_R2_for_each_algortihm}
+ \includegraphics[scale=.5]{2017-01-15-Algorithms-R2}
  \caption{Phase one - Best $R^2$ for each algorithm} 
  \label{figura4} 
 \end{figure}
@@ -18,7 +16,7 @@ In this section we present the main results for phase and their discussion.
 
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.5]{Phase_one_Best_R2_for_each_number_of_observation_range_in_the_patterm}
+ \includegraphics[scale=.5]{2017-01-15-Periods-R2}
  \caption{Phase one - Best $R^2$ for each observation range} 
  \label{figura5} 
 \end{figure}
@@ -27,7 +25,7 @@ In this section we present the main results for phase and their discussion.
 
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.5]{Phase_one_Best_R2_for_variables}
+ \includegraphics[scale=.5]{2017-01-15-Variables-R2}
  \caption{Phase one - Best $R^2$ for each variable combination} 
  \label{figura6} 
 \end{figure}
@@ -99,76 +97,3 @@ Pair $\overline{T}_{a}$ $P$ & 3 to 1 & 9 & 56.23\% & 422.76 \\
 We can conclude that the best configuration in both farms is to consider the climate and the evolution stage of the current week to predict the evolution stage of the next week.
 
 
-{\bf Phase two }
-
-In the second phase, the best configurations obtained in phase one were used to validate with the last 50 and 100 weeks. 
-
-
-\figref{figura8} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Even if linear models continue with good $R^2$, Echo State Networks improve their scores because in $50$ and $100$ last weeks validation, we are in presence of climate change, then the behaviour is less lineal.
-
-\begin{figure}[H] 
- \centering
- \includegraphics[scale=.5]{Phase_two_Best_R2_for_each_algortihm}
- \caption{Phase two - Best $R^2$ for each algorithm} 
- \label{figura8} 
-\end{figure}
-
-\figref{figura9} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm. The results confirms that, in general, to predict one week ahead is better than two weeks ahead, two than three and so on, this for both farms.
-
-\begin{figure}[H] 
- \centering
- \includegraphics[scale=.5]{Phase_two_Best_R2_for_each_number_of_observation_range_in_the_patterm}
- \caption{Phase two - Best $R^2$ for each observation range} 
- \label{figura9} 
-\end{figure}
-
-\figref{figura10} shows the best $R^2$ for each variables combination. Results are group by farm. This results confirm that $\overline{T}_{a}$ and the combination of $\overline{T}_{a}$ with $\overline{W}$, in both farms are the best variables combinations.
-
-\begin{figure}[H] 
- \centering
- \includegraphics[scale=.5]{Phase_one_Best_R2_for_variables}
- \caption{Phase two - Best $R^2$ for each variable combination} 
- \label{figura10} 
-\end{figure}
-
-\figref{figura11} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$.  You can note that the behaviour of $R^2$ and $RMSE$ is similar to the phase one.
-
-\begin{figure}[H] 
- \centering
- \includegraphics[scale=.8]{Phase_two_R2_RMSE}
- \caption{Phase two - Pareto frontier for $R^2$ and $RMSE$} 
- \label{figura11} 
-\end{figure}
-
-
-In phase two, the Pareto frontier for the La Rita farm is composed by 2 elements. The \tablename $.$\ref{tabla4} shows the composition about variables and observation ranges.
-
-\begin{table}[h] 
-\caption{Composition of the Pareto frontier - La Rita - Phase two} 
-\label{tabla4} 
-\centering
-\begin{tabular}{c|c|c|c|c} 
-\hline
-\bfseries Variable & \bfseries Observation range & \bfseries Quantity & \bfseries Max $R^2$ & \bfseries Min $RMSE$\\ 
-\hline\hline 
-All & 1 to 1  & 2 & 69.33\% & 353.33 \\
-\hline
-\end{tabular} 
-\end{table}
-
-In 28 Millas Farm, the Pareto frontier is composed by 1 element. The \tablename $.$\ref{tabla5} details the result.
-
-\begin{table}[h] 
-\caption{Pareto frontier - 28 Millas - Phase two} 
-\label{tabla5} 
-\centering
-\begin{tabular}{c|c|c|c|c} 
-\hline
-\bfseries Variable & \bfseries Observation range & \bfseries Quantity & \bfseries Max $R^2$ & \bfseries Min $RMSE$\\ 
-\hline\hline 
-Pair $\overline{T}_{a}$ $P$ & 1 to 1 & 1 & 61.36\% & 339.89 \\
-\hline
-\end{tabular} 
-\end{table}
-
-Again, similar to phase one, we can conclude that the best configuration in both farms is to consider the climate and the evolution stage of the current week to predict the evolution stage of the next week, one week to predict one week ahead with combinations of variables listed above.
