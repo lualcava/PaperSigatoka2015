@@ -132,27 +132,25 @@ necessary to allow its integration into our experimental
 framework.
 
 \subsection{Methodology}
-
-Ten-fold-cross-validation on the total set of
-machine learning methods under a subset of configurations was evaluated:
+When the amount of data for training and testing is limited, is recommended
+to use cross-validation \citep{Witten2011}. We used ten-fold-cross-validation 
+on the total set. El diseño experimental combinó los siguientes factores:
 
 \begin{itemize}
-\item Patterns: $n\times{}m$, with $n=1\ldots{}8$ and $m=1\ldots{}2$.
-\TODO{No se entiende que quiere decir eso!!}
-\item Methods: support vector regression with the kernels linear,
+\item Patrones de semanas: Se formaron patrones desde tres semanas continuas
+de observación para predecir una semana adelante, hasta doce semanas de
+observación para predecir tres semanas adelante. Por tanto, $n\times{}m$, 
+with $n=1\ldots{}12$ and $m=1\ldots{}3$.
+
+\item techniques: support vector regression with the kernels linear,
   gaussian and sigmoid; echo state networks; ordinary least squares
-  linear regression, ridge regression and elastic-net regression.
-  \TODO{Cada uno de esos métodos tiene a su vez un espacio
-    paramétrico.  Eso tiene que quedar claro aquí: cómo se barrió el
-    espacio paramétrico, para saber el nivel de detalle de la prueba!
-    Eso es importantísimo, porque si no no se puede decir nada
-    respecto a los métodos, sino solo respecto la configuración
-    concreta probada!}
+  linear regression and elastic-net regression.
+
 \item Variables included in the model:
 \begin{itemize}
 \item All variables.
 \item From the set $\{ \overline{T}_{a} , \overline{H}, P ,
-  \overline{W} \}$ use the subsets with one, two or four
+  \overline{W} \}$ use the subsets with one, two, three or four
   elements. These variables have the largest impact on the disease
   development \citep{MarinVargas1995}.
 \end{itemize}
