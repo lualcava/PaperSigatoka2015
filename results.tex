@@ -28,22 +28,20 @@ La Rita  	& SVR with linear kernel  & 816.29	& 	216.43  \\
 \end{tabular} 
 \end{table}
 %
-La \figref{figura4} muestra los box plots con respecto al RMSE para el resto de técnicas (excluída las ESN). Se aprecia que a excepción de las SVR with sigmoid kernel, las otras técnicas poseen compartamientos muy similares. Aunque el promedio del RMSE es diferente entre la Rica (cercano a 450)y 28 Millas (cercano a ñps820), la tendencia a preferir las mismas técnicas se mantiene en ambas fincas.
-
+La \figref{figura4} muestra los box plots con respecto al RMSE para el resto de técnicas (excluída las ESN). Se aprecia que a excepción de las SVR with sigmoid kernel, las otras técnicas poseen compartamientos muy similares. Aunque el promedio del RMSE es diferente entre la Rica (cercano a 450)y 28 Millas (cercano a 820), la tendencia a preferir las mismas técnicas se mantiene en ambas fincas.
+%
 \begin{figure}[H] 
  \centering
  \includegraphics[scale=.8]{Usado_2017-04-30_Sigatoka_RMSE_Boxplot}
  \caption{Box plots de los RMSE para cada una de las Fincas} 
  \label{figura4} 
 \end{figure}
-
-
-
-The \figref{figura5} shows the best $R^2$ for each algorithm in the experiment. Results are group by farm. Though La Rita obtains different results in magnitude than 28 Millas, the trend is similar. In both farms, the best results are for linear models, second position is occupied for Echo State Networks and  SVR with gausian and sigmoid kernels are the worst results. In linear models, to predict one week ahead is better than two weeks ahead, and this is better than three weeks ahead. 
-
+%
+Now, the \figref{figura5} compares the mean of the $RMSE$ for each algorithm in the experiment, pero para la predicción de 1, 2 ó 3 semanas adelante con respecto a la información de las variables climatológocas y del preaviso biológico. Además, to predict one week ahead obtiene un RMSE más bajo que  two weeks ahead, and this is better than three weeks ahead. 
+%
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.5]{2017-01-15-Algorithms-R2}
+ \includegraphics[scale=.5]{Usado_Algorithms-RMSE}
  \caption{Phase one - Best $R^2$ for each algorithm} 
  \label{figura5} 
 \end{figure}
