@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.24)  30 APR 2017 00:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.24)  1 MAY 2017 16:51
 entering extended mode
 **"./Forecasting the black Sigatoka development rate.tex"
 ("Forecasting the black Sigatoka development rate.tex"
@@ -859,60 +859,74 @@ ML/cmm/m/it/10 :\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m
  []
 
 ) (results.tex [13]
-<2017-01-15-Algorithms-R2.pdf, id=296, 794.97pt x 614.295pt>
-File: 2017-01-15-Algorithms-R2.pdf Graphic file (type pdf)
+<Usado_2017-04-30_Sigatoka_RMSE_Boxplot_4.pdf, id=297, 433.62pt x 289.08pt>
+File: Usado_2017-04-30_Sigatoka_RMSE_Boxplot_4.pdf Graphic file (type pdf)
 
-<use 2017-01-15-Algorithms-R2.pdf>
-Package pdftex.def Info: 2017-01-15-Algorithms-R2.pdf used on input line 10.
-(pdftex.def)             Requested size: 397.48402pt x 307.14674pt.
-
-Overfull \hbox (52.48402pt too wide) in paragraph at lines 10--11
- [][] 
- []
-
-[14 <./2017-01-15-Algorithms-R2.pdf, page is rotated 90 degrees>]
-<2017-01-15-Periods-R2.pdf, id=348, 794.97pt x 614.295pt>
-File: 2017-01-15-Periods-R2.pdf Graphic file (type pdf)
-
-<use 2017-01-15-Periods-R2.pdf>
-Package pdftex.def Info: 2017-01-15-Periods-R2.pdf used on input line 19.
-(pdftex.def)             Requested size: 397.48402pt x 307.14674pt.
-
-Overfull \hbox (52.48402pt too wide) in paragraph at lines 19--20
- [][] 
- []
-
-<2017-01-15-Variables-R2.pdf, id=350, 794.97pt x 614.295pt>
-File: 2017-01-15-Variables-R2.pdf Graphic file (type pdf)
-
-<use 2017-01-15-Variables-R2.pdf>
-Package pdftex.def Info: 2017-01-15-Variables-R2.pdf used on input line 28.
-(pdftex.def)             Requested size: 397.48402pt x 307.14674pt.
-
-Overfull \hbox (52.48402pt too wide) in paragraph at lines 28--29
- [][] 
- []
-
-[15 <./2017-01-15-Periods-R2.pdf, page is rotated 90 degrees>]
-<./fig/Phase_one_R2_RMSE.pdf, id=392, 433.62pt x 289.08pt>
-File: ./fig/Phase_one_R2_RMSE.pdf Graphic file (type pdf)
-
-<use ./fig/Phase_one_R2_RMSE.pdf>
-Package pdftex.def Info: ./fig/Phase_one_R2_RMSE.pdf used on input line 37.
+<use Usado_2017-04-30_Sigatoka_RMSE_Boxplot_4.pdf>
+Package pdftex.def Info: Usado_2017-04-30_Sigatoka_RMSE_Boxplot_4.pdf used on i
+nput line 35.
 (pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
 
-Overfull \hbox (1.89647pt too wide) in paragraph at lines 37--38
+Overfull \hbox (1.89647pt too wide) in paragraph at lines 35--36
  [][] 
  []
 
-[16 <./2017-01-15-Variables-R2.pdf, page is rotated 90 degrees>] [17 <./fig/Pha
-se_one_R2_RMSE.pdf>]) (conclusions.tex)
-("Forecasting the black Sigatoka development rate.bbl" [18] [19] [20] [21])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 118.
+[14] <Usado_2017-04-30_Sigatoka_R2_RMSE.pdf, id=305, 433.62pt x 289.08pt>
+File: Usado_2017-04-30_Sigatoka_R2_RMSE.pdf Graphic file (type pdf)
 
-[22]
+<use Usado_2017-04-30_Sigatoka_R2_RMSE.pdf>
+Package pdftex.def Info: Usado_2017-04-30_Sigatoka_R2_RMSE.pdf used on input li
+ne 44.
+(pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
+
+Overfull \hbox (1.89647pt too wide) in paragraph at lines 44--45
+ [][] 
+ []
+
+[15 <./Usado_2017-04-30_Sigatoka_RMSE_Boxplot_4.pdf>]
+Overfull \hbox (87.18587pt too wide) in paragraph at lines 55--68
+ [][] 
+ []
+
+
+Overfull \hbox (107.62794pt too wide) in paragraph at lines 76--101
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Usado_Algorithms-RMSE.pdf, id=358, 794.97pt x 614.295pt>
+File: Usado_Algorithms-RMSE.pdf Graphic file (type pdf)
+
+<use Usado_Algorithms-RMSE.pdf>
+Package pdftex.def Info: Usado_Algorithms-RMSE.pdf used on input line 107.
+(pdftex.def)             Requested size: 397.48402pt x 307.14674pt.
+
+Overfull \hbox (52.48402pt too wide) in paragraph at lines 107--108
+ [][] 
+ []
+
+[16 <./Usado_2017-04-30_Sigatoka_R2_RMSE.pdf>] [17]
+<Usado_Variables-RMSE.pdf, id=402, 794.97pt x 614.295pt>
+File: Usado_Variables-RMSE.pdf Graphic file (type pdf)
+
+<use Usado_Variables-RMSE.pdf>
+Package pdftex.def Info: Usado_Variables-RMSE.pdf used on input line 116.
+(pdftex.def)             Requested size: 397.48402pt x 307.14674pt.
+
+Overfull \hbox (52.48402pt too wide) in paragraph at lines 116--117
+ [][] 
+ []
+
+[18 <./Usado_Algorithms-RMSE.pdf, page is rotated 90 degrees>])
+(conclusions.tex) [19 <./Usado_Variables-RMSE.pdf, page is rotated 90 degrees>]
+("Forecasting the black Sigatoka development rate.bbl" [20] [21] [22])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 118.
+ [23]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 118.
- ("Forecasting the black Sigatoka development rate.aux")
+
+("Forecasting the black Sigatoka development rate.aux")
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 118.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 118.
 Package rerunfilecheck Info: File `"Forecasting the black Sigatoka development 
@@ -921,13 +935,13 @@ rate".out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 118.
  ) 
 Here is how much of TeX's memory you used:
- 9530 strings out of 493334
- 136733 string characters out of 3136660
- 245333 words of memory out of 3000000
- 12790 multiletter control sequences out of 15000+200000
+ 9533 strings out of 493334
+ 136885 string characters out of 3136660
+ 249360 words of memory out of 3000000
+ 12791 multiletter control sequences out of 15000+200000
  12971 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,40p,633b,507s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,15n,40p,712b,502s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:
 /Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Pr
@@ -950,10 +964,10 @@ lic/amsfonts/cm/cmti7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmti8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmtt8.pfb>
-Output written on "Forecasting the black Sigatoka development rate.pdf" (22 pag
-es, 1472336 bytes).
+Output written on "Forecasting the black Sigatoka development rate.pdf" (23 pag
+es, 1074779 bytes).
 PDF statistics:
- 557 PDF objects out of 1000 (max. 8388607)
- 94 named destinations out of 1000 (max. 500000)
+ 568 PDF objects out of 1000 (max. 8388607)
+ 96 named destinations out of 1000 (max. 500000)
  164 words of extra memory for PDF output out of 10000 (max. 10000000)
 
