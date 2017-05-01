@@ -1,7 +1,7 @@
 \section{Results and discussion}
 \label{sec:results}
 
-Realizados los experimentos, la \tablename $.$\ref{tabla2} muestra los RMSE obtenidos, en la cual se puede observar que las ESN obtienen un resultado muy diferente a las demás técnicas. El RMSE obtenido por las ESN es cercano a 20 veces el de las otras técnicas, es por ello que de este punto en adelante es descartado de la comparación pues definitivamente no es opción con el conjunto de datos disponible. Este resultado de las ESN se explica en que como estas redes parten de estados aleatorios para irse ajustando en el proceso de entrenamiento, la cantidad de datos disponibles no logra que la red neuronal se entrene adecuadamente.
+Realizados los experimentos, la \tablename $.$\ref{tabla2} muestra los $RMSE$ obtenidos, en la cual se puede observar que las ESN obtienen un resultado muy diferente a las demás técnicas. El $RMSE$ promdio obtenido por las ESN $11085.47$ es cercano a 20 veces el de las otras técnicas. Este resultado de las ESN se explica debido a que estas redes neuronales recurrentes parten de estados aleatorios para irse ajustando en el proceso de entrenamiento, y por tanto, los valores obtenidos son reflejo de que la cantidad de datos disponibles no logra que la red neuronal se ajuste.
 %
 \begin{table}[h] 
 \caption{Promedio y desviación estándar de los RMSE obtenidos por Finca} 
@@ -28,61 +28,38 @@ La Rita  	& SVR with linear kernel  & 816.29	& 	216.43  \\
 \end{tabular} 
 \end{table}
 %
-La \figref{figura4} muestra los box plots con respecto al RMSE para el resto de técnicas (excluída las ESN). Se aprecia que a excepción de las SVR with sigmoid kernel, las otras técnicas poseen compartamientos muy similares. Aunque el promedio del RMSE es diferente entre la Rica (cercano a 450)y 28 Millas (cercano a 820), la tendencia a preferir las mismas técnicas se mantiene en ambas fincas.
+Adicionalmente, la \figref{figura4} muestra los box plots con respecto a los $RMSE$ obtenidos. Se grafica ESN por separado debido a la diferencia de escala. Con respecto a las otras técnicas, la regresión lineal, Elastic net, SVR with gaussian kernel y SVR with linear kernel presentan compartamientos muy similares y aunque el promedio del $RMSE$ es diferente entre las fincas, La Rica cercano a 450 y 28 Millas cercano a 820, el comportaniento relativo de las técnicas es el mismo. Por su parte, SVR with sigmoid kernel presenta un promedio de $RMSE$ muy inferior a ESN, pero superior a las otras cuatro técnicas.
 %
 \begin{figure}[H] 
  \centering
- \includegraphics[scale=.8]{Usado_2017-04-30_Sigatoka_RMSE_Boxplot}
+ \includegraphics[scale=.8]{Usado_2017-04-30_Sigatoka_RMSE_Boxplot_4}
  \caption{Box plots de los RMSE para cada una de las Fincas} 
  \label{figura4} 
 \end{figure}
 %
-Now, the \figref{figura5} compares the mean of the $RMSE$ for each algorithm in the experiment, pero para la predicción de 1, 2 ó 3 semanas adelante con respecto a la información de las variables climatológocas y del preaviso biológico. Además, to predict one week ahead obtiene un RMSE más bajo que  two weeks ahead, and this is better than three weeks ahead. 
+\figref{figura5} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. La Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better $RMSE$ than La Rita. This situation arise because $RMSE$ considers errors only with respect the prediction and in 28 Millas the average of Stage of Evolution is $4316.16$, unlike, in La Rita the average is $5507.30$. So, in La Rita we obtains higher errors in absolute values. $R^2$  is a relative metric between 0 thru 1 and it is less sensitive to absolute values.
 %
-\begin{figure}[H] 
- \centering
- \includegraphics[scale=.5]{Usado_Algorithms-RMSE}
- \caption{Phase one - Best $R^2$ for each algorithm} 
- \label{figura5} 
-\end{figure}
-
-\figref{figura6} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm. In general, to predict one week ahead is better than two weeks ahead and so on. The number of weeks consider in the observation range in the pattern is not the main discriminant factor, but it is clear that we get better $R^2$ for one week ahead than two weeks ahead and so on.
-
-\begin{figure}[H] 
- \centering
- \includegraphics[scale=.5]{2017-01-15-Periods-R2}
- \caption{Phase one - Best $R^2$ for each observation range} 
- \label{figura6} 
-\end{figure}
-
-\figref{figura7} shows the best $R^2$ for each variables combination. Results are group by farm. The better results are obtained with $\overline{T}_{a}$ and the combination of $\overline{T}_{a}$ with $\overline{W}$, in both farms of similarly. You can note that the use of all variables in the model or the inclusion of the four variables suggest for expert criteria do not improve significantly the results, then the use of more sensors do not assure a better result. 
-
-\begin{figure}[H] 
- \centering
- \includegraphics[scale=.5]{2017-01-15-Variables-R2}
- \caption{Phase one - Best $R^2$ for each variable combination} 
- \label{figura7} 
-\end{figure}
-
-\figref{figura8} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. The Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better $RMSE$ than La Rita. This situation arise because $RMSE$ considers errors only with respect the prediction and in 28 Millas the average of Stage of Evolution is $4316.16$, unlike, in La Rita the average is $5507.30$. So, in La Rita we obtains higher errors in absolute values. $R2$ is a relative metric between 0 thru 1 and it is less sensitive to absolute values.
-
 \begin{figure}[H] 
  \centering
  \includegraphics[scale=.8]{Usado_2017-04-30_Sigatoka_R2_RMSE}
  \caption{Pareto frontier for $R^2$ and $RMSE$} 
- \label{figura8} 
+ \label{figura5} 
 \end{figure}
 
-The Pareto frontier for the La Rita farm is composed by 96 elements. The \tablename $.$\ref{tabla3} shows the composition about variables and observation ranges.
+The Pareto frontier for the La Rita farm is composed by 5 elements. The \tablename $.$\ref{tabla3} shows the composition about variables, observation ranges, techniques and weeks ahead.
 
 \begin{table}[h] 
-\caption{Composition of the Pareto frontier - La Rita - Phase one} 
+\caption{Composition of the Pareto frontier - La Rita} 
 \label{tabla3} 
 \centering
-\begin{tabular}{c|c|c|c|c} 
+\begin{tabular}{c|c|c|c|c|c} 
 \hline
-\bfseries Variable & \bfseries Observation range & \bfseries Quantity & \bfseries Max $R^2$ & \bfseries Min $RMSE$\\ 
+\bfseries Variable & \bfseries Observation range & \bfseries Weeks ahead & \bfseries Technique &\bfseries $R^2$ & \bfseries $RMSE$\\ 
 \hline\hline 
+  &   &  &  &   &  \\
+
+
+
 Pair $\overline{T}_{a}$ $\overline{W}$ &	1 to 1  & 36 & 64.25\% & 714.51 \\
  &	2 to 1  & 6 & 62.97\% & 695.10 \\
 \hline 
@@ -127,6 +104,35 @@ Pair $\overline{T}_{a}$ $P$ & 3 to 1 & 9 & 56.23\% & 422.76 \\
 \hline
 \end{tabular} 
 \end{table}
+
+
+
+Now, the \figref{figura5} compares the mean of the $RMSE$ for each algorithm in the experiment, pero para la predicción de 1, 2 ó 3 semanas adelante con respecto a la información de las variables climatológocas y del preaviso biológico. Además, to predict one week ahead obtiene un RMSE más bajo que  two weeks ahead, and this is better than three weeks ahead. 
+%
+\begin{figure}[H] 
+ \centering
+ \includegraphics[scale=.5]{Usado_Algorithms-RMSE}
+ \caption{$RMSE$ for each algorithm} 
+ \label{figura5} 
+\end{figure}
+
+\figref{figura6} presents, for one, two and three weeks ahead, the best $R^2$. Results are group by farm. In general, to predict one week ahead is better than two weeks ahead and so on. The number of weeks consider in the observation range in the pattern is not the main discriminant factor, but it is clear that we get better $R^2$ for one week ahead than two weeks ahead and so on.
+
+\begin{figure}[H] 
+ \centering
+ \includegraphics[scale=.5]{2017-01-15-Periods-R2}
+ \caption{Phase one - Best $R^2$ for each observation range} 
+ \label{figura6} 
+\end{figure}
+
+\figref{figura7} shows the best $R^2$ for each variables combination. Results are group by farm. The better results are obtained with $\overline{T}_{a}$ and the combination of $\overline{T}_{a}$ with $\overline{W}$, in both farms of similarly. You can note that the use of all variables in the model or the inclusion of the four variables suggest for expert criteria do not improve significantly the results, then the use of more sensors do not assure a better result. 
+
+\begin{figure}[H] 
+ \centering
+ \includegraphics[scale=.5]{2017-01-15-Variables-R2}
+ \caption{Phase one - Best $R^2$ for each variable combination} 
+ \label{figura7} 
+\end{figure}
 
 We can conclude that the best configuration in both farms is to consider the climate and the evolution stage of the current week to predict the evolution stage of the next week.
 
