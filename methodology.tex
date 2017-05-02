@@ -137,10 +137,18 @@ to use cross-validation \citep{Witten2011}. We used ten-fold-cross-validation
 on the total set. El diseño experimental combinó los siguientes factores:
 
 \begin{itemize}
-\item Patrones de semanas: Se formaron patrones desde tres semanas continuas
+\item Patrones de semanas: Se formaron patrones desde una semana
 de observación para predecir una semana adelante, hasta doce semanas de
 observación para predecir tres semanas adelante. Por tanto, $n\times{}m$ combinations, 
-with $n=1\ldots{}12$ and $m=1\ldots{}3$.
+with $n=1\ldots{}12$ and $m=1\ldots{}3$. \figref{figura8} shows the concept.
+%
+\begin{figure}[H] 
+ \centering
+ \includegraphics[scale=.7]{Usado_2017-04-30_Weeks_Patrones}
+ \caption{Week patterns explanation process} 
+ \label{figura8} 
+\end{figure}
+%
 
 \item Techniques: Se utilizaron las siguientes técnicas, revisando el espacio
 paramétrico especificado a continuación:

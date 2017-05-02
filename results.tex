@@ -1,7 +1,7 @@
 \section{Results and discussion}
 \label{sec:results}
 
-Realizados los experimentos, la \tablename $.$\ref{tabla2} muestra los $RMSE$ obtenidos, en la cual se puede observar que las ESN obtienen un resultado muy diferente a las demás técnicas. El $RMSE$ promdio obtenido por las ESN $11085.47$ es cercano a 20 veces el de las otras técnicas. Este resultado de las ESN se explica debido a que estas redes neuronales recurrentes parten de estados aleatorios para irse ajustando en el proceso de entrenamiento, y por tanto, los valores obtenidos son reflejo de que la cantidad de datos disponibles no logra que la red neuronal se ajuste.
+Realizados los experimentos, la \tablename $.$\ref{tabla2} muestra los $RMSE$ obtenidos, en la cual se puede observar que las ESN obtienen un resultado muy diferente a las demás técnicas. El $RMSE$ promedio obtenido por las ESN $11085.47$ es cercano a 20 veces el de las otras técnicas. Este resultado de las ESN se explica debido a que estas redes neuronales recurrentes parten de estados aleatorios para irse ajustando en el proceso de entrenamiento, y por tanto, los valores obtenidos son reflejo de que la cantidad de datos disponibles no logra que la red neuronal se ajuste.
 %
 \begin{table}[h] 
 \caption{Promedio y desviación estándar de los RMSE obtenidos por Finca} 
@@ -28,7 +28,7 @@ La Rita  	& SVR with linear kernel  & 816.29	& 	216.43  \\
 \end{tabular} 
 \end{table}
 %
-Adicionalmente, la \figref{figura4} muestra los box plots con respecto a los $RMSE$ obtenidos. Se grafica ESN por separado debido a la diferencia de escala. Con respecto a las otras técnicas, la regresión lineal, Elastic net, SVR with gaussian kernel y SVR with linear kernel presentan compartamientos muy similares y aunque el promedio del $RMSE$ es diferente entre las fincas, La Rica cercano a 450 y 28 Millas cercano a 820, el comportaniento relativo de las técnicas es el mismo. Por su parte, SVR with sigmoid kernel presenta un promedio de $RMSE$ muy inferior a ESN, pero superior a las otras cuatro técnicas.
+Adicionalmente, la \figref{figura4} muestra los box plots con respecto a los $RMSE$ obtenidos. Se grafica ESN por separado debido a la diferencia de escala. Con respecto a las otras técnicas, la regresión lineal, Elastic net, SVR with gaussian kernel y SVR with linear kernel presentan compartamientos muy similares y aunque el promedio del $RMSE$ es diferente entre las fincas, La Rita cercano a 450 y 28 Millas cercano a 820, el comportaniento relativo de las técnicas es el mismo. Por su parte, SVR with sigmoid kernel presenta un promedio de $RMSE$ muy inferior a ESN, pero superior a las otras cuatro técnicas.
 %
 \begin{figure}[H] 
  \centering
@@ -37,7 +37,7 @@ Adicionalmente, la \figref{figura4} muestra los box plots con respecto a los $RM
  \label{figura4} 
 \end{figure}
 %
-\figref{figura5} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. La Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better $RMSE$ than La Rita. This situation arise because $RMSE$ considers errors only with respect the prediction and in 28 Millas the average of Stage of Evolution is $4316.16$, unlike, in La Rita the average is $5507.30$. So, in La Rita we obtains higher errors in absolute values. $R^2$  is a relative metric between 0 thru 1 and it is less sensitive to absolute values.
+\figref{figura5} shows the Pareto frontier for each farm with respect to $R^2$ and $RMSE$. The red dots correspond to the observations belonging to Pareto frontier. La Rita obtains upper $R^2$ with respect to 28 Millas, but 28 Millas obtains better $RMSE$ than La Rita. This situation arise because $RMSE$ considers errors only with respect the prediction and in 28 Millas the average of Stage of Evolution is $4316.16$, unlike, in La Rita the average is $5507.30$. So, in La Rita we obtains higher errors in absolute values. $R^2$  is a relative metric between 0 thru 1 and it is less sensitive to absolute values.
 %
 \begin{figure}[H] 
  \centering
@@ -54,7 +54,8 @@ The Pareto frontier for the La Rita farm is composed by 5 elements. The \tablena
 \centering
 \begin{tabular}{c|c|c|c|c|c} 
 \hline
-\bfseries Variable & \bfseries Observation range & \bfseries Weeks ahead & \bfseries Technique &\bfseries $R^2$ & \bfseries $RMSE$\\ 
+\bfseries Variable & \bfseries Observation  & \bfseries Weeks & \bfseries Technique &\bfseries $RMSE$ & \bfseries $R^2$\\ 
+                   & \bfseries range - weeks & \bfseries ahead   & & & \\
 \hline\hline 
 $\overline{T}_{a}$ $\overline{W}$ &	1  & 1 & SVR with linear kernel & 693.39 & 59.4\% \\
 										&	2  & 1 & SVR with linear kernel & 683.22 & 59.4\% \\
@@ -75,7 +76,8 @@ Similarly, the Pareto frontier for the 28 Millas farm is composed by 15 elements
 \centering
 \begin{tabular}{c|c|c|c|c|c} 
 \hline
-\bfseries Variable & \bfseries Observation range & \bfseries Weeks ahead & \bfseries Technique &\bfseries $R^2$ & \bfseries $RMSE$\\ 
+\bfseries Variable & \bfseries Observation  & \bfseries Weeks & \bfseries Technique &\bfseries $RMSE$ & \bfseries $R^2$\\ 
+                   & \bfseries range - weeks & \bfseries ahead   & & & \\
 \hline\hline 
 $\overline{T}_{a}$ $\overline{H}$ $\overline{W}$ $P$  &	9  & 1  & Elastic net & 398.65 & 48.5\% \\
 													&	8  & 1 & Elastic net & 399.57 & 48.8\% \\
@@ -100,7 +102,7 @@ All  & 7  & 1  & SVR with linear kernel & 426.19 & 51.9\% \\
 \end{tabular} 
 \end{table}
 %
-Now, the \figref{figura6} compares the mean of the $RMSE$ for each technique in the experiment. Se muestra el $RMSE$ para la predicción de 1, 2 ó 3 semanas adelante con respecto a la información de las variables climatológicas y del preaviso biológico observadas. Se aprecia que to predict one week ahead obtiene un $RMSE$ más bajo que two weeks ahead, and this is better than three weeks ahead, lo cual es lo esperado pues entre más semanas adelante se desee predecir, hay más incertidumbre.
+Now, the \figref{figura6} compares the mean of the $RMSE$ for each technique in the experiment. Se muestra el $RMSE$ para la predicción de 1, 2 ó 3 semanas adelante con respecto a la información de las variables climatológicas y del preaviso biológico observadas. Se aprecia que to predict one week ahead obtiene un $RMSE$ más bajo que two weeks ahead, and this is lower than three weeks ahead, lo cual es lo esperado pues entre más semanas adelante se desee predecir (en el futuro), hay más incertidumbre.
 %
 \begin{figure}[H] 
  \centering

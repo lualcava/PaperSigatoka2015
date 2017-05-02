@@ -1,16 +1,17 @@
-\section{Conclusions}
-\label{sec:concl}
-Este estudio presentó la comparación de varias técnicas de machine learning en la predicción de the la tasa de desarrollo de la Sigatoka negra. Al respecto se presentan las conclusionez al respecto:
-\begin{itemize}
-\item 
-\item 
-\item 
-\item 
+\section{Conclusions and Future work}
+Este estudio presentó la comparación de varias técnicas de machine learning en la predicción de la tasa de desarrollo de la enfermedad llamada Sigatoka negra. The following conclusions can be drawn:
+\begin{enumerate}
+\item Si bien los valores absolutos del $RMSE$ y el $R^2$ difieren entre las dos fincas en estudio, se mostró que al seleccopmar la técnica, la cantidad de semanas de observación, la cantidad de semanas hacia adelante a predecir y las variables a incluir en el modelo, coinciden los resultados. Lo cual es muestra de que estas características estan asociadas al fenómeno más que a una finca en particular.
+\item Los menores $RMWE$ were reached with linear models.
+\item  As little as three meteorological variables can be used because of the correlations detected among variables. 
+\item Las ESN obtuvieron $RMWE$ muy altos, lo cual es producto de la cardinalidad del conjunto de datos, que no es suficiente para que la red neuronal se ajuste durante el entrenamiento.
+\item Valores de $R^2$ cercanos al 60\% se alcanzaron en las pruebas.
+\end{enumerate}
+%
+Future work of this research is focused on:
+\begin{enumerate}
+\item The extension of these findings to other farms.
+\item The extension of the model to be applied in an early warning system, which does not require the regression task.
+\item The use of image to increase the feature sets.
+\end{enumerate}
 
-\end{itemize}
-
-A comparison of machine learning techniques
-The main findings were: 1) The highest R2 was 60\% 2) The highest R2 were reached with linear models like support vector regression with linear kernel, 3) As little as three meteorological variables can be used because of the correlations detected among variables. 
-
-\subsection{Future work}
-Currently this research is focused on the extension of these findings to other farms and the extension of the model to be applied in an early warning system, which does not require the regression task.
