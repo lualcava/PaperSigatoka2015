@@ -23,8 +23,8 @@ tBoxPlotE = tDatos[['RMSE', 'Techniques', 'Farm']]
 tBoxPlot = tBoxPlot[tBoxPlot.Techniques != "ESN"]
 tBoxPlotE = tBoxPlotE[tBoxPlotE.Techniques == "ESN"]
 
-fig, axes = pl.subplots(nrows=2, ncols=2 ) #  sharey=True
 '''
+fig, axes = pl.subplots(nrows=2, ncols=2 ) #  sharey=True
 tParte1 = tParte[tParte.Farm == "28 Millas"]
 tParte2 = tParte[tParte.Farm == "La Rita"]
 
@@ -46,6 +46,7 @@ pl.savefig( tArchivoSalida+ ".pdf")
 #######################################################
 # BoxPlot
 #######################################################
+'''
 tBox1 = tBoxPlot[tBoxPlot.Farm == "28 Millas"]
 tBox2 = tBoxPlot[tBoxPlot.Farm == "La Rita"]
 tBox3 = tBoxPlotE[tBoxPlotE.Farm == "28 Millas"]
@@ -66,6 +67,20 @@ bx1.set_xticklabels(tBox1.Techniques.unique(), rotation=70)
 bx2.set_xticklabels(tBox2.Techniques.unique(), rotation=70)
 bx3.set_xticklabels(tBox3.Techniques.unique(), rotation=0)
 bx4.set_xticklabels(tBox4.Techniques.unique(), rotation=0)
+'''
+
+fig, axes = pl.subplots(nrows=1, ncols=2 ) #  sharey=True
+tBox1 = tBoxPlot[tBoxPlot.Farm == "28 Millas"]
+tBox2 = tBoxPlot[tBoxPlot.Farm == "La Rita"]
+
+bx1 = tBox1.boxplot(ax=axes[0],column=['RMSE'], by='Techniques', fontsize =6)
+bx2 = tBox2.boxplot(ax=axes[1],column=['RMSE'], by='Techniques', fontsize =6)
+
+bx1.set(xlabel='28 Millas', ylabel='')
+bx2.set(xlabel='La Rita', ylabel='')
+
+bx1.set_xticklabels(tBox1.Techniques.unique(), rotation=70)
+bx2.set_xticklabels(tBox2.Techniques.unique(), rotation=70)
 
 pl.plot(title ="")
 fig.suptitle('')
